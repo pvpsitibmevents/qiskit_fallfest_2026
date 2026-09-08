@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import RegisterModal from './components/RegisterModal';
@@ -11,9 +11,21 @@ export default function App() {
   const [activePage, setActivePage] = useState('landing');
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
+  useEffect(() => {
+    if (activePage === 'journey') {
+      const el = document.getElementById('journey');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
+  }, [activePage]);
+
   const renderPage = () => {
     switch (activePage) {
       case 'landing':
+      case 'journey':
         return (
           <LandingPage
             setActivePage={setActivePage}

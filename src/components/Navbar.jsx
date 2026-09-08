@@ -34,7 +34,7 @@ export default function Navbar({ activePage, setActivePage, onOpenRegister }) {
                 key={link.id}
                 onClick={() => setActivePage(link.id)}
                 className={`relative py-1 transition-all duration-200 inline-block hover:scale-110 active:scale-115 ${
-                  activePage === link.id
+                  activePage === link.id || (link.id === 'landing' && activePage === 'journey')
                     ? 'text-primary border-b-2 border-primary font-bold'
                     : 'text-on-surface-variant hover:text-primary'
                 }`}
@@ -113,7 +113,7 @@ export default function Navbar({ activePage, setActivePage, onOpenRegister }) {
                   setMobileMenuOpen(false);
                 }}
                 className={`flex items-center gap-4 px-4 py-3 rounded-full font-body-md text-base transition-all duration-200 hover:scale-105 active:scale-110 ${
-                  activePage === link.id
+                  activePage === link.id || (link.id === 'landing' && activePage === 'journey')
                     ? 'bg-primary/10 text-primary font-bold'
                     : 'text-on-surface-variant hover:bg-surface-variant'
                 }`}

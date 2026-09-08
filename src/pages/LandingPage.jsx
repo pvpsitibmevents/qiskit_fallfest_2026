@@ -1,28 +1,26 @@
 import React, { useState, useEffect } from 'react';
 
+const calculateTimeLeft = () => {
+  const targetDate = new Date('2026-10-15T09:00:00');
+  const now = new Date();
+  const difference = targetDate.getTime() - now.getTime();
+  if (difference > 0) {
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((difference / 1000 / 60) % 60);
+    const seconds = Math.floor((difference / 1000) % 60);
+    return { days, hours, minutes, seconds };
+  }
+  return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+};
+
 export default function LandingPage({ setActivePage, onOpenRegister }) {
   // Live Countdown Calculation to Main Fest Start: October 15, 2026 at 09:00 AM
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft);
 
   useEffect(() => {
-    const targetDate = new Date('2026-10-15T09:00:00');
     const interval = setInterval(() => {
-      const now = new Date();
-      const difference = targetDate.getTime() - now.getTime();
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((difference / 1000 / 60) % 60);
-        const seconds = Math.floor((difference / 1000) % 60);
-        setTimeLeft({ days, hours, minutes, seconds });
-      } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      }
+      setTimeLeft(calculateTimeLeft());
     }, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -62,7 +60,14 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
 
             <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 w-full sm:w-auto">
               <button
-                onClick={() => setActivePage('journey')}
+                onClick={() => {
+                  const el = document.getElementById('journey');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    setActivePage('journey');
+                  }
+                }}
                 className="w-full sm:w-auto bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 rounded-xl shadow-pulse-pink hover:bg-on-primary-fixed-variant transition-all duration-200 flex items-center justify-center gap-2 group hover:scale-105 active:scale-110 font-bold"
               >
                 Explore Quantum Journey

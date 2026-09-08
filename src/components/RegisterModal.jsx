@@ -57,8 +57,17 @@ export default function RegisterModal({ isOpen, onClose }) {
     }
   };
 
-  const handleReset = () => {
-    setSubmitted(false);
+  const handleClose = () => {
+    if (submitted) {
+      setSubmitted(false);
+      setFormData({
+        fullName: '',
+        email: '',
+        department: 'Computer Science & Engineering',
+        year: '3rd Year',
+        registrationType: 'Full Pass (Pre-Fest + Main Fest + Post-Fest)',
+      });
+    }
     onClose();
   };
 
@@ -66,7 +75,7 @@ export default function RegisterModal({ isOpen, onClose }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-on-surface/50 backdrop-blur-md">
       <div className="bg-surface dark:bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-8 max-w-lg w-full shadow-2xl relative animate-fadeIn">
         <button
-          onClick={onClose}
+          onClick={handleClose}
           className="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-transform duration-200 hover:scale-110 active:scale-120"
         >
           <span className="material-symbols-outlined text-2xl">close</span>
@@ -189,7 +198,7 @@ export default function RegisterModal({ isOpen, onClose }) {
               <div><span className="text-tertiary">Track:</span> {formData.registrationType}</div>
             </div>
             <button
-              onClick={handleReset}
+              onClick={handleClose}
               className="mt-4 bg-primary text-on-primary font-label-caps px-6 py-3 rounded-md shadow-pulse-pink transition-transform duration-200 hover:scale-105 active:scale-110 font-bold"
             >
               Done
