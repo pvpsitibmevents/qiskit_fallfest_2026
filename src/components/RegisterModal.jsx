@@ -72,11 +72,11 @@ export default function RegisterModal({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-on-surface/50 backdrop-blur-md">
-      <div className="bg-surface dark:bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-8 max-w-lg w-full shadow-2xl relative animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-on-surface/50 dark:bg-black/70 backdrop-blur-md">
+      <div className="bg-surface dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border rounded-xl p-8 max-w-lg w-full shadow-2xl relative animate-fadeIn">
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-transform duration-200 hover:scale-110 active:scale-120"
+          className="absolute top-4 right-4 text-on-surface-variant dark:text-dark-text-muted hover:text-primary transition-transform duration-200 hover:scale-110 active:scale-120"
         >
           <span className="material-symbols-outlined text-2xl">close</span>
         </button>
@@ -84,46 +84,46 @@ export default function RegisterModal({ isOpen, onClose }) {
         {!submitted ? (
           <>
             <div className="mb-6">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-label-caps text-xs px-3 py-1 rounded-full mb-2 font-bold">
+              <div className="inline-flex items-center gap-2 bg-primary/10 dark:bg-primary/20 text-primary font-label-caps text-xs px-3 py-1 rounded-full mb-2 font-bold">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 PVPSIT QISKIT FALL FEST 2026
               </div>
-              <h2 className="font-headline-md text-2xl text-on-surface font-bold">Event Registration</h2>
-              <p className="font-body-md text-sm text-on-surface-variant">Reserve your spot for workshops, tech talks, and the 3-day fest.</p>
+              <h2 className="font-headline-md text-2xl text-on-surface dark:text-dark-text font-bold">Event Registration</h2>
+              <p className="font-body-md text-sm text-on-surface-variant dark:text-dark-text-muted">Reserve your spot for workshops, tech talks, and the 3-day fest.</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block font-label-caps text-xs text-on-surface mb-1 uppercase tracking-wider font-bold">Full Name</label>
+                <label className="block font-label-caps text-xs text-on-surface dark:text-dark-text mb-1 uppercase tracking-wider font-bold">Full Name</label>
                 <input
                   type="text"
                   required
                   placeholder="Enter your full name"
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  className="w-full px-4 py-3 rounded-md bg-surface-container-low border border-outline-variant/30 font-body-md text-sm focus:outline-none focus:border-primary"
+                  className="w-full px-4 py-3 rounded-md bg-surface-container-low dark:bg-dark-surface border border-outline-variant/30 dark:border-dark-border dark:text-dark-text font-body-md text-sm focus:outline-none focus:border-primary"
                 />
               </div>
 
               <div>
-                <label className="block font-label-caps text-xs text-on-surface mb-1 uppercase tracking-wider font-bold">Email Address</label>
+                <label className="block font-label-caps text-xs text-on-surface dark:text-dark-text mb-1 uppercase tracking-wider font-bold">Email Address</label>
                 <input
                   type="email"
                   required
                   placeholder="name@pvpsiddhartha.ac.in"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-md bg-surface-container-low border border-outline-variant/30 font-body-md text-sm focus:outline-none focus:border-primary"
+                  className="w-full px-4 py-3 rounded-md bg-surface-container-low dark:bg-dark-surface border border-outline-variant/30 dark:border-dark-border dark:text-dark-text font-body-md text-sm focus:outline-none focus:border-primary"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block font-label-caps text-xs text-on-surface mb-1 uppercase tracking-wider font-bold">Department</label>
+                  <label className="block font-label-caps text-xs text-on-surface dark:text-dark-text mb-1 uppercase tracking-wider font-bold">Department</label>
                   <select
                     value={formData.department}
                     onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                    className="w-full px-3 py-3 rounded-md bg-surface-container-low border border-outline-variant/30 font-body-md text-xs focus:outline-none focus:border-primary"
+                    className="w-full px-3 py-3 rounded-md bg-surface-container-low dark:bg-dark-surface border border-outline-variant/30 dark:border-dark-border dark:text-dark-text font-body-md text-xs focus:outline-none focus:border-primary"
                   >
                     <option>Computer Science & Engineering</option>
                     <option>Information Technology</option>
@@ -136,11 +136,11 @@ export default function RegisterModal({ isOpen, onClose }) {
                 </div>
 
                 <div>
-                  <label className="block font-label-caps text-xs text-on-surface mb-1 uppercase tracking-wider font-bold">Year of Study</label>
+                  <label className="block font-label-caps text-xs text-on-surface dark:text-dark-text mb-1 uppercase tracking-wider font-bold">Year of Study</label>
                   <select
                     value={formData.year}
                     onChange={(e) => setFormData({ ...formData, year: e.target.value })}
-                    className="w-full px-3 py-3 rounded-md bg-surface-container-low border border-outline-variant/30 font-body-md text-xs focus:outline-none focus:border-primary"
+                    className="w-full px-3 py-3 rounded-md bg-surface-container-low dark:bg-dark-surface border border-outline-variant/30 dark:border-dark-border dark:text-dark-text font-body-md text-xs focus:outline-none focus:border-primary"
                   >
                     <option>1st Year</option>
                     <option>2nd Year</option>
@@ -152,11 +152,11 @@ export default function RegisterModal({ isOpen, onClose }) {
               </div>
 
               <div>
-                <label className="block font-label-caps text-xs text-on-surface mb-1 uppercase tracking-wider font-bold">Registration Track</label>
+                <label className="block font-label-caps text-xs text-on-surface dark:text-dark-text mb-1 uppercase tracking-wider font-bold">Registration Track</label>
                 <select
                   value={formData.registrationType}
                   onChange={(e) => setFormData({ ...formData, registrationType: e.target.value })}
-                  className="w-full px-4 py-3 rounded-md bg-surface-container-low border border-outline-variant/30 font-body-md text-sm focus:outline-none focus:border-primary"
+                  className="w-full px-4 py-3 rounded-md bg-surface-container-low dark:bg-dark-surface border border-outline-variant/30 dark:border-dark-border dark:text-dark-text font-body-md text-sm focus:outline-none focus:border-primary"
                 >
                   <option>Full Pass (Pre-Fest + Main Fest + Post-Fest)</option>
                   <option>Main Fest Only (Oct 15–17)</option>
@@ -185,14 +185,14 @@ export default function RegisterModal({ isOpen, onClose }) {
           </>
         ) : (
           <div className="py-8 text-center space-y-4">
-            <div className="w-16 h-16 rounded-full bg-primary/10 text-primary mx-auto flex items-center justify-center shadow-pulse-pink">
+            <div className="w-16 h-16 rounded-full bg-primary/10 dark:bg-primary/20 text-primary mx-auto flex items-center justify-center shadow-pulse-pink">
               <span className="material-symbols-outlined text-4xl">check_circle</span>
             </div>
-            <h3 className="font-headline-md text-2xl font-bold text-on-surface">Registration Confirmed!</h3>
-            <p className="font-body-md text-sm text-on-surface-variant max-w-sm mx-auto">
+            <h3 className="font-headline-md text-2xl font-bold text-on-surface dark:text-dark-text">Registration Confirmed!</h3>
+            <p className="font-body-md text-sm text-on-surface-variant dark:text-dark-text-muted max-w-sm mx-auto">
               Thank you, <strong className="text-primary">{formData.fullName}</strong>. Your spot at PVPSIT Qiskit Fall Fest 2026 has been saved in the database.
             </p>
-            <div className="p-4 bg-surface-container-low rounded-lg text-xs font-label-caps text-left text-on-surface space-y-1">
+            <div className="p-4 bg-surface-container-low dark:bg-dark-surface border border-outline-variant/30 dark:border-dark-border rounded-lg text-xs font-label-caps text-left text-on-surface dark:text-dark-text space-y-1">
               <div><span className="text-tertiary">Email:</span> {formData.email}</div>
               <div><span className="text-tertiary">Department:</span> {formData.department}</div>
               <div><span className="text-tertiary">Track:</span> {formData.registrationType}</div>

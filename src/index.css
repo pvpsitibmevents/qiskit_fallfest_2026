@@ -135,3 +135,41 @@
 .animate-cloud-fast {
   animation: cloudDriftFast 8s ease-in-out infinite;
 }
+
+/* Quantum Circuit & Dark Theme Enhancements */
+.dark body {
+  background-color: #0c0817;
+  color: #f5eeff;
+}
+
+.quantum-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(172, 36, 113, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(172, 36, 113, 0.05) 1px, transparent 1px);
+}
+
+.dark .quantum-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 77, 148, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(123, 97, 255, 0.05) 1px, transparent 1px);
+}
+
+.dark .circuit-line-timeline {
+  background-color: rgba(255, 77, 148, 0.35);
+  box-shadow: 0 0 10px rgba(255, 77, 148, 0.3);
+}
+
+/* Glassmorphism cards */
+.quantum-card-dark {
+  background: rgba(19, 14, 38, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.quantum-card-dark:hover {
+  border-color: rgba(255, 77, 148, 0.4);
+  box-shadow: 0 0 25px -5px rgba(255, 77, 148, 0.25);
+}
+

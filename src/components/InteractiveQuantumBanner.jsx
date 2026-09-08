@@ -18,33 +18,33 @@ export default function InteractiveQuantumBanner({ className = '' }) {
     <div
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`relative w-full aspect-[16/9] min-h-[300px] max-h-[460px] rounded-2xl overflow-hidden border-2 border-primary/20 bg-gradient-to-br from-[#dce7fc] via-[#e4edff] to-[#ecf3ff] select-none ${className}`}
+      className={`relative w-full aspect-[16/9] min-h-[300px] max-h-[460px] rounded-2xl overflow-hidden border-2 border-primary/20 dark:border-primary/40 bg-gradient-to-br from-[#dce7fc] via-[#e4edff] to-[#ecf3ff] dark:from-[#140e2b] dark:via-[#1e153b] dark:to-[#291740] select-none ${className}`}
       style={{
         perspective: '1000px',
       }}
     >
       {/* Cloud 1 (Top Left) */}
       <div
-        className="absolute top-6 left-2 w-48 sm:w-64 h-24 sm:h-32 bg-white/80 rounded-full animate-cloud-slow pointer-events-none"
+        className="absolute top-6 left-2 w-48 sm:w-64 h-24 sm:h-32 bg-white/80 dark:bg-white/10 rounded-full animate-cloud-slow pointer-events-none"
         style={{
           transform: `translate(${mousePos.x * -0.25}px, ${mousePos.y * -0.25}px)`,
           transition: 'transform 0.2s ease-out',
         }}
       >
-        <div className="absolute -top-6 left-10 w-28 h-28 bg-white/80 rounded-full" />
-        <div className="absolute -top-3 left-28 w-24 h-24 bg-white/80 rounded-full" />
+        <div className="absolute -top-6 left-10 w-28 h-28 bg-white/80 dark:bg-white/10 rounded-full" />
+        <div className="absolute -top-3 left-28 w-24 h-24 bg-white/80 dark:bg-white/10 rounded-full" />
       </div>
 
       {/* Cloud 2 (Bottom Right) */}
       <div
-        className="absolute bottom-2 right-4 w-60 sm:w-80 h-28 sm:h-36 bg-white/85 rounded-full animate-cloud-fast pointer-events-none"
+        className="absolute bottom-2 right-4 w-60 sm:w-80 h-28 sm:h-36 bg-white/85 dark:bg-white/10 rounded-full animate-cloud-fast pointer-events-none"
         style={{
           transform: `translate(${mousePos.x * -0.4}px, ${mousePos.y * -0.4}px)`,
           transition: 'transform 0.2s ease-out',
         }}
       >
-        <div className="absolute -top-8 left-14 w-32 h-32 bg-white/85 rounded-full" />
-        <div className="absolute -top-5 left-36 w-32 h-32 bg-white/85 rounded-full" />
+        <div className="absolute -top-8 left-14 w-32 h-32 bg-white/85 dark:bg-white/10 rounded-full" />
+        <div className="absolute -top-5 left-36 w-32 h-32 bg-white/85 dark:bg-white/10 rounded-full" />
       </div>
 
       {/* Left: Pink Qiskit Fall Fest 2026 Badge */}

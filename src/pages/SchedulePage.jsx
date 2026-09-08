@@ -208,21 +208,21 @@ export default function SchedulePage({ onOpenRegister }) {
             Q-CONNECT 2026 — Official Event Roadmap
           </span>
         </div>
-        <h1 className="font-headline-xl text-3xl md:text-5xl lg:text-[56px] font-bold text-on-surface mb-6 max-w-4xl mx-auto tracking-tight leading-tight">
+        <h1 className="font-headline-xl text-3xl md:text-5xl lg:text-[56px] font-bold text-on-surface dark:text-dark-text mb-6 max-w-4xl mx-auto tracking-tight leading-tight">
           Qiskit Fall Fest <span className="text-primary">@ PVPSIT</span>
         </h1>
-        <p className="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto mb-8">
+        <p className="font-body-lg text-body-lg text-on-surface-variant dark:text-dark-text-muted max-w-3xl mx-auto mb-8">
           From Quantum Curiosity to Quantum Circuits. Explore our complete 12-event curriculum spanning Pre-Fest awareness, the Main Fest (15–17 Oct), and Post-Fest growth.
         </p>
 
         {/* Phase Filter Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-3 max-w-2xl mx-auto bg-surface-container-low p-2 rounded-xl border border-outline-variant/30 shadow-sm">
+        <div className="flex flex-wrap items-center justify-center gap-3 max-w-2xl mx-auto bg-surface-container-low dark:bg-dark-surface-card p-2 rounded-xl border border-outline-variant/30 dark:border-dark-border shadow-sm">
           <button
             onClick={() => setActiveFilter('ALL')}
             className={`px-5 py-2.5 rounded-lg font-label-caps text-xs transition-all font-bold ${
               activeFilter === 'ALL'
                 ? 'bg-primary text-on-primary shadow-md'
-                : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container'
+                : 'text-on-surface-variant dark:text-dark-text-muted hover:text-on-surface dark:hover:text-dark-text hover:bg-surface-container dark:hover:bg-dark-surface'
             }`}
           >
             All Events (12)
@@ -232,7 +232,7 @@ export default function SchedulePage({ onOpenRegister }) {
             className={`px-5 py-2.5 rounded-lg font-label-caps text-xs transition-all font-bold ${
               activeFilter === 'PRE-FEST'
                 ? 'bg-primary text-on-primary shadow-md'
-                : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container'
+                : 'text-on-surface-variant dark:text-dark-text-muted hover:text-on-surface dark:hover:text-dark-text hover:bg-surface-container dark:hover:bg-dark-surface'
             }`}
           >
             Pre-Fest (15 Sept - 8 Oct)
@@ -242,7 +242,7 @@ export default function SchedulePage({ onOpenRegister }) {
             className={`px-5 py-2.5 rounded-lg font-label-caps text-xs transition-all font-bold ${
               activeFilter === 'MAIN FEST'
                 ? 'bg-secondary text-on-secondary shadow-md'
-                : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container'
+                : 'text-on-surface-variant dark:text-dark-text-muted hover:text-on-surface dark:hover:text-dark-text hover:bg-surface-container dark:hover:bg-dark-surface'
             }`}
           >
             Main Fest (15–17 Oct)
@@ -252,7 +252,7 @@ export default function SchedulePage({ onOpenRegister }) {
             className={`px-5 py-2.5 rounded-lg font-label-caps text-xs transition-all font-bold ${
               activeFilter === 'POST-FEST'
                 ? 'bg-primary text-on-primary shadow-md'
-                : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container'
+                : 'text-on-surface-variant dark:text-dark-text-muted hover:text-on-surface dark:hover:text-dark-text hover:bg-surface-container dark:hover:bg-dark-surface'
             }`}
           >
             Post-Fest (27–31 Oct)
@@ -273,7 +273,7 @@ export default function SchedulePage({ onOpenRegister }) {
                 className={`relative z-10 w-12 h-12 rounded-full border-2 ${
                   item.isMain
                     ? 'border-primary bg-primary text-on-primary shadow-pulse-pink scale-110'
-                    : 'border-secondary bg-surface text-secondary shadow-sm'
+                    : 'border-secondary bg-surface dark:bg-dark-surface text-secondary shadow-sm'
                 } flex items-center justify-center flex-shrink-0 mt-1 transition-transform group-hover:scale-125`}
               >
                 <span
@@ -288,56 +288,56 @@ export default function SchedulePage({ onOpenRegister }) {
               <div
                 className={`flex-grow rounded-2xl p-6 sm:p-8 border transition-all ${
                   item.isMain
-                    ? 'bg-surface border-primary/50 shadow-lg hover:border-primary'
-                    : 'bg-surface-container-low border-outline-variant/30 hover:border-secondary/40 hover:shadow-md'
+                    ? 'bg-surface dark:bg-dark-surface-card border-primary/50 shadow-lg hover:border-primary dark:shadow-glow-pink/10'
+                    : 'bg-surface-container-low dark:bg-dark-surface-card border-outline-variant/30 dark:border-dark-border hover:border-secondary/40 hover:shadow-md'
                 }`}
               >
                 {/* Badges & Date Header */}
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-outline-variant/20">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-outline-variant/20 dark:border-dark-border">
                   <div className="flex flex-wrap items-center gap-2">
                     <span
                       className={`px-3 py-1 text-[11px] font-label-caps font-bold rounded-full ${
                         item.phase === 'MAIN FEST'
                           ? 'bg-primary text-on-primary'
                           : item.phase === 'PRE-FEST'
-                          ? 'bg-secondary/15 text-secondary'
-                          : 'bg-outline-variant/30 text-on-surface'
+                          ? 'bg-secondary/15 text-secondary dark:text-secondary-fixed-dim'
+                          : 'bg-outline-variant/30 dark:bg-dark-surface text-on-surface dark:text-dark-text'
                       }`}
                     >
                       {item.phaseBadge}
                     </span>
-                    <span className="px-3 py-1 bg-surface-container text-on-surface-variant text-[11px] font-label-caps rounded-full border border-outline-variant/30">
+                    <span className="px-3 py-1 bg-surface-container dark:bg-dark-surface text-on-surface-variant dark:text-dark-text-muted text-[11px] font-label-caps rounded-full border border-outline-variant/30 dark:border-dark-border">
                       {item.type}
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="font-label-caps text-xs text-primary font-bold bg-primary/10 px-3 py-1 rounded-md">
+                    <span className="font-label-caps text-xs text-primary font-bold bg-primary/10 dark:bg-primary/20 px-3 py-1 rounded-md">
                       👥 {item.participants}
                     </span>
-                    <span className="font-label-caps text-xs text-on-surface font-semibold bg-surface-variant px-3 py-1 rounded-md">
+                    <span className="font-label-caps text-xs text-on-surface dark:text-dark-text font-semibold bg-surface-variant dark:bg-dark-surface px-3 py-1 rounded-md border border-outline-variant/20 dark:border-dark-border">
                       📅 {item.date}
                     </span>
                   </div>
                 </div>
 
                 {/* Event Title */}
-                <h3 className="font-headline-md text-xl sm:text-2xl font-bold text-on-surface mb-3 flex items-center gap-2">
+                <h3 className="font-headline-md text-xl sm:text-2xl font-bold text-on-surface dark:text-dark-text mb-3 flex items-center gap-2">
                   <span>{item.title}</span>
                 </h3>
 
                 {/* Description */}
-                <p className="font-body-md text-on-surface-variant text-sm mb-4 leading-relaxed">
+                <p className="font-body-md text-on-surface-variant dark:text-dark-text-muted text-sm mb-4 leading-relaxed">
                   {item.what}
                 </p>
 
                 {/* Innovative Format / Twist Box */}
-                <div className="bg-surface-container/60 border border-outline-variant/30 rounded-xl p-4 mb-3 text-xs">
+                <div className="bg-surface-container/60 dark:bg-dark-surface/80 border border-outline-variant/30 dark:border-dark-border rounded-xl p-4 mb-3 text-xs">
                   <strong className="text-primary font-label-caps block mb-1">💡 Innovative Format & Twist:</strong>
-                  <span className="text-on-surface">{item.innovative}</span>
+                  <span className="text-on-surface dark:text-dark-text leading-relaxed">{item.innovative}</span>
                 </div>
 
                 {/* Goal Tag */}
-                <div className="text-xs text-secondary font-semibold flex items-center gap-1.5">
+                <div className="text-xs text-secondary dark:text-secondary-fixed-dim font-semibold flex items-center gap-1.5">
                   <span className="material-symbols-outlined text-base">flag</span>
                   <span>Goal: {item.goal}</span>
                 </div>

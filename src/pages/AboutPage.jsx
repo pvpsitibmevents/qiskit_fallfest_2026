@@ -14,11 +14,11 @@ export default function AboutPage({ setActivePage, onOpenRegister }) {
             </span>
           </div>
 
-          <h1 className="font-headline-xl text-headline-xl text-on-surface md:font-headline-xl font-headline-lg-mobile text-headline-lg-mobile">
+          <h1 className="font-headline-xl text-headline-xl text-on-surface dark:text-dark-text md:font-headline-xl font-headline-lg-mobile text-headline-lg-mobile">
             About PVPSIT Qiskit Fall Fest 2026
           </h1>
 
-          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+          <p className="font-body-lg text-body-lg text-on-surface-variant dark:text-dark-text-muted max-w-xl">
             Join us for an immersive journey into quantum computing. PVPSIT Qiskit Fall Fest 2026 is a premier event designed to bridge the gap between theoretical physics and practical quantum development. Experience cutting-edge talks, hands-on workshops, and collaborative challenges.
           </p>
 
@@ -48,45 +48,45 @@ export default function AboutPage({ setActivePage, onOpenRegister }) {
       <section className="max-w-container-max mx-auto px-gutter py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Card 1 */}
-          <div className="bg-[#F8F9FF] border border-outline-variant/20 p-8 rounded-xl flex flex-col items-start gap-4 hover:border-primary/40 transition-colors">
-            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-2">
+          <div className="bg-[#F8F9FF] dark:bg-dark-surface-card border border-outline-variant/20 dark:border-dark-border p-8 rounded-xl flex flex-col items-start gap-4 hover:border-primary/40 transition-colors">
+            <div className="w-12 h-12 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center text-primary mb-2">
               <span className="material-symbols-outlined">school</span>
             </div>
-            <h3 className="font-headline-md text-headline-md text-on-surface">Learn</h3>
-            <p className="font-body-md text-body-md text-on-surface-variant text-sm">
+            <h3 className="font-headline-md text-headline-md text-on-surface dark:text-dark-text font-bold">Learn</h3>
+            <p className="font-body-md text-body-md text-on-surface-variant dark:text-dark-text-muted text-sm">
               Master quantum foundations through expert-led sessions designed for all skill levels.
             </p>
           </div>
 
           {/* Card 2 */}
-          <div className="bg-[#F8F9FF] border border-outline-variant/20 p-8 rounded-xl flex flex-col items-start gap-4 hover:border-primary/40 transition-colors">
-            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-2">
+          <div className="bg-[#F8F9FF] dark:bg-dark-surface-card border border-outline-variant/20 dark:border-dark-border p-8 rounded-xl flex flex-col items-start gap-4 hover:border-primary/40 transition-colors">
+            <div className="w-12 h-12 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center text-primary mb-2">
               <span className="material-symbols-outlined">architecture</span>
             </div>
-            <h3 className="font-headline-md text-headline-md text-on-surface">Build</h3>
-            <p className="font-body-md text-body-md text-on-surface-variant text-sm">
+            <h3 className="font-headline-md text-headline-md text-on-surface dark:text-dark-text font-bold">Build</h3>
+            <p className="font-body-md text-body-md text-on-surface-variant dark:text-dark-text-muted text-sm">
               Develop practical quantum circuits and applications using the Qiskit SDK.
             </p>
           </div>
 
           {/* Card 3 */}
-          <div className="bg-[#F8F9FF] border border-outline-variant/20 p-8 rounded-xl flex flex-col items-start gap-4 hover:border-primary/40 transition-colors">
-            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-2">
+          <div className="bg-[#F8F9FF] dark:bg-dark-surface-card border border-outline-variant/20 dark:border-dark-border p-8 rounded-xl flex flex-col items-start gap-4 hover:border-primary/40 transition-colors">
+            <div className="w-12 h-12 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center text-primary mb-2">
               <span className="material-symbols-outlined">hub</span>
             </div>
-            <h3 className="font-headline-md text-headline-md text-on-surface">Connect</h3>
-            <p className="font-body-md text-body-md text-on-surface-variant text-sm">
+            <h3 className="font-headline-md text-headline-md text-on-surface dark:text-dark-text font-bold">Connect</h3>
+            <p className="font-body-md text-body-md text-on-surface-variant dark:text-dark-text-muted text-sm">
               Network with peers, researchers, and industry professionals in the quantum space.
             </p>
           </div>
 
           {/* Card 4 */}
-          <div className="bg-[#F8F9FF] border border-outline-variant/20 p-8 rounded-xl flex flex-col items-start gap-4 hover:border-primary/40 transition-colors">
-            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-2">
+          <div className="bg-[#F8F9FF] dark:bg-dark-surface-card border border-outline-variant/20 dark:border-dark-border p-8 rounded-xl flex flex-col items-start gap-4 hover:border-primary/40 transition-colors">
+            <div className="w-12 h-12 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center text-primary mb-2">
               <span className="material-symbols-outlined">travel_explore</span>
             </div>
-            <h3 className="font-headline-md text-headline-md text-on-surface">Explore</h3>
-            <p className="font-body-md text-body-md text-on-surface-variant text-sm">
+            <h3 className="font-headline-md text-headline-md text-on-surface dark:text-dark-text font-bold">Explore</h3>
+            <p className="font-body-md text-body-md text-on-surface-variant dark:text-dark-text-muted text-sm">
               Discover the latest advancements and future trends in quantum technologies.
             </p>
           </div>
@@ -94,39 +94,39 @@ export default function AboutPage({ setActivePage, onOpenRegister }) {
       </section>
 
       {/* What You'll Experience (6 Cards) */}
-      <section className="bg-surface-container-low py-section-gap">
+      <section className="bg-surface-container-low dark:bg-dark-bg py-section-gap">
         <div className="max-w-container-max mx-auto px-gutter">
           <div className="text-center mb-16">
-            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-4">What You'll Experience</h2>
-            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+            <h2 className="font-headline-lg text-headline-lg text-on-surface dark:text-dark-text mb-4 font-bold">What You'll Experience</h2>
+            <p className="font-body-lg text-body-lg text-on-surface-variant dark:text-dark-text-muted max-w-2xl mx-auto">
               A comprehensive program designed to accelerate your quantum journey.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-surface border border-outline-variant/30 p-8 rounded-xl">
-              <h4 className="font-headline-md text-headline-md text-on-surface mb-2">Talks & Sessions</h4>
-              <p className="font-body-md text-sm text-on-surface-variant">Insights from quantum researchers and industry leaders.</p>
+            <div className="bg-surface dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border p-8 rounded-xl">
+              <h4 className="font-headline-md text-headline-md text-on-surface dark:text-dark-text mb-2 font-bold">Talks & Sessions</h4>
+              <p className="font-body-md text-sm text-on-surface-variant dark:text-dark-text-muted">Insights from quantum researchers and industry leaders.</p>
             </div>
-            <div className="bg-surface border border-outline-variant/30 p-8 rounded-xl">
-              <h4 className="font-headline-md text-headline-md text-on-surface mb-2">Hands-on Workshops</h4>
-              <p className="font-body-md text-sm text-on-surface-variant">Guided tutorials on Qiskit implementation and algorithm design.</p>
+            <div className="bg-surface dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border p-8 rounded-xl">
+              <h4 className="font-headline-md text-headline-md text-on-surface dark:text-dark-text mb-2 font-bold">Hands-on Workshops</h4>
+              <p className="font-body-md text-sm text-on-surface-variant dark:text-dark-text-muted">Guided tutorials on Qiskit implementation and algorithm design.</p>
             </div>
-            <div className="bg-surface border border-outline-variant/30 p-8 rounded-xl">
-              <h4 className="font-headline-md text-headline-md text-on-surface mb-2">Quantum Activities</h4>
-              <p className="font-body-md text-sm text-on-surface-variant">Interactive demos and conceptual quantum games.</p>
+            <div className="bg-surface dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border p-8 rounded-xl">
+              <h4 className="font-headline-md text-headline-md text-on-surface dark:text-dark-text mb-2 font-bold">Quantum Activities</h4>
+              <p className="font-body-md text-sm text-on-surface-variant dark:text-dark-text-muted">Interactive demos and conceptual quantum games.</p>
             </div>
-            <div className="bg-surface border border-outline-variant/30 p-8 rounded-xl">
-              <h4 className="font-headline-md text-headline-md text-on-surface mb-2">Projects & Challenges</h4>
-              <p className="font-body-md text-sm text-on-surface-variant">Collaborative problem-solving and mini-hackathons.</p>
+            <div className="bg-surface dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border p-8 rounded-xl">
+              <h4 className="font-headline-md text-headline-md text-on-surface dark:text-dark-text mb-2 font-bold">Projects & Challenges</h4>
+              <p className="font-body-md text-sm text-on-surface-variant dark:text-dark-text-muted">Collaborative problem-solving and mini-hackathons.</p>
             </div>
-            <div className="bg-surface border border-outline-variant/30 p-8 rounded-xl">
-              <h4 className="font-headline-md text-headline-md text-on-surface mb-2">Community Networking</h4>
-              <p className="font-body-md text-sm text-on-surface-variant">Dedicated spaces to meet mentors and potential collaborators.</p>
+            <div className="bg-surface dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border p-8 rounded-xl">
+              <h4 className="font-headline-md text-headline-md text-on-surface dark:text-dark-text mb-2 font-bold">Community Networking</h4>
+              <p className="font-body-md text-sm text-on-surface-variant dark:text-dark-text-muted">Dedicated spaces to meet mentors and potential collaborators.</p>
             </div>
-            <div className="bg-surface border border-outline-variant/30 p-8 rounded-xl">
-              <h4 className="font-headline-md text-headline-md text-on-surface mb-2">Learning Resources</h4>
-              <p className="font-body-md text-sm text-on-surface-variant">Access to exclusive study materials and Qiskit documentation.</p>
+            <div className="bg-surface dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border p-8 rounded-xl">
+              <h4 className="font-headline-md text-headline-md text-on-surface dark:text-dark-text mb-2 font-bold">Learning Resources</h4>
+              <p className="font-body-md text-sm text-on-surface-variant dark:text-dark-text-muted">Access to exclusive study materials and Qiskit documentation.</p>
             </div>
           </div>
         </div>

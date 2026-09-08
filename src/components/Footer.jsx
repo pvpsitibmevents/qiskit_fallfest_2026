@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Footer({ setActivePage, onOpenRegister }) {
   return (
-    <footer className="w-full pt-section-gap pb-gutter bg-on-background dark:bg-surface-container-lowest border-t border-outline-variant/20">
+    <footer className="w-full pt-section-gap pb-gutter bg-[#140e26] dark:bg-[#080512] border-t border-outline-variant/20 dark:border-dark-border transition-colors duration-200">
       <div className="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-4 gap-gutter">
         {/* Col 1 */}
         <div className="md:col-span-1 space-y-4">
@@ -10,7 +10,7 @@ export default function Footer({ setActivePage, onOpenRegister }) {
             <div className="h-14 w-auto rounded-lg overflow-hidden bg-white p-1 border border-primary/30 shadow-sm flex items-center justify-center">
               <img src={`${import.meta.env.BASE_URL}pvpsit-logo.png`} alt="PVPSIT Logo" className="h-full w-auto object-contain max-h-12" />
             </div>
-            <span className="font-headline-md text-headline-md text-surface">PVPSIT Qiskit Fall Fest '26</span>
+            <span className="font-headline-md text-headline-md text-white">PVPSIT Qiskit Fall Fest '26</span>
           </div>
           <p className="font-body-md text-body-md text-tertiary-fixed-dim max-w-sm text-sm">
             Q-CONNECT 2026: From Quantum Curiosity to Quantum Circuits. Empowering the next generation of innovators at Prasad V. Potluri Siddhartha Institute of Technology, Vijayawada.
@@ -29,6 +29,11 @@ export default function Footer({ setActivePage, onOpenRegister }) {
             <li>
               <button onClick={() => setActivePage('about')} className="text-tertiary-fixed-dim hover:text-primary-fixed transition-all duration-200 opacity-80 hover:opacity-100 hover:scale-105 active:scale-110 inline-block">
                 About Event
+              </button>
+            </li>
+            <li>
+              <button onClick={() => setActivePage('speakers')} className="text-tertiary-fixed-dim hover:text-primary-fixed transition-all duration-200 opacity-80 hover:opacity-100 hover:scale-105 active:scale-110 inline-block">
+                Keynote Speakers
               </button>
             </li>
             <li>

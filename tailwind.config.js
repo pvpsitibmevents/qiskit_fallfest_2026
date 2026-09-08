@@ -57,10 +57,24 @@ export default {
         "inverse-on-surface": "#f5eeff",
         "inverse-primary": "#ffb0d0",
 
+        "dark-bg": "#0c0817",
+        "dark-surface": "#130e26",
+        "dark-surface-card": "#181230",
+        "dark-surface-elevated": "#201740",
+        "dark-border": "rgba(255, 255, 255, 0.09)",
+        "dark-border-hover": "rgba(255, 105, 180, 0.4)",
+        "dark-text": "#f5eeff",
+        "dark-text-muted": "#a89fb8",
+
         "error": "#ba1a1a",
         "on-error": "#ffffff",
         "error-container": "#ffdad6",
         "on-error-container": "#93000a",
+      },
+      boxShadow: {
+        "glow-pink": "0 0 25px -3px rgba(255, 77, 148, 0.35)",
+        "glow-purple": "0 0 25px -3px rgba(123, 97, 255, 0.35)",
+        "glow-cyan": "0 0 25px -3px rgba(6, 182, 212, 0.35)",
       },
       borderRadius: {
         "DEFAULT": "0.125rem",
