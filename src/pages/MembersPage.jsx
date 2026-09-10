@@ -85,17 +85,20 @@ export default function MembersPage({ onOpenRegister }) {
         `${import.meta.env.BASE_URL}team/Dr. V. S. N. Malleswari.jpg`,
       ],
     },
-    {
-      name: 'Bhagyavathi Dadi',
-      role: 'Final Year ECE',
-      images: [
-        `${import.meta.env.BASE_URL}team/bhagyavathi_dadi.jpg`,
-        `${import.meta.env.BASE_URL}team/Bhagyavathi Dadi.jpg`,
-        `${import.meta.env.BASE_URL}team/bhagyavathi_dadi.png`,
-        `${import.meta.env.BASE_URL}team/Bhagyavathi Dadi.png`,
-      ],
-    },
   ];
+
+  const studentOrganizer = {
+    name: 'Bhagyavathi Dadi',
+    role: 'Student Organizer',
+    title: 'Final Year ECE',
+    advocateBadge: 'Qiskit Advocate',
+    images: [
+      `${import.meta.env.BASE_URL}team/bhagyavathi_dadi.jpg`,
+      `${import.meta.env.BASE_URL}team/Bhagyavathi Dadi.jpg`,
+      `${import.meta.env.BASE_URL}team/bhagyavathi_dadi.png`,
+      `${import.meta.env.BASE_URL}team/Bhagyavathi Dadi.png`,
+    ],
+  };
 
   // Preload all team member images into browser cache instantly on mount
   useEffect(() => {
@@ -104,6 +107,7 @@ export default function MembersPage({ onOpenRegister }) {
       ...deptHead.images,
       ...leadOrganizer.images,
       ...coOrganizers.flatMap((co) => co.images),
+      ...studentOrganizer.images,
     ];
     allImages.forEach((src) => {
       const img = new Image();
@@ -175,52 +179,133 @@ export default function MembersPage({ onOpenRegister }) {
           </p>
         </div>
 
-        {/* Leadership (Chief Patron & Dept Head) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          {/* Chief Patron */}
-          <div className="bg-[#F8F9FF] dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border rounded-xl p-8 flex flex-col items-center text-center hover:border-primary/50 transition-colors group">
-            {renderPhotoCard(chiefPatron, 'w-36 h-36')}
-            <div className="bg-primary/10 dark:bg-primary/20 text-primary font-label-caps text-xs px-4 py-1 rounded-full mb-3 mt-6 font-bold">
+        {/* Leadership Hierarchy (High Official to Lowers: Chief Patron -> Department Head -> Lead Organizer) */}
+        <div className="flex flex-col items-center mb-20">
+          {/* Level 1: Chief Patron (Principal Sir) */}
+          <div className="w-full max-w-lg bg-[#F8F9FF] dark:bg-dark-surface-card border-2 border-primary/30 dark:border-primary/40 rounded-2xl p-8 flex flex-col items-center text-center hover:border-primary transition-all group shadow-lg hover:shadow-xl relative">
+            <div className="bg-primary text-on-primary font-label-caps text-xs px-4 py-1.5 rounded-full mb-5 font-bold shadow-sm uppercase tracking-wider">
               {chiefPatron.role}
             </div>
-            <h3 className="font-headline-md text-headline-md text-on-surface dark:text-dark-text mb-1 font-bold">{chiefPatron.name}</h3>
-            <p className="font-body-md text-body-md text-on-surface-variant dark:text-dark-text-muted text-sm">{chiefPatron.title}</p>
+            {renderPhotoCard(chiefPatron, 'w-36 h-36')}
+            <h3 className="font-headline-md text-2xl font-bold text-on-surface dark:text-dark-text mb-1 mt-6">
+              {chiefPatron.name}
+            </h3>
+            <p className="font-body-md text-base text-primary font-semibold mb-1">
+              {chiefPatron.title}
+            </p>
+            <span className="text-xs text-on-surface-variant dark:text-dark-text-muted font-label-caps">
+              Patron & Institutional Leadership
+            </span>
           </div>
 
-          {/* Department Head */}
-          <div className="bg-[#F8F9FF] dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border rounded-xl p-8 flex flex-col items-center text-center hover:border-secondary/50 transition-colors group">
-            {renderPhotoCard(deptHead, 'w-36 h-36')}
-            <div className="bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary-fixed-dim font-label-caps text-xs px-4 py-1 rounded-full mb-3 mt-6 font-bold">
+          {/* Hierarchy Connector Stem 1 */}
+          <div className="w-0.5 h-10 bg-gradient-to-b from-primary to-secondary relative flex items-center justify-center my-1">
+            <div className="w-2.5 h-2.5 rounded-full bg-secondary shadow-sm" />
+          </div>
+
+          {/* Level 2: Department Head (HOD Ma'am) */}
+          <div className="w-full max-w-lg bg-[#F8F9FF] dark:bg-dark-surface-card border-2 border-secondary/30 dark:border-secondary/40 rounded-2xl p-8 flex flex-col items-center text-center hover:border-secondary transition-all group shadow-md hover:shadow-lg relative">
+            <div className="bg-secondary text-on-secondary font-label-caps text-xs px-4 py-1.5 rounded-full mb-5 font-bold shadow-sm uppercase tracking-wider">
               {deptHead.role}
             </div>
-            <h3 className="font-headline-md text-headline-md text-on-surface dark:text-dark-text mb-1 font-bold">{deptHead.name}</h3>
-            <p className="font-body-md text-body-md text-on-surface-variant dark:text-dark-text-muted text-sm">{deptHead.title}</p>
+            {renderPhotoCard(deptHead, 'w-36 h-36')}
+            <h3 className="font-headline-md text-2xl font-bold text-on-surface dark:text-dark-text mb-1 mt-6">
+              {deptHead.name}
+            </h3>
+            <p className="font-body-md text-base text-secondary dark:text-secondary-fixed-dim font-semibold mb-1">
+              {deptHead.title}
+            </p>
+            <span className="text-xs text-on-surface-variant dark:text-dark-text-muted font-label-caps">
+              Departmental Guidance & Support
+            </span>
           </div>
-        </div>
 
-        {/* Lead Organizer */}
-        <div className="flex justify-center mb-16">
-          <div className="bg-[#F8F9FF] dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border rounded-xl p-8 flex flex-col items-center text-center hover:border-primary/50 transition-colors group w-full max-w-md shadow-sm">
-            {renderPhotoCard(leadOrganizer, 'w-32 h-32')}
-            <div className="bg-primary-container/20 dark:bg-primary/20 text-on-primary-container dark:text-primary-fixed-dim font-label-caps text-xs px-4 py-1 rounded-full mb-3 mt-6 font-bold">
+          {/* Hierarchy Connector Stem 2 */}
+          <div className="w-0.5 h-10 bg-gradient-to-b from-secondary to-primary relative flex items-center justify-center my-1">
+            <div className="w-2.5 h-2.5 rounded-full bg-primary shadow-sm" />
+          </div>
+
+          {/* Level 3: Lead Organizer (Faculty Lead) */}
+          <div className="w-full max-w-lg bg-[#F8F9FF] dark:bg-dark-surface-card border-2 border-outline-variant/30 dark:border-dark-border hover:border-primary/60 rounded-2xl p-8 flex flex-col items-center text-center transition-all group shadow-md hover:shadow-lg relative">
+            <div className="bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-fixed-dim border border-primary/30 font-label-caps text-xs px-4 py-1.5 rounded-full mb-5 font-bold uppercase tracking-wider">
               {leadOrganizer.role}
             </div>
-            <h3 className="font-headline-md text-headline-md text-on-surface dark:text-dark-text mb-1 font-bold">{leadOrganizer.name}</h3>
-            <p className="font-body-md text-body-md text-on-surface-variant dark:text-dark-text-muted text-sm">{leadOrganizer.title}</p>
+            {renderPhotoCard(leadOrganizer, 'w-32 h-32')}
+            <h3 className="font-headline-md text-2xl font-bold text-on-surface dark:text-dark-text mb-1 mt-6">
+              {leadOrganizer.name}
+            </h3>
+            <p className="font-body-md text-base text-primary font-semibold mb-1">
+              {leadOrganizer.title}
+            </p>
+            <span className="text-xs text-on-surface-variant dark:text-dark-text-muted font-label-caps">
+              Faculty Lead & Event Coordinator
+            </span>
           </div>
         </div>
 
         {/* Co-Organizers Grid */}
-        <div className="mb-8">
-          <h2 className="font-headline-lg text-headline-lg text-center text-on-surface dark:text-dark-text mb-12 font-bold">Co-Organizers</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mb-20">
+          <div className="text-center mb-10">
+            <span className="bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary-fixed-dim font-label-caps text-xs px-4 py-1.5 rounded-full font-bold uppercase tracking-wider inline-block mb-2">
+              FACULTY COMMITTEE
+            </span>
+            <h2 className="font-headline-lg text-2xl sm:text-3xl font-bold text-center text-on-surface dark:text-dark-text">
+              Co-Organizers
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {coOrganizers.map((coOrg, idx) => (
-              <div key={idx} className="bg-[#F8F9FF] dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border rounded-xl p-6 flex flex-col items-center text-center hover:border-primary/30 transition-colors group">
+              <div key={idx} className="bg-[#F8F9FF] dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border rounded-xl p-6 flex flex-col items-center text-center hover:border-primary/40 hover:shadow-md transition-all group">
                 {renderPhotoCard(coOrg, 'w-28 h-28')}
                 <h4 className="font-body-lg text-base font-bold text-on-surface dark:text-dark-text mb-1 mt-4">{coOrg.name}</h4>
                 <p className="font-label-caps text-xs text-on-surface-variant dark:text-dark-text-muted">{coOrg.role}</p>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Student Organizer Section */}
+        <div className="mb-12">
+          <div className="text-center mb-10">
+            <span className="bg-primary/10 dark:bg-primary/20 text-primary font-label-caps text-xs px-4 py-1.5 rounded-full font-bold uppercase tracking-wider inline-block mb-2">
+              STUDENT INITIATIVE
+            </span>
+            <h2 className="font-headline-lg text-2xl sm:text-3xl font-bold text-center text-on-surface dark:text-dark-text">
+              Student Organizer
+            </h2>
+          </div>
+
+          <div className="flex justify-center">
+            <div className="w-full max-w-md bg-[#F8F9FF] dark:bg-dark-surface-card border-2 border-primary/30 dark:border-primary/40 hover:border-primary rounded-2xl p-8 flex flex-col items-center text-center shadow-lg hover:shadow-xl transition-all group relative overflow-hidden">
+              {/* Subtle background glow */}
+              <div className="absolute -top-10 -right-10 w-28 h-28 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute -bottom-10 -left-10 w-28 h-28 bg-secondary/10 rounded-full blur-2xl pointer-events-none" />
+
+              {/* Badges container */}
+              <div className="flex flex-wrap items-center justify-center gap-2 mb-5 relative z-10">
+                <span className="bg-primary text-on-primary font-label-caps text-xs px-3.5 py-1.5 rounded-full font-bold shadow-sm uppercase tracking-wider">
+                  {studentOrganizer.role}
+                </span>
+                <span className="bg-gradient-to-r from-primary to-secondary text-white font-label-caps text-xs px-3.5 py-1.5 rounded-full font-bold shadow-sm inline-flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                  ⚛️ {studentOrganizer.advocateBadge}
+                </span>
+              </div>
+
+              <div className="relative z-10">
+                {renderPhotoCard(studentOrganizer, 'w-32 h-32')}
+              </div>
+
+              <h3 className="font-headline-md text-2xl font-bold text-on-surface dark:text-dark-text mb-1 mt-5 relative z-10">
+                {studentOrganizer.name}
+              </h3>
+              <p className="font-body-md text-base text-primary font-semibold mb-2 relative z-10">
+                {studentOrganizer.title}
+              </p>
+              <div className="inline-flex items-center gap-1.5 text-xs font-label-caps text-on-surface-variant dark:text-dark-text-muted bg-surface-container dark:bg-dark-surface px-3.5 py-1.5 rounded-lg border border-outline-variant/30 dark:border-dark-border relative z-10">
+                <span>IBM Quantum Community • Qiskit Advocate</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
