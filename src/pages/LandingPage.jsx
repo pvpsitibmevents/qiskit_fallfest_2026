@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SpeakersSection from '../components/SpeakersSection';
+import InauguralGallery from '../components/InauguralGallery';
 
 const calculateTimeLeft = () => {
   const targetDate = new Date('2026-10-15T09:00:00');
@@ -420,6 +421,11 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
 
       {/* Keynote Speakers Section */}
       <SpeakersSection onOpenRegister={onOpenRegister} />
+
+      {/* Inaugural Ceremony & Official Poster Release (10.09.2026) */}
+      <div id="gallery" className="border-t border-outline-variant/20 dark:border-dark-border">
+        <InauguralGallery />
+      </div>
     </div>
   );
 }

@@ -7,6 +7,7 @@ import AboutPage from './pages/AboutPage';
 import SpeakersPage from './pages/SpeakersPage';
 import SchedulePage from './pages/SchedulePage';
 import MembersPage from './pages/MembersPage';
+import GalleryPage from './pages/GalleryPage';
 
 export default function App() {
   const [activePage, setActivePage] = useState('landing');
@@ -42,6 +43,11 @@ export default function App() {
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
       }
+    } else if (activePage === 'gallery-section') {
+      const el = document.getElementById('gallery');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
     } else {
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }
@@ -52,6 +58,7 @@ export default function App() {
       case 'landing':
       case 'journey':
       case 'speakers-section':
+      case 'gallery-section':
         return (
           <LandingPage
             setActivePage={setActivePage}
@@ -80,6 +87,12 @@ export default function App() {
       case 'members':
         return (
           <MembersPage
+            onOpenRegister={() => setIsRegisterOpen(true)}
+          />
+        );
+      case 'gallery':
+        return (
+          <GalleryPage
             onOpenRegister={() => setIsRegisterOpen(true)}
           />
         );

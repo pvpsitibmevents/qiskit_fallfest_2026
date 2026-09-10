@@ -46,6 +46,11 @@ export default function Footer({ setActivePage, onOpenRegister }) {
                 Organizing Team
               </button>
             </li>
+            <li>
+              <button onClick={() => setActivePage('gallery')} className="text-tertiary-fixed-dim hover:text-primary-fixed transition-all duration-200 opacity-80 hover:opacity-100 hover:scale-105 active:scale-110 inline-block">
+                Inaugural Gallery (10 Sept)
+              </button>
+            </li>
           </ul>
         </div>
 
