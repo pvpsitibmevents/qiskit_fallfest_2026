@@ -15,6 +15,8 @@ export default function SchedulePage({ onOpenRegister }) {
       participants: 'Students',
       icon: 'key',
       filled: true,
+      themeImage: `${import.meta.env.BASE_URL}theme/Picture1.png`,
+      themeTitle: 'Flight of Curiosity (IBM Birds)',
       what: 'A simple introductory session for students new to quantum computing. Explains classical vs quantum, qubits, superposition, entanglement, Qiskit overview, and learning roadmaps.',
       innovative: '“Classical vs Quantum” Mini Challenge + Physical demonstrations (coins/cards/lights for 0, 1, superposition) + Live Qiskit Demo + “Quantum Myth or Fact” card game.',
       goal: 'Make students curious enough to attend the main 3-day fest.',
@@ -30,6 +32,8 @@ export default function SchedulePage({ onOpenRegister }) {
       participants: 'Faculty – Online',
       icon: 'co_present',
       filled: false,
+      themeImage: `${import.meta.env.BASE_URL}theme/Picture2.png`,
+      themeTitle: 'Flamingo Processor Theme',
       what: 'An online session for faculty covering Qiskit ecosystem, engineering/science applications, research directions, and integrating quantum topics into student projects.',
       innovative: '“Quantum Across Departments” (showing real quantum applications for ECE, CSE, EEE, Mechanical, Math, Physics) + “What Can We Do With Quantum?” project idea submissions.',
       goal: 'Create faculty awareness and encourage future quantum projects and research.',
@@ -45,6 +49,8 @@ export default function SchedulePage({ onOpenRegister }) {
       participants: 'Students',
       icon: 'groups',
       filled: false,
+      themeImage: `${import.meta.env.BASE_URL}theme/Picture3.png`,
+      themeTitle: 'Hummingbird Exchange',
       what: 'Small student teams discuss key quantum debates like "Will Quantum Replace Classical?", "Quantum in Cybersecurity", and "Quantum: Hype or Revolution?".',
       innovative: '“Quantum Café” format (10 min discussion, 2 min pitch, 1 min Q&A) + 🔄 “Switch Sides” twist (halfway through, teams must argue the opposite side).',
       goal: 'Develop communication, critical thinking, and quantum awareness.',
@@ -60,6 +66,8 @@ export default function SchedulePage({ onOpenRegister }) {
       participants: 'Students',
       icon: 'gavel',
       filled: true,
+      themeImage: `${import.meta.env.BASE_URL}theme/Picture4.png`,
+      themeTitle: 'Canary Processor Theme',
       what: 'Competitive head-to-head debate between Team Qubit ("Quantum will transform computing") and Team Classical ("Classical will remain dominant").',
       innovative: '“Quantum Twist Cards” randomly drawn by judges during rounds ("Give a real example", "Explain to a school student", "Oppose your own argument", "20 sec limit").',
       goal: 'Foster argumentative excellence and deep domain understanding.',
@@ -75,6 +83,8 @@ export default function SchedulePage({ onOpenRegister }) {
       participants: 'Students',
       icon: 'palette',
       filled: false,
+      themeImage: `${import.meta.env.BASE_URL}theme/Picture5.svg`,
+      themeTitle: 'Bloch Sphere Spectrum',
       what: 'Students create visual posters explaining Quantum Computing, Quantum Internet, Cryptography, Quantum AI, Sensors, or Qiskit applications.',
       innovative: '“Explain It in One Poster” rule (no text-heavy paragraphs; use diagrams, flowcharts, minimal text) + 🎤 90-Second Poster Pitch to judges.',
       goal: 'Combine visual creativity with concise technical communication.',
@@ -90,6 +100,8 @@ export default function SchedulePage({ onOpenRegister }) {
       participants: 'Internal + External',
       icon: 'article',
       filled: true,
+      themeImage: `${import.meta.env.BASE_URL}theme/Picture6.svg`,
+      themeTitle: 'Quantum Geometry & Topology',
       what: 'Academic paper presentation covering Quantum ML, Communication, Cryptography, Algorithms, and Hardware. Open to students, research scholars, and faculty.',
       innovative: '“Research in 5” format (5 min talk + 2 min Q&A) + ⭐ Special Round: “Explain Your Research to a 1st Year Student in 30 Seconds”.',
       goal: 'Encourage rigorous research and test genuine conceptual clarity.',
@@ -105,6 +117,8 @@ export default function SchedulePage({ onOpenRegister }) {
       participants: 'Students',
       icon: 'extension',
       filled: false,
+      themeImage: `${import.meta.env.BASE_URL}theme/Picture7.png`,
+      themeTitle: 'Eagle 127-Qubit Theme',
       what: 'Fast-paced pre-fest quiz featuring 4 rounds: Quantum Basics, Identify the Qubit, Qiskit Circuit Logic, and Mystery Questions (Easy, Medium, Hard).',
       innovative: '“Bet Your Qubits” mechanic (teams risk points before seeing the question to add tactical strategy).',
       goal: 'Test knowledge readiness ahead of the main fest.',
@@ -123,6 +137,8 @@ export default function SchedulePage({ onOpenRegister }) {
       icon: 'wb_sunny',
       filled: true,
       isMain: true,
+      themeImage: `${import.meta.env.BASE_URL}theme/Picture8.png`,
+      themeTitle: 'Falcon Processor Theme',
       what: 'The flagship fest opening deep-dive. Covers "0 and 1 → Qubits", Superposition, Entanglement, Quantum Gates, Circuits, Algorithms, Advantage, and Qiskit.',
       innovative: '“Concept → Demonstration → Question → Demo” interactive loop + ⚡ “Quantum in Action” live Qiskit execution (Circuit → Execution → Measurement → Result).',
       goal: 'Establish a solid foundation for hands-on quantum circuit creation.',
@@ -139,6 +155,8 @@ export default function SchedulePage({ onOpenRegister }) {
       icon: 'terminal',
       filled: true,
       isMain: true,
+      themeImage: `${import.meta.env.BASE_URL}theme/Picture9.png`,
+      themeTitle: 'Kookaburra Coding Theme',
       what: 'Hands-on coding workshop. Students build, gate, measure, and execute quantum circuits in Qiskit from scratch.',
       innovative: '“Build → Break → Fix” (debugging broken circuits) + 🏁 End Mini Challenge ("Create this target output").',
       goal: 'Achieve practical coding competency with the Qiskit SDK.',
@@ -155,6 +173,8 @@ export default function SchedulePage({ onOpenRegister }) {
       icon: 'precision_manufacturing',
       filled: true,
       isMain: true,
+      themeImage: `${import.meta.env.BASE_URL}theme/Picture10.png`,
+      themeTitle: 'Quantum Cloud Engine',
       what: 'Day 3 flagship student competition. Teams receive Challenge Cards (Superposition, Bell states, custom measurement patterns) and build circuits using Qiskit.',
       innovative: '“Circuit Relay” (Student 1 creates → Student 2 adds gates → Student 3 checks → Student 4 runs & explains) + 🏆 Final Boss (15-min surprise circuit build & pitch).',
       goal: 'Test circuit design, team collaboration, and live problem solving.',
@@ -172,6 +192,8 @@ export default function SchedulePage({ onOpenRegister }) {
       participants: 'Students',
       icon: 'sports_esports',
       filled: false,
+      themeImage: `${import.meta.env.BASE_URL}theme/Picture11.png`,
+      themeTitle: 'Cloud Quest Platform',
       what: 'Gamified online platform challenge keeping excitement alive post-fest with MCQs, circuit identification, output prediction, and Qiskit debugging.',
       innovative: '“Level Up” system (Level 1: Rookie → Level 2: Explorer → Level 3: Circuit Master → Level 4: Quantum Champion).',
       goal: 'Maintain learning momentum and continuous engagement.',
@@ -187,6 +209,8 @@ export default function SchedulePage({ onOpenRegister }) {
       participants: 'Students + Faculty',
       icon: 'forum',
       filled: true,
+      themeImage: `${import.meta.env.BASE_URL}theme/Picture12.png`,
+      themeTitle: 'Qiskit Fall Fest 2026 Grand Seal',
       what: 'Closing interaction with quantum researchers, industry leaders, and educators featuring “Ask Me Anything: Quantum Edition” and career guidance.',
       innovative: 'Special Closing Question: “If you were a 2nd-year student today, what would you learn in quantum during the next 6 months?”',
       goal: 'Provide students and faculty with a practical 6-month roadmap.',
@@ -260,6 +284,40 @@ export default function SchedulePage({ onOpenRegister }) {
         </div>
       </section>
 
+      {/* Themes & Mascots Quick Strip */}
+      <div className="max-w-4xl mx-auto px-gutter mb-10 w-full">
+        <div className="bg-surface-container-low dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border rounded-2xl p-4 sm:p-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <h4 className="font-label-caps text-xs sm:text-sm font-bold text-on-surface dark:text-dark-text uppercase tracking-wider">
+                Official Festival Themes & Mascots (12 Events)
+              </h4>
+            </div>
+            <span className="text-[11px] font-label-caps text-on-surface-variant dark:text-dark-text-muted">
+              Inspired by IBM Quantum Processors & Qiskit Symbols
+            </span>
+          </div>
+
+          <div className="grid grid-cols-6 sm:grid-cols-12 gap-2">
+            {events.map((ev) => (
+              <div
+                key={ev.id}
+                title={`Event #${ev.id}: ${ev.title} — ${ev.themeTitle}`}
+                className="group relative flex flex-col items-center bg-white dark:bg-dark-surface rounded-xl p-1.5 border border-outline-variant/20 dark:border-dark-border hover:border-primary hover:shadow-md transition-all hover:scale-110 cursor-pointer"
+              >
+                <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center overflow-hidden">
+                  <img src={ev.themeImage} alt={ev.themeTitle} className="w-full h-full object-contain" />
+                </div>
+                <span className="text-[9px] font-label-caps font-bold text-on-surface-variant dark:text-dark-text-muted mt-0.5">
+                  #{ev.id}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Schedule Timeline Section */}
       <section className="pb-section-gap px-gutter max-w-4xl mx-auto w-full">
         <div className="relative">
@@ -268,16 +326,25 @@ export default function SchedulePage({ onOpenRegister }) {
               {/* Circuit Line */}
               {index < filteredEvents.length - 1 && <div className="circuit-line-timeline" />}
 
-              {/* Node Icon */}
+              {/* Node / Theme Mascot Icon */}
               <div
-                className={`relative z-10 w-12 h-12 rounded-full border-2 ${
+                className={`relative z-10 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl border-2 ${
                   item.isMain
-                    ? 'border-primary bg-primary text-on-primary shadow-pulse-pink scale-110'
-                    : 'border-secondary bg-surface dark:bg-dark-surface text-secondary shadow-sm'
-                } flex items-center justify-center flex-shrink-0 mt-1 transition-transform group-hover:scale-125`}
+                    ? 'border-primary bg-white dark:bg-dark-surface shadow-pulse-pink scale-105'
+                    : 'border-secondary/40 bg-white dark:bg-dark-surface shadow-sm'
+                } flex items-center justify-center flex-shrink-0 mt-1 transition-transform group-hover:scale-110 overflow-hidden p-1.5`}
               >
+                <img
+                  src={item.themeImage}
+                  alt={`${item.title} Theme`}
+                  className="w-full h-full object-contain filter drop-shadow-sm group-hover:rotate-6 transition-transform duration-300"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    if (e.target.nextSibling) e.target.nextSibling.style.display = 'flex';
+                  }}
+                />
                 <span
-                  className="material-symbols-outlined"
+                  className="material-symbols-outlined text-primary hidden items-center justify-center text-xl"
                   style={item.filled ? { fontVariationSettings: "'FILL' 1" } : {}}
                 >
                   {item.icon}
@@ -320,10 +387,26 @@ export default function SchedulePage({ onOpenRegister }) {
                   </div>
                 </div>
 
-                {/* Event Title */}
-                <h3 className="font-headline-md text-xl sm:text-2xl font-bold text-on-surface dark:text-dark-text mb-3 flex items-center gap-2">
-                  <span>{item.title}</span>
-                </h3>
+                {/* Event Title & Theme Mascot Banner */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+                  <div>
+                    <h3 className="font-headline-md text-xl sm:text-2xl font-bold text-on-surface dark:text-dark-text group-hover:text-primary transition-colors flex items-center gap-2">
+                      <span>{item.title}</span>
+                    </h3>
+                    <div className="inline-flex items-center gap-1.5 text-xs font-label-caps text-secondary dark:text-secondary-fixed-dim mt-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-secondary dark:bg-secondary-fixed-dim animate-pulse" />
+                      <span className="font-bold">Official Theme:</span>
+                      <span>{item.themeTitle}</span>
+                    </div>
+                  </div>
+
+                  <div className="hidden sm:flex items-center gap-2 bg-white dark:bg-dark-surface px-3 py-1.5 rounded-xl border border-outline-variant/30 dark:border-dark-border group-hover:border-primary/40 shadow-xs transition-colors shrink-0">
+                    <img src={item.themeImage} alt={item.themeTitle} className="w-8 h-8 object-contain" />
+                    <span className="text-[11px] font-label-caps text-on-surface-variant dark:text-dark-text-muted font-semibold">
+                      Theme #{item.id}
+                    </span>
+                  </div>
+                </div>
 
                 {/* Description */}
                 <p className="font-body-md text-on-surface-variant dark:text-dark-text-muted text-sm mb-4 leading-relaxed">

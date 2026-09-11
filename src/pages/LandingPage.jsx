@@ -94,13 +94,17 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
               {/* Countdown Header */}
               <div className="flex items-center justify-between w-full mb-6 pb-4 border-b border-outline-variant/30 dark:border-dark-border relative z-10">
                 <div className="flex items-center gap-2.5">
-                  <span className="relative flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
-                  </span>
-                  <span className="font-label-caps text-xs font-bold text-primary tracking-widest uppercase">
-                    MAIN FEST COUNTDOWN
-                  </span>
+                  <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 shadow-xs border border-primary/30 p-0.5 bg-white dark:bg-dark-surface">
+                    <img src={`${import.meta.env.BASE_URL}theme/Picture12.png`} alt="Qiskit Fall Fest Seal" className="w-full h-full object-contain" />
+                  </div>
+                  <div>
+                    <span className="font-label-caps text-xs font-bold text-primary tracking-widest uppercase block leading-none">
+                      MAIN FEST COUNTDOWN
+                    </span>
+                    <span className="text-[10px] text-on-surface-variant dark:text-dark-text-muted font-label-caps">
+                      Q-CONNECT 2026
+                    </span>
+                  </div>
                 </div>
                 <span className="text-[11px] font-label-caps bg-secondary-container/30 dark:bg-secondary/20 text-on-secondary-container dark:text-secondary-fixed-dim px-3 py-1 rounded-full font-bold border border-secondary-container/50 dark:border-secondary/30">
                   Oct 15–17, 2026
@@ -207,8 +211,8 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                     <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Get Curious: Beginner student awareness & physical coin/light demos.</p>
                   </div>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0 shadow-pulse-pink">
-                  <span className="material-symbols-outlined text-primary">key</span>
+                <div className="w-14 h-14 rounded-full bg-white dark:bg-dark-surface flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0 shadow-md p-1 group-hover:scale-110 transition-transform overflow-hidden">
+                  <img src={`${import.meta.env.BASE_URL}theme/Picture1.png`} alt="Event 1 Theme" className="w-full h-full object-contain" />
                 </div>
                 <div className="w-full md:w-5/12" />
               </div>
@@ -222,8 +226,8 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                     <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Faculty Awareness & Quantum Across Engineering Departments.</p>
                   </div>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0">
-                  <span className="material-symbols-outlined text-secondary">co_present</span>
+                <div className="w-14 h-14 rounded-full bg-white dark:bg-dark-surface flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0 shadow-md p-1 group-hover:scale-110 transition-transform overflow-hidden">
+                  <img src={`${import.meta.env.BASE_URL}theme/Picture2.png`} alt="Event 2 Theme" className="w-full h-full object-contain" />
                 </div>
                 <div className="w-full md:w-5/12" />
               </div>
@@ -237,8 +241,8 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                     <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Think & Discuss: Quantum Café group discussions with "Switch Sides" twist.</p>
                   </div>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0 shadow-pulse-pink">
-                  <span className="material-symbols-outlined text-primary">groups</span>
+                <div className="w-14 h-14 rounded-full bg-white dark:bg-dark-surface flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0 shadow-md p-1 group-hover:scale-110 transition-transform overflow-hidden">
+                  <img src={`${import.meta.env.BASE_URL}theme/Picture3.png`} alt="Event 3 Theme" className="w-full h-full object-contain" />
                 </div>
                 <div className="w-full md:w-5/12" />
               </div>
@@ -252,8 +256,8 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                     <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Debate with Twist Cards & 90-Second Poster Pitches.</p>
                   </div>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0">
-                  <span className="material-symbols-outlined text-secondary">palette</span>
+                <div className="w-14 h-14 rounded-full bg-white dark:bg-dark-surface flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0 shadow-md p-1 group-hover:scale-110 transition-transform overflow-hidden">
+                  <img src={`${import.meta.env.BASE_URL}theme/Picture4.png`} alt="Event 4 Theme" className="w-full h-full object-contain" />
                 </div>
                 <div className="w-full md:w-5/12" />
               </div>
@@ -267,8 +271,8 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                     <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Research paper presentations & "Bet Your Qubits" strategy quiz.</p>
                   </div>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0 shadow-pulse-pink">
-                  <span className="material-symbols-outlined text-primary">extension</span>
+                <div className="w-14 h-14 rounded-full bg-white dark:bg-dark-surface flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0 shadow-md p-1 group-hover:scale-110 transition-transform overflow-hidden">
+                  <img src={`${import.meta.env.BASE_URL}theme/Picture7.png`} alt="Event 7 Theme" className="w-full h-full object-contain" />
                 </div>
                 <div className="w-full md:w-5/12" />
               </div>
@@ -282,8 +286,8 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                     <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Understand: Main Fest in-depth awareness & live Qiskit execution.</p>
                   </div>
                 </div>
-                <div className="w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0 shadow-pulse-pink animate-pulse">
-                  <span className="material-symbols-outlined text-xl">wb_sunny</span>
+                <div className="w-16 h-16 rounded-full bg-white dark:bg-dark-surface flex items-center justify-center border-4 border-primary z-10 shrink-0 shadow-pulse-pink p-1 group-hover:scale-110 transition-transform overflow-hidden animate-pulse">
+                  <img src={`${import.meta.env.BASE_URL}theme/Picture8.png`} alt="Falcon Theme" className="w-full h-full object-contain" />
                 </div>
                 <div className="w-full md:w-5/12" />
               </div>
@@ -297,8 +301,8 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                     <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Code: Hands-on Qiskit workshop with "Build → Break → Fix" challenges.</p>
                   </div>
                 </div>
-                <div className="w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0 shadow-pulse-pink animate-pulse">
-                  <span className="material-symbols-outlined text-xl">terminal</span>
+                <div className="w-16 h-16 rounded-full bg-white dark:bg-dark-surface flex items-center justify-center border-4 border-primary z-10 shrink-0 shadow-pulse-pink p-1 group-hover:scale-110 transition-transform overflow-hidden animate-pulse">
+                  <img src={`${import.meta.env.BASE_URL}theme/Picture9.png`} alt="Kookaburra Theme" className="w-full h-full object-contain" />
                 </div>
                 <div className="w-full md:w-5/12" />
               </div>
@@ -312,8 +316,8 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                     <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Build: Flagship circuit building challenge & "Circuit Relay" team battle.</p>
                   </div>
                 </div>
-                <div className="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0 shadow-pulse-pink animate-pulse">
-                  <span className="material-symbols-outlined text-2xl">precision_manufacturing</span>
+                <div className="w-16 h-16 rounded-full bg-white dark:bg-dark-surface flex items-center justify-center border-4 border-primary z-10 shrink-0 shadow-pulse-pink p-1 group-hover:scale-110 transition-transform overflow-hidden animate-pulse">
+                  <img src={`${import.meta.env.BASE_URL}theme/Picture12.png`} alt="Qiskit Fall Fest Grand Seal" className="w-full h-full object-contain" />
                 </div>
                 <div className="w-full md:w-5/12" />
               </div>
@@ -327,8 +331,8 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                     <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Online gamified challenges & expert Q&A with 6-month learning roadmap.</p>
                   </div>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0">
-                  <span className="material-symbols-outlined text-secondary">rocket_launch</span>
+                <div className="w-14 h-14 rounded-full bg-white dark:bg-dark-surface flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0 shadow-md p-1 group-hover:scale-110 transition-transform overflow-hidden">
+                  <img src={`${import.meta.env.BASE_URL}theme/Picture11.png`} alt="Post-Fest Theme" className="w-full h-full object-contain" />
                 </div>
                 <div className="w-full md:w-5/12" />
               </div>
@@ -360,11 +364,11 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 <span className="font-body-md text-xs text-primary font-semibold">15 Oct 2026</span>
               </div>
               <div className="p-8 flex flex-col grow">
-                <div className="w-12 h-12 bg-primary/10 dark:bg-primary/20 rounded-xl text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined">wb_sunny</span>
+                <div className="w-16 h-16 bg-white dark:bg-dark-surface rounded-2xl p-2 border border-primary/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md overflow-hidden">
+                  <img src={`${import.meta.env.BASE_URL}theme/Picture8.png`} alt="Falcon Processor Theme" className="w-full h-full object-contain filter drop-shadow-sm" />
                 </div>
                 <h3 className="font-headline-md text-xl font-bold text-on-surface dark:text-dark-text mb-2">⚛️ Quantum Awakening</h3>
-                <p className="font-label-caps text-xs text-secondary dark:text-secondary-fixed-dim font-bold mb-4">In-depth Quantum + Qiskit Awareness</p>
+                <p className="font-label-caps text-xs text-secondary dark:text-secondary-fixed-dim font-bold mb-4">In-depth Quantum + Qiskit Awareness • Falcon Theme</p>
                 <p className="font-body-md text-on-surface-variant dark:text-dark-text-muted text-sm mb-6 grow">
                   Deep-dive from classical 0/1 bits to qubits, superposition, entanglement, and live Qiskit execution demonstrations.
                 </p>
@@ -378,11 +382,11 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 <span className="font-body-md text-xs font-semibold">16 Oct 2026</span>
               </div>
               <div className="p-8 flex flex-col grow">
-                <div className="w-12 h-12 bg-secondary/10 dark:bg-secondary/20 rounded-xl text-secondary dark:text-secondary-fixed-dim flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined">terminal</span>
+                <div className="w-16 h-16 bg-white dark:bg-dark-surface rounded-2xl p-2 border border-secondary/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md overflow-hidden">
+                  <img src={`${import.meta.env.BASE_URL}theme/Picture9.png`} alt="Kookaburra Coding Theme" className="w-full h-full object-contain filter drop-shadow-sm" />
                 </div>
                 <h3 className="font-headline-md text-xl font-bold text-on-surface dark:text-dark-text mb-2">💻 Qiskit Ignition</h3>
-                <p className="font-label-caps text-xs text-secondary dark:text-secondary-fixed-dim font-bold mb-4">Hands-on Qiskit Workshop</p>
+                <p className="font-label-caps text-xs text-secondary dark:text-secondary-fixed-dim font-bold mb-4">Hands-on Qiskit Workshop • Kookaburra Theme</p>
                 <p className="font-body-md text-on-surface-variant dark:text-dark-text-muted text-sm mb-6 grow">
                   Coding day! Set up environment, apply quantum gates, measure qubits, and debug circuits in the "Build → Break → Fix" challenge.
                 </p>
@@ -396,11 +400,11 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 <span className="font-body-md text-xs text-primary font-semibold">17 Oct 2026</span>
               </div>
               <div className="p-8 flex flex-col grow">
-                <div className="w-12 h-12 bg-primary/10 dark:bg-primary/20 rounded-xl text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <span className="material-symbols-outlined">precision_manufacturing</span>
+                <div className="w-16 h-16 bg-white dark:bg-dark-surface rounded-2xl p-2 border border-primary/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md overflow-hidden">
+                  <img src={`${import.meta.env.BASE_URL}theme/Picture12.png`} alt="Qiskit Fall Fest Grand Seal" className="w-full h-full object-contain filter drop-shadow-sm" />
                 </div>
                 <h3 className="font-headline-md text-xl font-bold text-on-surface dark:text-dark-text mb-2">🔗 CircuitCraft</h3>
-                <p className="font-label-caps text-xs text-secondary dark:text-secondary-fixed-dim font-bold mb-4">Circuit Building Challenge</p>
+                <p className="font-label-caps text-xs text-secondary dark:text-secondary-fixed-dim font-bold mb-4">Circuit Building Challenge • Qiskit Fall Fest Seal</p>
                 <p className="font-body-md text-on-surface-variant dark:text-dark-text-muted text-sm mb-6 grow">
                   Flagship team competition! Solve challenge cards, run "Circuit Relay" team battles, and build live quantum circuits.
                 </p>

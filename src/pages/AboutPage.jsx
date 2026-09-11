@@ -48,9 +48,9 @@ export default function AboutPage({ setActivePage, onOpenRegister }) {
       <section className="max-w-container-max mx-auto px-gutter py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Card 1 */}
-          <div className="bg-[#F8F9FF] dark:bg-dark-surface-card border border-outline-variant/20 dark:border-dark-border p-8 rounded-xl flex flex-col items-start gap-4 hover:border-primary/40 transition-colors">
-            <div className="w-12 h-12 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center text-primary mb-2">
-              <span className="material-symbols-outlined">school</span>
+          <div className="bg-[#F8F9FF] dark:bg-dark-surface-card border border-outline-variant/20 dark:border-dark-border p-8 rounded-xl flex flex-col items-start gap-4 hover:border-primary/40 transition-all hover:-translate-y-1 hover:shadow-lg group">
+            <div className="w-14 h-14 bg-white dark:bg-dark-surface rounded-xl p-2 border border-outline-variant/30 dark:border-dark-border shadow-xs flex items-center justify-center mb-1 group-hover:scale-110 transition-transform overflow-hidden">
+              <img src={`${import.meta.env.BASE_URL}theme/Picture1.png`} alt="Learn with Qiskit" className="w-full h-full object-contain filter drop-shadow-sm" />
             </div>
             <h3 className="font-headline-md text-headline-md text-on-surface dark:text-dark-text font-bold">Learn</h3>
             <p className="font-body-md text-body-md text-on-surface-variant dark:text-dark-text-muted text-sm">
@@ -59,9 +59,9 @@ export default function AboutPage({ setActivePage, onOpenRegister }) {
           </div>
 
           {/* Card 2 */}
-          <div className="bg-[#F8F9FF] dark:bg-dark-surface-card border border-outline-variant/20 dark:border-dark-border p-8 rounded-xl flex flex-col items-start gap-4 hover:border-primary/40 transition-colors">
-            <div className="w-12 h-12 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center text-primary mb-2">
-              <span className="material-symbols-outlined">architecture</span>
+          <div className="bg-[#F8F9FF] dark:bg-dark-surface-card border border-outline-variant/20 dark:border-dark-border p-8 rounded-xl flex flex-col items-start gap-4 hover:border-primary/40 transition-all hover:-translate-y-1 hover:shadow-lg group">
+            <div className="w-14 h-14 bg-white dark:bg-dark-surface rounded-xl p-2 border border-outline-variant/30 dark:border-dark-border shadow-xs flex items-center justify-center mb-1 group-hover:scale-110 transition-transform overflow-hidden">
+              <img src={`${import.meta.env.BASE_URL}theme/Picture9.png`} alt="Build with Qiskit" className="w-full h-full object-contain filter drop-shadow-sm" />
             </div>
             <h3 className="font-headline-md text-headline-md text-on-surface dark:text-dark-text font-bold">Build</h3>
             <p className="font-body-md text-body-md text-on-surface-variant dark:text-dark-text-muted text-sm">
@@ -70,9 +70,9 @@ export default function AboutPage({ setActivePage, onOpenRegister }) {
           </div>
 
           {/* Card 3 */}
-          <div className="bg-[#F8F9FF] dark:bg-dark-surface-card border border-outline-variant/20 dark:border-dark-border p-8 rounded-xl flex flex-col items-start gap-4 hover:border-primary/40 transition-colors">
-            <div className="w-12 h-12 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center text-primary mb-2">
-              <span className="material-symbols-outlined">hub</span>
+          <div className="bg-[#F8F9FF] dark:bg-dark-surface-card border border-outline-variant/20 dark:border-dark-border p-8 rounded-xl flex flex-col items-start gap-4 hover:border-primary/40 transition-all hover:-translate-y-1 hover:shadow-lg group">
+            <div className="w-14 h-14 bg-white dark:bg-dark-surface rounded-xl p-2 border border-outline-variant/30 dark:border-dark-border shadow-xs flex items-center justify-center mb-1 group-hover:scale-110 transition-transform overflow-hidden">
+              <img src={`${import.meta.env.BASE_URL}theme/Picture3.png`} alt="Connect with Community" className="w-full h-full object-contain filter drop-shadow-sm" />
             </div>
             <h3 className="font-headline-md text-headline-md text-on-surface dark:text-dark-text font-bold">Connect</h3>
             <p className="font-body-md text-body-md text-on-surface-variant dark:text-dark-text-muted text-sm">
@@ -81,9 +81,9 @@ export default function AboutPage({ setActivePage, onOpenRegister }) {
           </div>
 
           {/* Card 4 */}
-          <div className="bg-[#F8F9FF] dark:bg-dark-surface-card border border-outline-variant/20 dark:border-dark-border p-8 rounded-xl flex flex-col items-start gap-4 hover:border-primary/40 transition-colors">
-            <div className="w-12 h-12 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center text-primary mb-2">
-              <span className="material-symbols-outlined">travel_explore</span>
+          <div className="bg-[#F8F9FF] dark:bg-dark-surface-card border border-outline-variant/20 dark:border-dark-border p-8 rounded-xl flex flex-col items-start gap-4 hover:border-primary/40 transition-all hover:-translate-y-1 hover:shadow-lg group">
+            <div className="w-14 h-14 bg-white dark:bg-dark-surface rounded-xl p-2 border border-outline-variant/30 dark:border-dark-border shadow-xs flex items-center justify-center mb-1 group-hover:scale-110 transition-transform overflow-hidden">
+              <img src={`${import.meta.env.BASE_URL}theme/Picture7.png`} alt="Explore Quantum" className="w-full h-full object-contain filter drop-shadow-sm" />
             </div>
             <h3 className="font-headline-md text-headline-md text-on-surface dark:text-dark-text font-bold">Explore</h3>
             <p className="font-body-md text-body-md text-on-surface-variant dark:text-dark-text-muted text-sm">
