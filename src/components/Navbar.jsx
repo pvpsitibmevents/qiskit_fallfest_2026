@@ -10,6 +10,7 @@ export default function Navbar({ activePage, setActivePage, onOpenRegister, them
     { id: 'schedule', label: 'Schedule' },
     { id: 'members', label: 'Members' },
     { id: 'gallery', label: 'Gallery' },
+    { id: 'register', label: 'Register' },
   ];
 
   return (
@@ -120,6 +121,7 @@ export default function Navbar({ activePage, setActivePage, onOpenRegister, them
               schedule: 'calendar_today',
               members: 'groups',
               gallery: 'photo_library',
+              register: 'how_to_reg',
             };
             return (
               <button

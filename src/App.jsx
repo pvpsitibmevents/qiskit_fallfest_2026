@@ -8,9 +8,18 @@ import SpeakersPage from './pages/SpeakersPage';
 import SchedulePage from './pages/SchedulePage';
 import MembersPage from './pages/MembersPage';
 import GalleryPage from './pages/GalleryPage';
+import RegistrationPage from './pages/RegistrationPage';
 
 export default function App() {
-  const [activePage, setActivePage] = useState('landing');
+  const [activePage, setActivePage] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash.replace('#', '');
+      if (['about', 'speakers', 'schedule', 'members', 'gallery', 'register'].includes(hash)) {
+        return hash;
+      }
+    }
+    return 'landing';
+  });
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem('theme');
@@ -32,6 +41,20 @@ export default function App() {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
 
+  // Keep hash synchronized with active page for bookmarking & browser back/forward buttons
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (['about', 'speakers', 'schedule', 'members', 'gallery', 'register'].includes(hash)) {
+        setActivePage(hash);
+      } else if (!hash) {
+        setActivePage('landing');
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   useEffect(() => {
     if (activePage === 'journey') {
       const el = document.getElementById('journey');
@@ -50,8 +73,22 @@ export default function App() {
       }
     } else {
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      if (['about', 'speakers', 'schedule', 'members', 'gallery', 'register'].includes(activePage)) {
+        if (window.location.hash !== `#${activePage}`) {
+          window.history.pushState(null, '', `#${activePage}`);
+        }
+      } else if (activePage === 'landing') {
+        if (window.location.hash) {
+          window.history.pushState(null, '', window.location.pathname);
+        }
+      }
     }
   }, [activePage]);
+
+  // Direct all registration actions to the dedicated Registration Page
+  const handleOpenRegister = () => {
+    setActivePage('register');
+  };
 
   const renderPage = () => {
     switch (activePage) {
@@ -62,45 +99,51 @@ export default function App() {
         return (
           <LandingPage
             setActivePage={setActivePage}
-            onOpenRegister={() => setIsRegisterOpen(true)}
+            onOpenRegister={handleOpenRegister}
           />
         );
       case 'about':
         return (
           <AboutPage
             setActivePage={setActivePage}
-            onOpenRegister={() => setIsRegisterOpen(true)}
+            onOpenRegister={handleOpenRegister}
           />
         );
       case 'speakers':
         return (
           <SpeakersPage
-            onOpenRegister={() => setIsRegisterOpen(true)}
+            onOpenRegister={handleOpenRegister}
           />
         );
       case 'schedule':
         return (
           <SchedulePage
-            onOpenRegister={() => setIsRegisterOpen(true)}
+            onOpenRegister={handleOpenRegister}
           />
         );
       case 'members':
         return (
           <MembersPage
-            onOpenRegister={() => setIsRegisterOpen(true)}
+            onOpenRegister={handleOpenRegister}
           />
         );
       case 'gallery':
         return (
           <GalleryPage
-            onOpenRegister={() => setIsRegisterOpen(true)}
+            onOpenRegister={handleOpenRegister}
+          />
+        );
+      case 'register':
+        return (
+          <RegistrationPage
+            setActivePage={setActivePage}
           />
         );
       default:
         return (
           <LandingPage
             setActivePage={setActivePage}
-            onOpenRegister={() => setIsRegisterOpen(true)}
+            onOpenRegister={handleOpenRegister}
           />
         );
     }
@@ -112,7 +155,7 @@ export default function App() {
       <Navbar
         activePage={activePage}
         setActivePage={setActivePage}
-        onOpenRegister={() => setIsRegisterOpen(true)}
+        onOpenRegister={handleOpenRegister}
         theme={theme}
         toggleTheme={toggleTheme}
       />
@@ -125,10 +168,10 @@ export default function App() {
       {/* Footer */}
       <Footer
         setActivePage={setActivePage}
-        onOpenRegister={() => setIsRegisterOpen(true)}
+        onOpenRegister={handleOpenRegister}
       />
 
-      {/* Registration Modal Dialog */}
+      {/* Registration Modal Dialog (Fallback) */}
       <RegisterModal
         isOpen={isRegisterOpen}
         onClose={() => setIsRegisterOpen(false)}

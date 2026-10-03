@@ -90,13 +90,15 @@ export default {
         "margin-mobile": "16px"
       },
       fontFamily: {
-        "headline-xl": ["Plus Jakarta Sans", "sans-serif"],
-        "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
-        "headline-md": ["Plus Jakarta Sans", "sans-serif"],
-        "headline-lg-mobile": ["Plus Jakarta Sans", "sans-serif"],
-        "body-lg": ["JetBrains Mono", "monospace"],
-        "body-md": ["JetBrains Mono", "monospace"],
-        "label-caps": ["JetBrains Mono", "monospace"]
+        sans: ["Plus Jakarta Sans", "Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "Roboto", "sans-serif"],
+        "headline-xl": ["Plus Jakarta Sans", "Inter", "sans-serif"],
+        "headline-lg": ["Plus Jakarta Sans", "Inter", "sans-serif"],
+        "headline-md": ["Plus Jakarta Sans", "Inter", "sans-serif"],
+        "headline-lg-mobile": ["Plus Jakarta Sans", "Inter", "sans-serif"],
+        "body-lg": ["Plus Jakarta Sans", "Inter", "sans-serif"],
+        "body-md": ["Plus Jakarta Sans", "Inter", "sans-serif"],
+        "label-caps": ["Plus Jakarta Sans", "Inter", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
       },
       fontSize: {
         "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
@@ -105,7 +107,7 @@ export default {
         "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "600" }],
         "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
         "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
-        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }]
+        "label-caps": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.06em", "fontWeight": "600" }]
       }
     },
   },

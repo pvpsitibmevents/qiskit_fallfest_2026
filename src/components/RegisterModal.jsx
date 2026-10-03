@@ -84,46 +84,56 @@ export default function RegisterModal({ isOpen, onClose }) {
         {!submitted ? (
           <>
             <div className="mb-6">
-              <div className="inline-flex items-center gap-2 bg-primary/10 dark:bg-primary/20 text-primary font-label-caps text-xs px-3 py-1 rounded-full mb-2 font-bold">
+              <div className="inline-flex items-center gap-2 bg-primary/10 dark:bg-primary/20 text-primary font-bold text-xs px-3 py-1 rounded-full mb-2">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 PVPSIT QISKIT FALL FEST 2026
               </div>
               <h2 className="font-headline-md text-2xl text-on-surface dark:text-dark-text font-bold">Event Registration</h2>
-              <p className="font-body-md text-sm text-on-surface-variant dark:text-dark-text-muted">Reserve your spot for workshops, tech talks, and the 3-day fest.</p>
+              <p className="text-sm text-on-surface-variant dark:text-dark-text-muted">Reserve your spot for workshops, tech talks, and the 3-day fest.</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block font-label-caps text-xs text-on-surface dark:text-dark-text mb-1 uppercase tracking-wider font-bold">Full Name</label>
-                <input
-                  type="text"
-                  required
-                  placeholder="Enter your full name"
-                  value={formData.fullName}
-                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  className="w-full px-4 py-3 rounded-md bg-surface-container-low dark:bg-dark-surface border border-outline-variant/30 dark:border-dark-border dark:text-dark-text font-body-md text-sm focus:outline-none focus:border-primary"
-                />
+                <label className="block text-xs text-on-surface dark:text-dark-text mb-1.5 uppercase tracking-wider font-bold">Full Name</label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant dark:text-dark-text-muted">
+                    <span className="material-symbols-outlined text-base">person</span>
+                  </div>
+                  <input
+                    type="text"
+                    required
+                    placeholder="Enter your full name"
+                    value={formData.fullName}
+                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                    className="w-full pl-9 pr-4 py-3 rounded-xl bg-surface-container-low dark:bg-dark-surface border border-outline-variant/30 dark:border-dark-border dark:text-dark-text text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  />
+                </div>
               </div>
 
               <div>
-                <label className="block font-label-caps text-xs text-on-surface dark:text-dark-text mb-1 uppercase tracking-wider font-bold">Email Address</label>
-                <input
-                  type="email"
-                  required
-                  placeholder="name@pvpsiddhartha.ac.in"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-md bg-surface-container-low dark:bg-dark-surface border border-outline-variant/30 dark:border-dark-border dark:text-dark-text font-body-md text-sm focus:outline-none focus:border-primary"
-                />
+                <label className="block text-xs text-on-surface dark:text-dark-text mb-1.5 uppercase tracking-wider font-bold">Email Address</label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant dark:text-dark-text-muted">
+                    <span className="material-symbols-outlined text-base">mail</span>
+                  </div>
+                  <input
+                    type="email"
+                    required
+                    placeholder="name@pvpsiddhartha.ac.in"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full pl-9 pr-4 py-3 rounded-xl bg-surface-container-low dark:bg-dark-surface border border-outline-variant/30 dark:border-dark-border dark:text-dark-text text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  />
+                </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block font-label-caps text-xs text-on-surface dark:text-dark-text mb-1 uppercase tracking-wider font-bold">Department</label>
+                  <label className="block text-xs text-on-surface dark:text-dark-text mb-1.5 uppercase tracking-wider font-bold">Department</label>
                   <select
                     value={formData.department}
                     onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                    className="w-full px-3 py-3 rounded-md bg-surface-container-low dark:bg-dark-surface border border-outline-variant/30 dark:border-dark-border dark:text-dark-text font-body-md text-xs focus:outline-none focus:border-primary"
+                    className="w-full px-3 py-3 rounded-xl bg-surface-container-low dark:bg-dark-surface border border-outline-variant/30 dark:border-dark-border dark:text-dark-text text-xs focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                   >
                     <option>Computer Science & Engineering</option>
                     <option>Information Technology</option>
@@ -136,11 +146,11 @@ export default function RegisterModal({ isOpen, onClose }) {
                 </div>
 
                 <div>
-                  <label className="block font-label-caps text-xs text-on-surface dark:text-dark-text mb-1 uppercase tracking-wider font-bold">Year of Study</label>
+                  <label className="block text-xs text-on-surface dark:text-dark-text mb-1.5 uppercase tracking-wider font-bold">Year of Study</label>
                   <select
                     value={formData.year}
                     onChange={(e) => setFormData({ ...formData, year: e.target.value })}
-                    className="w-full px-3 py-3 rounded-md bg-surface-container-low dark:bg-dark-surface border border-outline-variant/30 dark:border-dark-border dark:text-dark-text font-body-md text-xs focus:outline-none focus:border-primary"
+                    className="w-full px-3 py-3 rounded-xl bg-surface-container-low dark:bg-dark-surface border border-outline-variant/30 dark:border-dark-border dark:text-dark-text text-xs focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                   >
                     <option>1st Year</option>
                     <option>2nd Year</option>
@@ -152,11 +162,11 @@ export default function RegisterModal({ isOpen, onClose }) {
               </div>
 
               <div>
-                <label className="block font-label-caps text-xs text-on-surface dark:text-dark-text mb-1 uppercase tracking-wider font-bold">Registration Track</label>
+                <label className="block text-xs text-on-surface dark:text-dark-text mb-1.5 uppercase tracking-wider font-bold">Registration Track</label>
                 <select
                   value={formData.registrationType}
                   onChange={(e) => setFormData({ ...formData, registrationType: e.target.value })}
-                  className="w-full px-4 py-3 rounded-md bg-surface-container-low dark:bg-dark-surface border border-outline-variant/30 dark:border-dark-border dark:text-dark-text font-body-md text-sm focus:outline-none focus:border-primary"
+                  className="w-full px-4 py-3 rounded-xl bg-surface-container-low dark:bg-dark-surface border border-outline-variant/30 dark:border-dark-border dark:text-dark-text text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                 >
                   <option>Full Pass (Pre-Fest + Main Fest + Post-Fest)</option>
                   <option>Main Fest Only (Oct 15–17)</option>
@@ -167,16 +177,16 @@ export default function RegisterModal({ isOpen, onClose }) {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full mt-6 bg-primary text-on-primary font-label-caps py-4 rounded-md shadow-pulse-pink hover:bg-on-primary-fixed-variant transition-all duration-200 flex items-center justify-center gap-2 hover:scale-105 active:scale-110 font-bold disabled:opacity-50"
+                className="w-full mt-6 bg-primary text-on-primary font-bold py-3.5 rounded-xl shadow-pulse-pink hover:bg-on-primary-fixed-variant transition-all duration-200 flex items-center justify-center gap-2 hover:scale-105 active:scale-95 disabled:opacity-50 text-sm"
               >
                 {isSubmitting ? (
                   <>
                     <span className="w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin" />
-                    Submitting...
+                    <span>Submitting...</span>
                   </>
                 ) : (
                   <>
-                    Complete Registration
+                    <span>Complete Registration</span>
                     <span className="material-symbols-outlined text-sm">arrow_forward</span>
                   </>
                 )}
