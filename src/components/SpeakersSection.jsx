@@ -1,7 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function SpeakersSection({ onOpenRegister, showHeader = true, className = '' }) {
+  const [selectedSpeaker, setSelectedSpeaker] = useState(null);
+  const [modalTab, setModalTab] = useState('details');
+
   const speakers = [
+    {
+      id: 'venkata-swamy-tadikonda',
+      name: 'Shri. Venkata Swamy Tadikonda',
+      role: 'Programme Coordinator, QAIC • Advisor, AQV',
+      company: 'QAIC • Amaravati Quantum Valley',
+      companyBadge: 'QAIC • AQV',
+      badgeColor: 'bg-cyan-500/10 text-cyan-600 dark:bg-cyan-400/15 dark:text-cyan-300 border-cyan-500/30',
+      category: 'Guest Speaker',
+      date: '07 October 2026',
+      talkTheme: 'Quantum Technologies: Fundamentals, AQV Initiatives & QAIC Opportunities',
+      bio: 'Leading Andhra Pradesh’s quantum initiatives at QAIC & Amaravati Quantum Valley, driving regional applications and Telugu quantum literacy.',
+      contributions: [
+        'Co-Translator of "Quantum Nation" (Telugu edition) to expand quantum awareness.',
+        'Developing 100+ quantum application use cases for government and industry.',
+        'Fostering quantum adoption across MSMEs, startups, and academic institutions.',
+      ],
+      linkedin: 'https://www.linkedin.com/in/venkata-swamy-tadikonda-a083a216/',
+      images: [
+        `${import.meta.env.BASE_URL}speakers/venkata_swamy.png`,
+        `${import.meta.env.BASE_URL}speakers/venkata_swamy.jpg`,
+        `${import.meta.env.BASE_URL}speakers/Venkata Swamy Tadikonda.jpg`,
+      ],
+      posterImage: `${import.meta.env.BASE_URL}speakers/venkata_swamy_poster.png`,
+      themePosterImage: `${import.meta.env.BASE_URL}speakers/venkata_swamy_website_theme_poster.png`,
+      topics: ['Quantum Tech', 'AQV Initiatives', 'Telugu Edition'],
+    },
     {
       id: 'kunal-garg',
       name: 'Kunal Garg, Ph.D.',
@@ -95,12 +124,13 @@ export default function SpeakersSection({ onOpenRegister, showHeader = true, cla
             Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-container to-secondary">Keynote Speakers</span>
           </h2>
           <p className="font-body-md text-on-surface-variant dark:text-dark-text-muted max-w-3xl mx-auto text-sm sm:text-base">
-            Learn directly from world-class quantum research scientists, algorithm engineers, and innovators from IBM Quantum, BQP, and IQ Leap.
+            Learn directly from quantum research scientists, algorithm engineers, and ecosystem leaders from IBM Quantum, QAIC, AQV, BQP, and IQ Leap.
           </p>
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Clean 5-Speaker Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {speakers.map((speaker) => (
           <div
             key={speaker.id}
@@ -121,7 +151,13 @@ export default function SpeakersSection({ onOpenRegister, showHeader = true, cla
             </div>
 
             {/* Speaker Avatar Frame */}
-            <div className="relative mb-6 z-10">
+            <div 
+              className="relative mb-6 z-10 cursor-pointer"
+              onClick={() => {
+                setSelectedSpeaker(speaker);
+                setPosterMode('theme');
+              }}
+            >
               <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-2xl overflow-hidden p-1 bg-gradient-to-tr from-primary via-secondary to-primary-container shadow-md group-hover:shadow-glow-pink transition-all duration-300">
                 <div className="w-full h-full rounded-xl overflow-hidden bg-white dark:bg-dark-surface relative">
                   <img
@@ -145,7 +181,13 @@ export default function SpeakersSection({ onOpenRegister, showHeader = true, cla
 
             {/* Speaker Info */}
             <div className="flex-1 flex flex-col items-center relative z-10 w-full">
-              <h3 className="font-headline-md text-xl font-bold text-on-surface dark:text-dark-text mb-1 group-hover:text-primary transition-colors">
+              <h3 
+                className="font-headline-md text-xl font-bold text-on-surface dark:text-dark-text mb-1 group-hover:text-primary transition-colors cursor-pointer"
+                onClick={() => {
+                  setSelectedSpeaker(speaker);
+                  setPosterMode('theme');
+                }}
+              >
                 {speaker.name}
               </h3>
 
@@ -169,25 +211,38 @@ export default function SpeakersSection({ onOpenRegister, showHeader = true, cla
                 ))}
               </div>
 
-              {/* Official LinkedIn Button with Brand Logo */}
-              <a
-                href={speaker.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-2.5 px-4 rounded-xl font-label-caps text-xs font-bold transition-all duration-200 flex items-center justify-center gap-2.5 bg-[#0077B5]/10 hover:bg-[#0077B5] text-[#0077B5] hover:text-white dark:bg-[#0077B5]/20 dark:hover:bg-[#0077B5] dark:text-[#5cb5ff] dark:hover:text-white border border-[#0077B5]/30 hover:shadow-md hover:scale-102 active:scale-98"
-                aria-label={`View ${speaker.name}'s LinkedIn Profile`}
-              >
-                {/* Official LinkedIn SVG Vector Logo */}
-                <svg
-                  className="w-4 h-4 fill-current shrink-0"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
+              {/* Action Buttons */}
+              <div className="w-full flex items-center gap-2">
+                <button
+                  onClick={() => {
+                    setSelectedSpeaker(speaker);
+                    setModalTab('details');
+                  }}
+                  className="flex-1 py-2.5 px-3 rounded-xl font-bold text-xs transition-all duration-200 flex items-center justify-center gap-1.5 bg-primary/10 hover:bg-primary text-primary hover:text-white dark:bg-primary/20 dark:hover:bg-primary dark:text-primary-fixed-dim dark:hover:text-white border border-primary/30"
                 >
-                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.65 1.65 0 0 0-1.65 1.66 1.66 1.66 0 0 0 1.65 1.65 1.65 1.65 0 0 0 1.66-1.65c0-.92-.74-1.66-1.66-1.66Z" />
-                </svg>
-                <span>Connect on LinkedIn</span>
-                <span className="material-symbols-outlined text-[13px] opacity-70">open_in_new</span>
-              </a>
+                  <span className="material-symbols-outlined text-sm">visibility</span>
+                  <span>View Details</span>
+                </button>
+
+                {speaker.linkedin && (
+                  <a
+                    href={speaker.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2.5 rounded-xl font-bold transition-all duration-200 flex items-center justify-center bg-[#0077B5]/10 hover:bg-[#0077B5] text-[#0077B5] hover:text-white dark:bg-[#0077B5]/20 dark:hover:bg-[#0077B5] dark:text-[#5cb5ff] dark:hover:text-white border border-[#0077B5]/30 shrink-0"
+                    aria-label={`View ${speaker.name}'s LinkedIn`}
+                    title="Connect on LinkedIn"
+                  >
+                    <svg
+                      className="w-4 h-4 fill-current"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.65 1.65 0 0 0-1.65 1.66 1.66 1.66 0 0 0 1.65 1.65 1.65 1.65 0 0 0 1.66-1.65c0-.92-.74-1.66-1.66-1.66Z" />
+                    </svg>
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         ))}
@@ -202,6 +257,172 @@ export default function SpeakersSection({ onOpenRegister, showHeader = true, cla
             <span>Register to Attend Keynotes & Workshops</span>
             <span className="material-symbols-outlined text-sm">arrow_forward</span>
           </button>
+        </div>
+      )}
+
+      {/* Clean, Readable Speaker Profile & Poster Modal Dialog */}
+      {selectedSpeaker && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn"
+          onClick={() => setSelectedSpeaker(null)}
+        >
+          <div
+            className="bg-white dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 sm:p-7 animate-scaleUp"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedSpeaker(null)}
+              className="absolute top-4 right-4 text-on-surface-variant dark:text-dark-text-muted hover:text-primary p-2 rounded-full hover:bg-surface-variant dark:hover:bg-dark-surface-elevated transition-transform hover:scale-110 active:scale-95"
+              aria-label="Close dialog"
+            >
+              <span className="material-symbols-outlined text-xl">close</span>
+            </button>
+
+            {/* Header */}
+            <div className="flex items-center gap-4 mb-6 pb-4 border-b border-outline-variant/20 dark:border-dark-border pr-8">
+              <div className="w-16 h-16 rounded-xl overflow-hidden p-0.5 bg-gradient-to-tr from-primary to-secondary shrink-0 shadow-md">
+                <img
+                  src={selectedSpeaker.images[0]}
+                  alt={selectedSpeaker.name}
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div>
+                <h3 className="font-headline-md text-xl font-bold text-on-surface dark:text-dark-text">
+                  {selectedSpeaker.name}
+                </h3>
+                <p className="text-xs text-primary font-semibold">
+                  {selectedSpeaker.role}
+                </p>
+                <p className="text-xs text-on-surface-variant dark:text-dark-text-muted">
+                  {selectedSpeaker.company}
+                </p>
+              </div>
+            </div>
+
+            {/* View Switcher (Only if poster is available) */}
+            {selectedSpeaker.themePosterImage && (
+              <div className="flex items-center gap-2 mb-5 p-1 bg-surface-container-low dark:bg-dark-surface rounded-xl border border-outline-variant/20 dark:border-dark-border">
+                <button
+                  onClick={() => setModalTab('details')}
+                  className={`flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+                    modalTab === 'details'
+                      ? 'bg-primary text-white shadow-sm'
+                      : 'text-on-surface-variant dark:text-dark-text-muted hover:text-primary'
+                  }`}
+                >
+                  <span className="material-symbols-outlined text-sm">badge</span>
+                  <span>Speaker Info & Theme</span>
+                </button>
+                <button
+                  onClick={() => setModalTab('poster')}
+                  className={`flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+                    modalTab === 'poster'
+                      ? 'bg-primary text-white shadow-sm'
+                      : 'text-on-surface-variant dark:text-dark-text-muted hover:text-primary'
+                  }`}
+                >
+                  <span className="material-symbols-outlined text-sm">image</span>
+                  <span>Event Poster</span>
+                </button>
+              </div>
+            )}
+
+            {selectedSpeaker.themePosterImage && modalTab === 'poster' ? (
+              /* High-Resolution Event Poster View */
+              <div className="space-y-4 mb-5">
+                <div className="relative rounded-2xl overflow-hidden border border-outline-variant/30 dark:border-dark-border shadow-2xl bg-black/50 flex items-center justify-center group">
+                  <img
+                    src={selectedSpeaker.themePosterImage}
+                    alt={`${selectedSpeaker.name} Keynote Poster`}
+                    className="w-full max-h-[500px] object-contain mx-auto rounded-xl"
+                  />
+                  <a
+                    href={selectedSpeaker.themePosterImage}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-3 right-3 bg-black/80 hover:bg-primary text-white text-xs font-bold px-3.5 py-2 rounded-xl backdrop-blur-md border border-white/20 transition-all flex items-center gap-1.5 shadow-lg"
+                    title="Open full resolution poster"
+                  >
+                    <span className="material-symbols-outlined text-sm">open_in_new</span>
+                    <span>Full Poster</span>
+                  </a>
+                </div>
+              </div>
+            ) : (
+              /* Speaker Bio & Details View */
+              <>
+                {/* Bio / Overview */}
+                {selectedSpeaker.bio && (
+                  <p className="text-xs sm:text-sm text-on-surface-variant dark:text-dark-text-muted leading-relaxed mb-5">
+                    {selectedSpeaker.bio}
+                  </p>
+                )}
+
+                {/* Talk Theme & Info (Clean and Readable) */}
+                {selectedSpeaker.talkTheme && (
+                  <div className="space-y-4 mb-5">
+                    <div className="p-3.5 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/20">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="material-symbols-outlined text-primary text-base">campaign</span>
+                        <span className="text-xs font-bold text-primary uppercase tracking-wide">
+                          Talk Theme • {selectedSpeaker.date}
+                        </span>
+                      </div>
+                      <h4 className="text-sm font-bold text-on-surface dark:text-dark-text leading-snug">
+                        "{selectedSpeaker.talkTheme}"
+                      </h4>
+                    </div>
+
+                    {selectedSpeaker.contributions && (
+                      <div className="space-y-2">
+                        <span className="text-xs font-bold text-on-surface dark:text-dark-text uppercase tracking-wider block">
+                          Key Highlights:
+                        </span>
+                        <ul className="space-y-1.5 text-xs text-on-surface-variant dark:text-dark-text-muted">
+                          {selectedSpeaker.contributions.map((point, idx) => (
+                            <li key={idx} className="flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-1.5" />
+                              <span>{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+              </>
+            )}
+
+            {/* Actions */}
+            <div className="flex items-center justify-between gap-3 pt-2 border-t border-outline-variant/20 dark:border-dark-border">
+              {onOpenRegister && (
+                <button
+                  onClick={() => {
+                    setSelectedSpeaker(null);
+                    onOpenRegister();
+                  }}
+                  className="bg-primary text-on-primary font-bold text-xs py-2.5 px-5 rounded-xl shadow-pulse-pink hover:bg-on-primary-fixed-variant transition-all hover:scale-105 active:scale-95"
+                >
+                  Register for Event
+                </button>
+              )}
+
+              {selectedSpeaker.linkedin && (
+                <a
+                  href={selectedSpeaker.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0077B5] dark:text-[#5cb5ff] hover:underline"
+                >
+                  <span>Connect on LinkedIn</span>
+                  <span className="material-symbols-outlined text-sm">open_in_new</span>
+                </a>
+              )}
+            </div>
+          </div>
         </div>
       )}
     </section>

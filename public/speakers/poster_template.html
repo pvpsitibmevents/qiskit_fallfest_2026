@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shri. Venkata Swamy Tadikonda - Keynote Poster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      width: 1200px;
+      height: 1560px;
+      background: #090614;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #FFFFFF;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Ambient background glows */
+    .glow-magenta {
+      position: absolute;
+      top: -80px;
+      left: -80px;
+      width: 750px;
+      height: 750px;
+      background: radial-gradient(circle, rgba(237, 29, 127, 0.38) 0%, rgba(237, 29, 127, 0) 70%);
+      pointer-events: none;
+    }
+    .glow-cyan {
+      position: absolute;
+      bottom: -100px;
+      right: -100px;
+      width: 850px;
+      height: 850px;
+      background: radial-gradient(circle, rgba(0, 229, 255, 0.32) 0%, rgba(0, 229, 255, 0) 70%);
+      pointer-events: none;
+    }
+    .glow-purple {
+      position: absolute;
+      top: 38%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.22) 0%, rgba(139, 92, 246, 0) 70%);
+      pointer-events: none;
+    }
+
+    /* Grid pattern */
+    .grid-pattern {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 55px 55px;
+      mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0.15) 90%);
+      pointer-events: none;
+    }
+
+    /* Outer Container */
+    .poster-frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 52px 68px 46px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      z-index: 10;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      padding-bottom: 22px;
+    }
+    .brand-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .brand-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      background: linear-gradient(90deg, #FFFFFF 0%, #FF80BF 60%, #00E5FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+    }
+    .brand-sub {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.65);
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+    }
+    .host-badges {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+    }
+    .badge-pill.host {
+      background: rgba(237, 29, 127, 0.16);
+      border-color: rgba(237, 29, 127, 0.45);
+      color: #FF85C4;
+    }
+    .badge-pill.co-host {
+      background: rgba(0, 229, 255, 0.14);
+      border-color: rgba(0, 229, 255, 0.4);
+      color: #6AEBFF;
+    }
+
+    /* Hero Spotlight Section */
+    .speaker-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-top: 18px;
+      margin-bottom: 22px;
+    }
+    .speaker-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 24px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(237, 29, 127, 0.22), rgba(121, 40, 202, 0.22));
+      border: 1px solid rgba(237, 29, 127, 0.55);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: #FFB3D9;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(237, 29, 127, 0.2);
+    }
+    .speaker-tag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ED1D7F;
+      box-shadow: 0 0 14px #ED1D7F;
+    }
+
+    /* Avatar Frame */
+    .avatar-wrapper {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      margin-bottom: 24px;
+    }
+    .avatar-glow {
+      position: absolute;
+      inset: -14px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ED1D7F 0%, #00E5FF 100%);
+      filter: blur(24px);
+      opacity: 0.7;
+    }
+    .avatar-ring {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FF2E93 0%, #A855F7 50%, #00E5FF 100%);
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    }
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #0E0A1A;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .speaker-name {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+    }
+    .speaker-role {
+      font-size: 17px;
+      font-weight: 600;
+      color: #00E5FF;
+      margin-bottom: 5px;
+      letter-spacing: 0.6px;
+    }
+    .speaker-org {
+      font-size: 15px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    /* Content Cards Grid */
+    .details-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      margin-bottom: 22px;
+    }
+
+    /* Talk Theme Card */
+    .talk-card {
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 22px;
+      padding: 24px 34px;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+    .talk-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(180deg, #ED1D7F, #00E5FF);
+    }
+    .talk-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .talk-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2.2px;
+      color: #FF85C4;
+      text-transform: uppercase;
+    }
+    .date-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 229, 255, 0.16);
+      border: 1px solid rgba(0, 229, 255, 0.45);
+      color: #6AEBFF;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 7px 18px;
+      border-radius: 999px;
+    }
+    .talk-title {
+      font-size: 23px;
+      font-weight: 700;
+      line-height: 1.42;
+      color: #FFFFFF;
+    }
+
+    /* Highlights Card */
+    .highlights-card {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 22px;
+      padding: 26px 34px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    .highlights-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.65);
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .highlights-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      font-size: 15px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .highlight-bullet {
+      width: 22px;
+      height: 22px;
+      border-radius: 7px;
+      background: rgba(237, 29, 127, 0.22);
+      border: 1px solid rgba(237, 29, 127, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: #FF85C4;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 24px;
+    }
+    .footer-left {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.45;
+    }
+    .footer-left strong {
+      color: rgba(255, 255, 255, 0.92);
+      font-weight: 600;
+    }
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .footer-motto {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+    }
+    .footer-badge {
+      padding: 7px 16px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 12px;
+      font-weight: 600;
+      color: #FF85C4;
+      letter-spacing: 0.6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-magenta"></div>
+  <div class="glow-cyan"></div>
+  <div class="glow-purple"></div>
+  <div class="grid-pattern"></div>
+
+  <div class="poster-frame">
+    <!-- Header -->
+    <div class="header">
+      <div class="brand-group">
+        <div class="brand-title">PVPSIT  ×  Qiskit Fall Fest 2026</div>
+        <div class="brand-sub">IBM Quantum Community Event</div>
+      </div>
+      <div class="host-badges">
+        <div class="badge-pill host">Host: RGUKT Nuzvid</div>
+        <div class="badge-pill co-host">Co-Hosts: RGUKT RK Valley • Ongole</div>
+      </div>
+    </div>
+
+    <!-- Hero Spotlight -->
+    <div class="speaker-hero">
+      <div class="speaker-tag">
+        <span class="speaker-tag-dot"></span>
+        <span>Featured Keynote Speaker</span>
+      </div>
+
+      <div class="avatar-wrapper">
+        <div class="avatar-glow"></div>
+        <div class="avatar-ring">
+          <div class="avatar-inner">
+            <img class="avatar-img" src="/Users/joshuadaniel387/Documents/GitHub/qiskit_fallfest_2026/public/speakers/venkata_swamy.png" alt="Shri. Venkata Swamy Tadikonda">
+          </div>
+        </div>
+      </div>
+
+      <h1 class="speaker-name">Shri. Venkata Swamy Tadikonda</h1>
+      <p class="speaker-role">Programme Coordinator, QAIC (Quantum &amp; AI Innovation Centre)</p>
+      <p class="speaker-org">Advisor, Amaravati Quantum Valley (AQV)</p>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="details-grid">
+      <!-- Talk Theme -->
+      <div class="talk-card">
+        <div class="talk-card-header">
+          <span class="talk-label">Keynote Theme</span>
+          <span class="date-badge">📅 07 October 2026</span>
+        </div>
+        <h2 class="talk-title">"Quantum Technologies: Fundamentals, AQV Initiatives &amp; QAIC Opportunities"</h2>
+      </div>
+
+      <!-- Highlights -->
+      <div class="highlights-card">
+        <div class="highlights-title">Key Contributions &amp; Ecosystem Impact</div>
+        <ul class="highlights-list">
+          <li class="highlight-item">
+            <span class="highlight-bullet">✦</span>
+            <span><strong>Quantum Literacy:</strong> Co-Translator of <em>"Quantum Nation"</em> (Telugu edition) — taking quantum awareness to wider regional academia and broader Telugu audiences.</span>
+          </li>
+          <li class="highlight-item">
+            <span class="highlight-bullet">✦</span>
+            <span><strong>Use-Case Leadership:</strong> Driving the AQV-QAIC 100-to-1,000 quantum applications pipeline across state government, industry, and societal development domains.</span>
+          </li>
+          <li class="highlight-item">
+            <span class="highlight-bullet">✦</span>
+            <span><strong>Ecosystem Adoption:</strong> Spearheading Vendor Development Programmes for MSMEs, engaging universities, research centers, and startups to build Andhra Pradesh's quantum cluster.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-left">
+        <strong>Department of Freshman Engineering</strong><br>
+        Prasad V. Potluri Siddhartha Institute of Technology, Vijayawada
+      </div>
+      <div class="footer-right">
+        <span class="footer-motto">People • Technology • A Brighter Tomorrow</span>
+        <span class="footer-badge">Qiskit Community</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
