@@ -7,7 +7,9 @@
     <title>PVPSIT Qiskit Fall Fest 2026</title>
     <script>
       (function() {
-        const savedTheme = localStorage.getItem('theme');
+        const params = new URLSearchParams(window.location.search);
+        const urlTheme = params.get('theme');
+        const savedTheme = urlTheme || localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
           document.documentElement.classList.add('dark');

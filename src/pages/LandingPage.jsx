@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SpeakersSection from '../components/SpeakersSection';
 import InauguralGallery from '../components/InauguralGallery';
+import { GlassPanel } from '@/components/ui/glass';
 
 const calculateTimeLeft = () => {
   const targetDate = new Date('2026-10-15T09:00:00');
@@ -84,17 +85,24 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
             </div>
           </div>
 
-          {/* Right Side: Main Fest Countdown Card */}
+          {/* Right Side: Main Fest Countdown Card (Clear GlassPanel with 0 blur and increased dome) */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center mt-10 lg:mt-0 w-full">
-            <div className="w-full max-w-lg bg-surface/90 dark:bg-dark-surface-card/90 backdrop-blur-xl border-2 border-primary/30 dark:border-primary/40 rounded-2xl p-6 sm:p-8 shadow-2xl shadow-primary/10 relative overflow-hidden group hover:border-primary/60 transition-all duration-300">
+            <GlassPanel
+              blur={0}
+              dome={1.6}
+              strength={0.5}
+              radius={24}
+              className="w-full max-w-lg shadow-2xl shadow-black/10 dark:shadow-primary/10 relative overflow-hidden transition-all duration-300"
+              contentClassName="p-6 sm:p-8"
+            >
               {/* Glow background */}
               <div className="absolute -top-16 -right-16 w-48 h-48 bg-primary/10 dark:bg-primary/20 rounded-full blur-3xl pointer-events-none" />
               <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-secondary/10 dark:bg-secondary/20 rounded-full blur-3xl pointer-events-none" />
 
               {/* Countdown Header */}
-              <div className="flex items-center justify-between w-full mb-6 pb-4 border-b border-outline-variant/30 dark:border-dark-border relative z-10">
+              <div className="flex items-center justify-between w-full mb-6 pb-4 border-b border-black/10 dark:border-white/10 relative z-10">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 shadow-xs border border-primary/30 p-0.5 bg-white dark:bg-dark-surface">
+                  <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 shadow-xs border border-black/20 dark:border-white/10 p-0.5 bg-black/5 dark:bg-white/5">
                     <img src={`${import.meta.env.BASE_URL}theme/Picture12.png`} alt="Qiskit Fall Fest Seal" className="w-full h-full object-contain" />
                   </div>
                   <div>
@@ -106,7 +114,7 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                     </span>
                   </div>
                 </div>
-                <span className="text-[11px] font-label-caps bg-secondary-container/30 dark:bg-secondary/20 text-on-secondary-container dark:text-secondary-fixed-dim px-3 py-1 rounded-full font-bold border border-secondary-container/50 dark:border-secondary/30">
+                <span className="text-[11px] font-label-caps bg-secondary/15 dark:bg-secondary/25 text-secondary dark:text-secondary-fixed-dim px-3 py-1 rounded-full font-bold border border-secondary/20 dark:border-secondary/35 shadow-xs">
                   Oct 15–17, 2026
                 </span>
               </div>
@@ -116,10 +124,12 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 Main Qiskit Fall Fest Begins In
               </p>
 
-              {/* 4-Tile Countdown Grid */}
+              {/* 4-Tile Countdown Grid (Clean translucent boxes with only one visible thin border line and zero excess lines) */}
               <div className="grid grid-cols-4 gap-2.5 sm:gap-3.5 w-full mb-6 relative z-10">
                 {/* Days */}
-                <div className="bg-surface-container-low dark:bg-dark-surface border border-outline-variant/50 dark:border-dark-border rounded-xl p-3 sm:p-4 flex flex-col items-center justify-center shadow-inner hover:border-primary/50 transition-colors">
+                <div
+                  className="rounded-2xl border border-black/20 dark:border-white/25 bg-white/40 dark:bg-white/5 shadow-xs p-3 sm:p-4 flex flex-col items-center justify-center transition-colors"
+                >
                   <span className="text-3xl sm:text-4xl md:text-5xl font-black text-primary tracking-tight font-headline-xl">
                     {String(timeLeft.days).padStart(2, '0')}
                   </span>
@@ -129,7 +139,9 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 </div>
 
                 {/* Hours */}
-                <div className="bg-surface-container-low dark:bg-dark-surface border border-outline-variant/50 dark:border-dark-border rounded-xl p-3 sm:p-4 flex flex-col items-center justify-center shadow-inner hover:border-primary/50 transition-colors">
+                <div
+                  className="rounded-2xl border border-black/20 dark:border-white/25 bg-white/40 dark:bg-white/5 shadow-xs p-3 sm:p-4 flex flex-col items-center justify-center transition-colors"
+                >
                   <span className="text-3xl sm:text-4xl md:text-5xl font-black text-primary tracking-tight font-headline-xl">
                     {String(timeLeft.hours).padStart(2, '0')}
                   </span>
@@ -139,7 +151,9 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 </div>
 
                 {/* Minutes */}
-                <div className="bg-surface-container-low dark:bg-dark-surface border border-outline-variant/50 dark:border-dark-border rounded-xl p-3 sm:p-4 flex flex-col items-center justify-center shadow-inner hover:border-primary/50 transition-colors">
+                <div
+                  className="rounded-2xl border border-black/20 dark:border-white/25 bg-white/40 dark:bg-white/5 shadow-xs p-3 sm:p-4 flex flex-col items-center justify-center transition-colors"
+                >
                   <span className="text-3xl sm:text-4xl md:text-5xl font-black text-primary tracking-tight font-headline-xl">
                     {String(timeLeft.minutes).padStart(2, '0')}
                   </span>
@@ -149,7 +163,9 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 </div>
 
                 {/* Seconds */}
-                <div className="bg-surface-container-low dark:bg-dark-surface border border-outline-variant/50 dark:border-dark-border rounded-xl p-3 sm:p-4 flex flex-col items-center justify-center shadow-inner hover:border-primary/50 transition-colors">
+                <div
+                  className="rounded-2xl border border-black/20 dark:border-white/25 bg-white/40 dark:bg-white/5 shadow-xs p-3 sm:p-4 flex flex-col items-center justify-center transition-colors"
+                >
                   <span className="text-3xl sm:text-4xl md:text-5xl font-black text-primary tracking-tight font-headline-xl animate-pulse">
                     {String(timeLeft.seconds).padStart(2, '0')}
                   </span>
@@ -162,12 +178,12 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
               {/* Action Button inside Card */}
               <button
                 onClick={onOpenRegister}
-                className="w-full bg-primary text-on-primary font-label-caps text-sm py-3.5 px-6 rounded-xl shadow-pulse-pink hover:bg-on-primary-fixed-variant transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] font-bold flex items-center justify-center gap-2 relative z-10"
+                className="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-label-caps text-sm py-3.5 px-6 rounded-xl shadow-lg shadow-primary/25 hover:shadow-primary/40 border border-black/30 dark:border-white/20 hover:scale-[1.02] active:scale-[0.98] font-bold flex items-center justify-center gap-2 relative z-10 transition-all duration-200"
               >
                 <span>Register for Fest (15–17 Oct)</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </button>
-            </div>
+            </GlassPanel>
           </div>
         </div>
       </header>
@@ -207,7 +223,7 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 <div className="w-full md:w-5/12 text-center md:text-right mb-4 md:mb-0">
                   <div className="bg-surface-container dark:bg-dark-surface-card p-6 rounded-xl border border-outline-variant/30 dark:border-dark-border group-hover:border-primary/50 transition-colors">
                     <span className="text-[10px] font-label-caps text-secondary dark:text-secondary-fixed-dim font-bold uppercase block mb-1">15 Sept • PRE-FEST</span>
-                    <h3 className="font-headline-md font-bold text-primary text-lg mb-1">⚛️ Quantum Unlocked</h3>
+                    <h3 className="font-headline-md font-bold text-primary text-lg mb-1">Quantum Unlocked</h3>
                     <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Get Curious: Beginner student awareness & physical coin/light demos.</p>
                   </div>
                 </div>
@@ -222,7 +238,7 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 <div className="w-full md:w-5/12 text-center md:text-left mb-4 md:mb-0">
                   <div className="bg-surface-container dark:bg-dark-surface-card p-6 rounded-xl border border-outline-variant/30 dark:border-dark-border group-hover:border-primary/50 transition-colors">
                     <span className="text-[10px] font-label-caps text-secondary dark:text-secondary-fixed-dim font-bold uppercase block mb-1">18 Sept • FACULTY</span>
-                    <h3 className="font-headline-md font-bold text-secondary dark:text-secondary-fixed-dim text-lg mb-1">☕ Quantum Beyond Classroom</h3>
+                    <h3 className="font-headline-md font-bold text-secondary dark:text-secondary-fixed-dim text-lg mb-1">Quantum Beyond Classroom</h3>
                     <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Faculty Awareness & Quantum Across Engineering Departments.</p>
                   </div>
                 </div>
@@ -237,7 +253,7 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 <div className="w-full md:w-5/12 text-center md:text-right mb-4 md:mb-0">
                   <div className="bg-surface-container dark:bg-dark-surface-card p-6 rounded-xl border border-outline-variant/30 dark:border-dark-border group-hover:border-primary/50 transition-colors">
                     <span className="text-[10px] font-label-caps text-secondary dark:text-secondary-fixed-dim font-bold uppercase block mb-1">22 Sept • PRE-FEST</span>
-                    <h3 className="font-headline-md font-bold text-primary text-lg mb-1">🧠 Quantum Unplugged</h3>
+                    <h3 className="font-headline-md font-bold text-primary text-lg mb-1">Quantum Unplugged</h3>
                     <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Think & Discuss: Quantum Café group discussions with "Switch Sides" twist.</p>
                   </div>
                 </div>
@@ -252,7 +268,7 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 <div className="w-full md:w-5/12 text-center md:text-left mb-4 md:mb-0">
                   <div className="bg-surface-container dark:bg-dark-surface-card p-6 rounded-xl border border-outline-variant/30 dark:border-dark-border group-hover:border-primary/50 transition-colors">
                     <span className="text-[10px] font-label-caps text-secondary dark:text-secondary-fixed-dim font-bold uppercase block mb-1">26 & 30 Sept • PRE-FEST</span>
-                    <h3 className="font-headline-md font-bold text-secondary dark:text-secondary-fixed-dim text-lg mb-1">⚔️ Quantum Clash & 🎨 Q-Canvas</h3>
+                    <h3 className="font-headline-md font-bold text-secondary dark:text-secondary-fixed-dim text-lg mb-1">Quantum Clash & Q-Canvas</h3>
                     <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Debate with Twist Cards & 90-Second Poster Pitches.</p>
                   </div>
                 </div>
@@ -267,7 +283,7 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 <div className="w-full md:w-5/12 text-center md:text-right mb-4 md:mb-0">
                   <div className="bg-surface-container dark:bg-dark-surface-card p-6 rounded-xl border border-outline-variant/30 dark:border-dark-border group-hover:border-primary/50 transition-colors">
                     <span className="text-[10px] font-label-caps text-secondary dark:text-secondary-fixed-dim font-bold uppercase block mb-1">3 & 8 Oct • PRE-FEST</span>
-                    <h3 className="font-headline-md font-bold text-primary text-lg mb-1">📄 Frontiers & 🧩 Q-Bits Quiz</h3>
+                    <h3 className="font-headline-md font-bold text-primary text-lg mb-1">Frontiers & Q-Bits Quiz</h3>
                     <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Research paper presentations & "Bet Your Qubits" strategy quiz.</p>
                   </div>
                 </div>
@@ -282,7 +298,7 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 <div className="w-full md:w-5/12 text-center md:text-left mb-4 md:mb-0">
                   <div className="bg-primary/10 dark:bg-primary/15 p-6 rounded-xl border-2 border-primary shadow-pulse-pink">
                     <span className="text-[10px] font-label-caps text-primary font-bold uppercase block mb-1">15 Oct • MAIN FEST DAY 1</span>
-                    <h3 className="font-headline-md font-bold text-primary text-xl mb-1">⚛️ Quantum Awakening</h3>
+                    <h3 className="font-headline-md font-bold text-primary text-xl mb-1">Quantum Awakening</h3>
                     <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Understand: Main Fest in-depth awareness & live Qiskit execution.</p>
                   </div>
                 </div>
@@ -297,7 +313,7 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 <div className="w-full md:w-5/12 text-center md:text-right mb-4 md:mb-0">
                   <div className="bg-primary/10 dark:bg-primary/15 p-6 rounded-xl border-2 border-primary shadow-pulse-pink">
                     <span className="text-[10px] font-label-caps text-primary font-bold uppercase block mb-1">16 Oct • MAIN FEST DAY 2</span>
-                    <h3 className="font-headline-md font-bold text-primary text-xl mb-1">💻 Qiskit Ignition</h3>
+                    <h3 className="font-headline-md font-bold text-primary text-xl mb-1">Qiskit Ignition</h3>
                     <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Code: Hands-on Qiskit workshop with "Build → Break → Fix" challenges.</p>
                   </div>
                 </div>
@@ -312,7 +328,7 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 <div className="w-full md:w-5/12 text-center md:text-left mb-4 md:mb-0">
                   <div className="bg-primary/10 dark:bg-primary/15 p-6 rounded-xl border-2 border-primary shadow-pulse-pink">
                     <span className="text-[10px] font-label-caps text-primary font-bold uppercase block mb-1">17 Oct • MAIN FEST DAY 3</span>
-                    <h3 className="font-headline-md font-bold text-primary text-xl mb-1">🔗 CircuitCraft</h3>
+                    <h3 className="font-headline-md font-bold text-primary text-xl mb-1">CircuitCraft</h3>
                     <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Build: Flagship circuit building challenge & "Circuit Relay" team battle.</p>
                   </div>
                 </div>
@@ -327,7 +343,7 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 <div className="w-full md:w-5/12 text-center md:text-right mb-4 md:mb-0">
                   <div className="bg-surface-container dark:bg-dark-surface-card p-6 rounded-xl border border-outline-variant/30 dark:border-dark-border group-hover:border-primary/50 transition-colors">
                     <span className="text-[10px] font-label-caps text-secondary dark:text-secondary-fixed-dim font-bold uppercase block mb-1">27 & 31 Oct • POST-FEST</span>
-                    <h3 className="font-headline-md font-bold text-secondary dark:text-secondary-fixed-dim text-lg mb-1">🌐 Qubit Quest & 🎤 Afterglow</h3>
+                    <h3 className="font-headline-md font-bold text-secondary dark:text-secondary-fixed-dim text-lg mb-1">Qubit Quest & Afterglow</h3>
                     <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Online gamified challenges & expert Q&A with 6-month learning roadmap.</p>
                   </div>
                 </div>
@@ -367,7 +383,7 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 <div className="w-16 h-16 bg-white dark:bg-dark-surface rounded-2xl p-2 border border-primary/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md overflow-hidden">
                   <img src={`${import.meta.env.BASE_URL}theme/Picture8.png`} alt="Falcon Processor Theme" className="w-full h-full object-contain filter drop-shadow-sm" />
                 </div>
-                <h3 className="font-headline-md text-xl font-bold text-on-surface dark:text-dark-text mb-2">⚛️ Quantum Awakening</h3>
+                <h3 className="font-headline-md text-xl font-bold text-on-surface dark:text-dark-text mb-2">Quantum Awakening</h3>
                 <p className="font-label-caps text-xs text-secondary dark:text-secondary-fixed-dim font-bold mb-4">In-depth Quantum + Qiskit Awareness • Falcon Theme</p>
                 <p className="font-body-md text-on-surface-variant dark:text-dark-text-muted text-sm mb-6 grow">
                   Deep-dive from classical 0/1 bits to qubits, superposition, entanglement, and live Qiskit execution demonstrations.
@@ -385,7 +401,7 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 <div className="w-16 h-16 bg-white dark:bg-dark-surface rounded-2xl p-2 border border-secondary/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md overflow-hidden">
                   <img src={`${import.meta.env.BASE_URL}theme/Picture9.png`} alt="Kookaburra Coding Theme" className="w-full h-full object-contain filter drop-shadow-sm" />
                 </div>
-                <h3 className="font-headline-md text-xl font-bold text-on-surface dark:text-dark-text mb-2">💻 Qiskit Ignition</h3>
+                <h3 className="font-headline-md text-xl font-bold text-on-surface dark:text-dark-text mb-2">Qiskit Ignition</h3>
                 <p className="font-label-caps text-xs text-secondary dark:text-secondary-fixed-dim font-bold mb-4">Hands-on Qiskit Workshop • Kookaburra Theme</p>
                 <p className="font-body-md text-on-surface-variant dark:text-dark-text-muted text-sm mb-6 grow">
                   Coding day! Set up environment, apply quantum gates, measure qubits, and debug circuits in the "Build → Break → Fix" challenge.
@@ -403,7 +419,7 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 <div className="w-16 h-16 bg-white dark:bg-dark-surface rounded-2xl p-2 border border-primary/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md overflow-hidden">
                   <img src={`${import.meta.env.BASE_URL}theme/Picture12.png`} alt="Qiskit Fall Fest Grand Seal" className="w-full h-full object-contain filter drop-shadow-sm" />
                 </div>
-                <h3 className="font-headline-md text-xl font-bold text-on-surface dark:text-dark-text mb-2">🔗 CircuitCraft</h3>
+                <h3 className="font-headline-md text-xl font-bold text-on-surface dark:text-dark-text mb-2">CircuitCraft</h3>
                 <p className="font-label-caps text-xs text-secondary dark:text-secondary-fixed-dim font-bold mb-4">Circuit Building Challenge • Qiskit Fall Fest Seal</p>
                 <p className="font-body-md text-on-surface-variant dark:text-dark-text-muted text-sm mb-6 grow">
                   Flagship team competition! Solve challenge cards, run "Circuit Relay" team battles, and build live quantum circuits.

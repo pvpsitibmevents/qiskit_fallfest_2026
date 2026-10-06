@@ -9,6 +9,7 @@ import SchedulePage from './pages/SchedulePage';
 import MembersPage from './pages/MembersPage';
 import GalleryPage from './pages/GalleryPage';
 import RegistrationPage from './pages/RegistrationPage';
+import QuantumBirdsBackground from './components/QuantumBirdsBackground';
 
 export default function App() {
   const [activePage, setActivePage] = useState(() => {
@@ -22,9 +23,15 @@ export default function App() {
   });
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved) return saved;
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const urlTheme = params.get('theme');
+      if (urlTheme === 'light' || urlTheme === 'dark') return urlTheme;
+      const saved = localStorage.getItem('theme');
+      if (saved) return saved;
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    return 'light';
   });
 
   useEffect(() => {
@@ -90,6 +97,16 @@ export default function App() {
     setActivePage('register');
   };
 
+  const [targetSpeakerId, setTargetSpeakerId] = useState(null);
+
+  const handleNavigateToSpeaker = (speakerId) => {
+    setTargetSpeakerId(speakerId);
+    setActivePage('speakers');
+    if (window.location.hash !== '#speakers') {
+      window.history.pushState(null, '', '#speakers');
+    }
+  };
+
   const renderPage = () => {
     switch (activePage) {
       case 'landing':
@@ -113,12 +130,15 @@ export default function App() {
         return (
           <SpeakersPage
             onOpenRegister={handleOpenRegister}
+            initialSpeakerId={targetSpeakerId}
           />
         );
       case 'schedule':
         return (
           <SchedulePage
             onOpenRegister={handleOpenRegister}
+            onNavigateToSpeaker={handleNavigateToSpeaker}
+            setActivePage={setActivePage}
           />
         );
       case 'members':
@@ -150,7 +170,10 @@ export default function App() {
   };
 
   return (
-    <div className="bg-background dark:bg-dark-bg text-on-background dark:text-dark-text font-body-md min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden transition-colors duration-200">
+    <div className="bg-background dark:bg-dark-bg text-on-background dark:text-dark-text font-body-md min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden transition-colors duration-200 relative">
+      {/* Background Flying Quantum Birds (Hidden on Speakers Page as requested) */}
+      {activePage !== 'speakers' && <QuantumBirdsBackground />}
+
       {/* Top Sticky Navbar */}
       <Navbar
         activePage={activePage}
@@ -161,7 +184,7 @@ export default function App() {
       />
 
       {/* Main Page Content View */}
-      <main className="flex-1 w-full flex flex-col">
+      <main className="flex-1 w-full flex flex-col relative z-10">
         {renderPage()}
       </main>
 

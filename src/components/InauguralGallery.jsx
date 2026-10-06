@@ -113,7 +113,7 @@ export default function InauguralGallery({ showHeader = true, className = '', ma
           <div className="inline-flex items-center gap-2 bg-primary/10 dark:bg-primary/20 text-primary border border-primary/20 px-4 py-1.5 rounded-full shadow-sm">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span className="font-label-caps text-xs tracking-widest uppercase font-bold">
-              📅 10 SEPTEMBER 2026 • OFFICIAL INAUGURATION
+              10 SEPTEMBER 2026 • OFFICIAL INAUGURATION
             </span>
           </div>
 

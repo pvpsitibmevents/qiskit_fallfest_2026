@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { GlassPanel } from '@/components/ui/glass';
 
 export default function MembersPage({ onOpenRegister }) {
   // Leadership & Team Structure with fallback aliases
@@ -182,7 +183,14 @@ export default function MembersPage({ onOpenRegister }) {
         {/* Leadership Hierarchy (High Official to Lowers: Chief Patron -> Department Head -> Lead Organizer) */}
         <div className="flex flex-col items-center mb-20">
           {/* Level 1: Chief Patron (Principal Sir) */}
-          <div className="w-full max-w-lg bg-[#F8F9FF] dark:bg-dark-surface-card border-2 border-primary/30 dark:border-primary/40 rounded-2xl p-7 flex flex-col items-center text-center transition-all duration-300 transform hover:-translate-y-2.5 hover:shadow-2xl hover:border-primary shadow-md relative overflow-hidden group">
+          <GlassPanel
+            blur={0}
+            dome={1.6}
+            strength={0.45}
+            radius={24}
+            className="w-full max-w-lg rounded-2xl shadow-xl transition-all duration-300 hover:-translate-y-2.5 hover:shadow-2xl relative overflow-hidden group"
+            contentClassName="p-7 flex flex-col items-center text-center relative"
+          >
             <div className="absolute -top-10 -right-10 w-28 h-28 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all pointer-events-none" />
             <div className="absolute -bottom-10 -left-10 w-28 h-28 bg-secondary/10 rounded-full blur-2xl group-hover:bg-secondary/20 transition-all pointer-events-none" />
 
@@ -201,7 +209,7 @@ export default function MembersPage({ onOpenRegister }) {
             <span className="text-xs text-on-surface-variant dark:text-dark-text-muted font-label-caps tracking-wide relative z-10">
               Patron & Institutional Leadership • PVPSIT
             </span>
-          </div>
+          </GlassPanel>
 
           {/* Hierarchy Connector Stem 1 */}
           <div className="w-0.5 h-10 bg-gradient-to-b from-primary to-secondary relative flex items-center justify-center my-1">
@@ -209,7 +217,14 @@ export default function MembersPage({ onOpenRegister }) {
           </div>
 
           {/* Level 2: Department Head (HOD Ma'am) */}
-          <div className="w-full max-w-lg bg-[#F8F9FF] dark:bg-dark-surface-card border-2 border-secondary/30 dark:border-secondary/40 rounded-2xl p-7 flex flex-col items-center text-center transition-all duration-300 transform hover:-translate-y-2.5 hover:shadow-2xl hover:border-secondary shadow-md relative overflow-hidden group">
+          <GlassPanel
+            blur={0}
+            dome={1.6}
+            strength={0.45}
+            radius={24}
+            className="w-full max-w-lg rounded-2xl shadow-xl transition-all duration-300 hover:-translate-y-2.5 hover:shadow-2xl relative overflow-hidden group"
+            contentClassName="p-7 flex flex-col items-center text-center relative"
+          >
             <div className="absolute -top-10 -right-10 w-28 h-28 bg-secondary/10 rounded-full blur-2xl group-hover:bg-secondary/20 transition-all pointer-events-none" />
             <div className="absolute -bottom-10 -left-10 w-28 h-28 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all pointer-events-none" />
 
@@ -228,7 +243,7 @@ export default function MembersPage({ onOpenRegister }) {
             <span className="text-xs text-on-surface-variant dark:text-dark-text-muted font-label-caps tracking-wide relative z-10">
               Departmental Guidance & Academic Leadership
             </span>
-          </div>
+          </GlassPanel>
 
           {/* Hierarchy Connector Stem 2 */}
           <div className="w-0.5 h-10 bg-gradient-to-b from-secondary to-primary relative flex items-center justify-center my-1">
@@ -236,7 +251,14 @@ export default function MembersPage({ onOpenRegister }) {
           </div>
 
           {/* Level 3: Lead Organizer (Faculty Lead) */}
-          <div className="w-full max-w-lg bg-[#F8F9FF] dark:bg-dark-surface-card border-2 border-primary/20 dark:border-primary/30 hover:border-primary rounded-2xl p-7 flex flex-col items-center text-center transition-all duration-300 transform hover:-translate-y-2.5 hover:shadow-2xl shadow-md relative overflow-hidden group">
+          <GlassPanel
+            blur={0}
+            dome={1.6}
+            strength={0.45}
+            radius={24}
+            className="w-full max-w-lg rounded-2xl shadow-xl transition-all duration-300 hover:-translate-y-2.5 hover:shadow-2xl relative overflow-hidden group"
+            contentClassName="p-7 flex flex-col items-center text-center relative"
+          >
             <div className="absolute -top-10 -right-10 w-28 h-28 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all pointer-events-none" />
             <div className="absolute -bottom-10 -left-10 w-28 h-28 bg-secondary/10 rounded-full blur-2xl group-hover:bg-secondary/20 transition-all pointer-events-none" />
 
@@ -255,7 +277,7 @@ export default function MembersPage({ onOpenRegister }) {
             <span className="text-xs text-on-surface-variant dark:text-dark-text-muted font-label-caps tracking-wide relative z-10">
               Faculty Lead & Overall Event Coordinator
             </span>
-          </div>
+          </GlassPanel>
         </div>
 
         {/* Co-Organizers Floating Grid */}
@@ -274,9 +296,14 @@ export default function MembersPage({ onOpenRegister }) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {coOrganizers.map((coOrg, idx) => (
-              <div
+              <GlassPanel
                 key={idx}
-                className="w-full bg-[#F8F9FF] dark:bg-dark-surface-card border-2 border-outline-variant/30 dark:border-dark-border rounded-2xl p-7 flex flex-col items-center text-center transition-all duration-300 transform hover:-translate-y-2.5 hover:shadow-2xl hover:border-primary/50 dark:hover:border-primary/60 shadow-md relative overflow-hidden group"
+                blur={0}
+                dome={1.6}
+                strength={0.45}
+                radius={24}
+                className="w-full rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-2.5 hover:shadow-2xl relative overflow-hidden group"
+                contentClassName="p-7 flex flex-col items-center text-center relative h-full justify-between"
               >
                 {/* Floating ambient glow */}
                 <div className="absolute -top-10 -right-10 w-24 h-24 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all pointer-events-none" />
@@ -306,7 +333,7 @@ export default function MembersPage({ onOpenRegister }) {
                 <span className="text-xs text-on-surface-variant dark:text-dark-text-muted font-label-caps tracking-wide relative z-10">
                   PVPSIT Faculty Coordinator
                 </span>
-              </div>
+              </GlassPanel>
             ))}
           </div>
         </div>
@@ -326,7 +353,14 @@ export default function MembersPage({ onOpenRegister }) {
           </div>
 
           <div className="flex justify-center">
-            <div className="w-full max-w-md bg-[#F8F9FF] dark:bg-dark-surface-card border-2 border-primary/30 dark:border-primary/40 hover:border-primary rounded-2xl p-7 flex flex-col items-center text-center transition-all duration-300 transform hover:-translate-y-2.5 hover:shadow-2xl shadow-md relative overflow-hidden group">
+            <GlassPanel
+              blur={0}
+              dome={1.6}
+              strength={0.45}
+              radius={24}
+              className="w-full max-w-md rounded-2xl shadow-xl transition-all duration-300 hover:-translate-y-2.5 hover:shadow-2xl relative overflow-hidden group"
+              contentClassName="p-7 flex flex-col items-center text-center relative"
+            >
               {/* Subtle background glow */}
               <div className="absolute -top-10 -right-10 w-28 h-28 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all pointer-events-none" />
               <div className="absolute -bottom-10 -left-10 w-28 h-28 bg-secondary/10 rounded-full blur-2xl group-hover:bg-secondary/20 transition-all pointer-events-none" />
@@ -338,7 +372,7 @@ export default function MembersPage({ onOpenRegister }) {
                 </span>
                 <span className="bg-gradient-to-r from-primary to-secondary text-white font-label-caps text-xs px-3.5 py-1.5 rounded-full font-bold shadow-sm inline-flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                  ⚛️ {studentOrganizer.advocateBadge}
+                  {studentOrganizer.advocateBadge}
                 </span>
               </div>
 
@@ -355,7 +389,7 @@ export default function MembersPage({ onOpenRegister }) {
               <div className="inline-flex items-center gap-1.5 text-xs font-label-caps text-on-surface-variant dark:text-dark-text-muted bg-surface-container dark:bg-dark-surface px-3.5 py-1.5 rounded-lg border border-outline-variant/30 dark:border-dark-border relative z-10">
                 <span>IBM Quantum Community • Qiskit Advocate</span>
               </div>
-            </div>
+            </GlassPanel>
           </div>
         </div>
       </section>

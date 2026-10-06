@@ -370,7 +370,7 @@ export default function RegistrationPage({ setActivePage }) {
                   )}
                 </button>
                 <p className="text-center text-xs text-on-surface-variant dark:text-dark-text-muted mt-3">
-                  🔒 Registration is completely free. We will never share your email with third parties.
+                  Registration is completely free. We will never share your email with third parties.
                 </p>
               </div>
             </form>
@@ -492,7 +492,7 @@ export default function RegistrationPage({ setActivePage }) {
 
           <div className="space-y-2">
             <span className="text-xs font-label-caps font-bold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border border-emerald-500/30">
-              🎉 REGISTRATION SUCCESSFUL
+              REGISTRATION SUCCESSFUL
             </span>
             <h2 className="font-headline-lg text-2xl sm:text-3xl font-extrabold text-on-surface dark:text-dark-text">
               Welcome, {registeredData?.fullName}!

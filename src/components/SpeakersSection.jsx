@@ -1,8 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { GlassPanel } from '@/components/ui/glass';
 
-export default function SpeakersSection({ onOpenRegister, showHeader = true, className = '' }) {
+export default function SpeakersSection({ onOpenRegister, showHeader = true, className = '', initialSpeakerId = null }) {
   const [selectedSpeaker, setSelectedSpeaker] = useState(null);
   const [modalTab, setModalTab] = useState('details');
+
+  useEffect(() => {
+    if (initialSpeakerId) {
+      const found = speakers.find((s) => s.id === initialSpeakerId);
+      if (found) {
+        setSelectedSpeaker(found);
+        setModalTab('details');
+        setTimeout(() => {
+          const el = document.getElementById(initialSpeakerId);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.classList.add('ring-4', 'ring-primary', 'shadow-glow-pink');
+            setTimeout(() => {
+              el.classList.remove('ring-4', 'ring-primary', 'shadow-glow-pink');
+            }, 3000);
+          }
+        }, 150);
+      }
+    }
+  }, [initialSpeakerId]);
 
   const speakers = [
     {
@@ -129,12 +150,18 @@ export default function SpeakersSection({ onOpenRegister, showHeader = true, cla
         </div>
       )}
 
-      {/* Clean 5-Speaker Grid */}
+      {/* Clean 5-Speaker Grid with Clear Glass Panels & Borders */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {speakers.map((speaker) => (
-          <div
+          <GlassPanel
+            id={speaker.id}
             key={speaker.id}
-            className="group relative bg-[#F8F9FF] dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border rounded-2xl p-6 sm:p-7 flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-glow-pink hover:border-primary/50 dark:hover:border-primary/60"
+            blur={0}
+            dome={1.6}
+            strength={0.45}
+            radius={24}
+            className="group relative shadow-lg shadow-black/5 dark:shadow-primary/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-glow-pink scroll-mt-24"
+            contentClassName="p-6 sm:p-7 flex flex-col items-center text-center h-full justify-between relative"
           >
             {/* Ambient Background Accent Glow */}
             <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 dark:bg-primary/20 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500" />
@@ -244,7 +271,7 @@ export default function SpeakersSection({ onOpenRegister, showHeader = true, cla
                 )}
               </div>
             </div>
-          </div>
+          </GlassPanel>
         ))}
       </div>
 
@@ -266,8 +293,13 @@ export default function SpeakersSection({ onOpenRegister, showHeader = true, cla
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn"
           onClick={() => setSelectedSpeaker(null)}
         >
-          <div
-            className="bg-white dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 sm:p-7 animate-scaleUp"
+          <GlassPanel
+            blur={0}
+            dome={1.6}
+            strength={0.5}
+            radius={24}
+            className="max-w-2xl w-full max-h-[90vh] shadow-2xl relative animate-scaleUp overflow-hidden"
+            contentClassName="p-6 sm:p-7 overflow-y-auto max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -422,7 +454,7 @@ export default function SpeakersSection({ onOpenRegister, showHeader = true, cla
                 </a>
               )}
             </div>
-          </div>
+          </GlassPanel>
         </div>
       )}
     </section>
