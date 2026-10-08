@@ -26,7 +26,7 @@ export default function InauguralGallery({ showHeader = true, className = '', ma
       src: `${import.meta.env.BASE_URL}gallery/poster_release_3.jpg`,
       fallback: `${import.meta.env.BASE_URL}gallery/8.JPG`,
       title: 'Unveiling the Event Roadmap',
-      subtitle: 'Official launch of the 12-step quantum learning journey',
+      subtitle: 'Official launch of the quantum learning roadmap',
       category: 'Poster Release',
     },
     {

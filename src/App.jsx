@@ -63,12 +63,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (activePage === 'journey') {
-      const el = document.getElementById('journey');
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else if (activePage === 'speakers-section') {
+    if (activePage === 'speakers-section') {
       const el = document.getElementById('speakers');
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
@@ -110,7 +105,6 @@ export default function App() {
   const renderPage = () => {
     switch (activePage) {
       case 'landing':
-      case 'journey':
       case 'speakers-section':
       case 'gallery-section':
         return (

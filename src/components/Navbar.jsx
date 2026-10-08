@@ -38,7 +38,7 @@ export default function Navbar({ activePage, setActivePage, onOpenRegister, them
                 onClick={() => setActivePage(link.id)}
                 className={`relative py-1 transition-all duration-200 inline-block hover:scale-105 active:scale-110 ${
                   activePage === link.id ||
-                  (link.id === 'landing' && (activePage === 'journey' || activePage === 'speakers-section')) ||
+                  (link.id === 'landing' && activePage === 'speakers-section') ||
                   (link.id === 'gallery' && activePage === 'gallery-section')
                     ? 'text-primary border-b-2 border-primary font-bold'
                     : 'text-on-surface-variant dark:text-dark-text-muted hover:text-primary dark:hover:text-primary-container'
@@ -132,7 +132,7 @@ export default function Navbar({ activePage, setActivePage, onOpenRegister, them
                 }}
                 className={`flex items-center gap-4 px-4 py-3 rounded-full font-body-md text-base transition-all duration-200 hover:scale-105 active:scale-110 ${
                   activePage === link.id ||
-                  (link.id === 'landing' && (activePage === 'journey' || activePage === 'speakers-section')) ||
+                  (link.id === 'landing' && activePage === 'speakers-section') ||
                   (link.id === 'gallery' && activePage === 'gallery-section')
                     ? 'bg-primary/10 text-primary font-bold dark:bg-primary/20'
                     : 'text-on-surface-variant dark:text-dark-text-muted hover:bg-surface-variant dark:hover:bg-dark-surface-elevated'

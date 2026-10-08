@@ -38,7 +38,7 @@ export default function Footer({ setActivePage, onOpenRegister }) {
             </li>
             <li>
               <button onClick={() => setActivePage('schedule')} className="text-tertiary-fixed-dim hover:text-primary-fixed transition-all duration-200 opacity-80 hover:opacity-100 hover:scale-105 active:scale-110 inline-block">
-                Event Roadmap (12 Events)
+                Event Schedule
               </button>
             </li>
             <li>

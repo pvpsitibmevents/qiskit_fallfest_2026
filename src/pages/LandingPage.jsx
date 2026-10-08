@@ -4,7 +4,7 @@ import InauguralGallery from '../components/InauguralGallery';
 import { GlassPanel } from '@/components/ui/glass';
 
 const calculateTimeLeft = () => {
-  const targetDate = new Date('2026-10-15T09:00:00');
+  const targetDate = new Date('2026-10-14T09:00:00');
   const now = new Date();
   const difference = targetDate.getTime() - now.getTime();
   if (difference > 0) {
@@ -18,7 +18,7 @@ const calculateTimeLeft = () => {
 };
 
 export default function LandingPage({ setActivePage, onOpenRegister }) {
-  // Live Countdown Calculation to Main Fest Start: October 15, 2026 at 09:00 AM
+  // Live Countdown Calculation to Pinnacle Days Start: October 14, 2026 at 09:00 AM
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft);
 
   useEffect(() => {
@@ -58,29 +58,27 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
             </div>
 
             <p className="font-body-lg text-body-lg text-on-surface-variant dark:text-dark-text-muted max-w-2xl">
-              A comprehensive quantum computing learning initiative at Prasad V. Potluri Siddhartha Institute of Technology, Vijayawada. Featuring 12 events across Pre-Fest, Main Fest (15–17 Oct), and Post-Fest.
+              A comprehensive quantum computing learning initiative at Prasad V. Potluri Siddhartha Institute of Technology, Vijayawada. Featuring hands-on workshops, IBM expert sessions, and flagship student competitions.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 w-full sm:w-auto">
               <button
                 onClick={() => {
-                  const el = document.getElementById('journey');
+                  const el = document.getElementById('pinnacle-days') || document.getElementById('main-fest');
                   if (el) {
                     el.scrollIntoView({ behavior: 'smooth' });
-                  } else {
-                    setActivePage('journey');
                   }
                 }}
                 className="w-full sm:w-auto bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 rounded-xl shadow-pulse-pink hover:bg-on-primary-fixed-variant transition-all duration-200 flex items-center justify-center gap-2 group hover:scale-105 active:scale-110 font-bold"
               >
-                Explore Quantum Journey
+                Explore Pinnacle Days
                 <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </button>
               <button
                 onClick={() => setActivePage('schedule')}
                 className="w-full sm:w-auto bg-transparent border border-secondary text-secondary font-label-caps text-label-caps px-8 py-4 rounded-xl hover:bg-secondary/5 transition-all duration-200 flex items-center justify-center gap-2 hover:scale-105 active:scale-110 font-bold"
               >
-                View Full Event Roadmap
+                View Event Schedule
               </button>
             </div>
           </div>
@@ -107,7 +105,7 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                   </div>
                   <div>
                     <span className="font-label-caps text-xs font-bold text-primary tracking-widest uppercase block leading-none">
-                      MAIN FEST COUNTDOWN
+                      PINNACLE DAYS COUNTDOWN
                     </span>
                     <span className="text-[10px] text-on-surface-variant dark:text-dark-text-muted font-label-caps">
                       Q-CONNECT 2026
@@ -115,13 +113,13 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                   </div>
                 </div>
                 <span className="text-[11px] font-label-caps bg-secondary/15 dark:bg-secondary/25 text-secondary dark:text-secondary-fixed-dim px-3 py-1 rounded-full font-bold border border-secondary/20 dark:border-secondary/35 shadow-xs">
-                  Oct 15–17, 2026
+                  Oct 14–16, 2026
                 </span>
               </div>
 
               {/* Countdown Title */}
               <p className="text-sm font-bold text-on-surface dark:text-dark-text mb-6 text-center relative z-10">
-                Main Qiskit Fall Fest Begins In
+                Pinnacle Days Begin In
               </p>
 
               {/* 4-Tile Countdown Grid (Clean translucent boxes with only one visible thin border line and zero excess lines) */}
@@ -180,7 +178,7 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 onClick={onOpenRegister}
                 className="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-label-caps text-sm py-3.5 px-6 rounded-xl shadow-lg shadow-primary/25 hover:shadow-primary/40 border border-black/30 dark:border-white/20 hover:scale-[1.02] active:scale-[0.98] font-bold flex items-center justify-center gap-2 relative z-10 transition-all duration-200"
               >
-                <span>Register for Fest (15–17 Oct)</span>
+                <span>Register for Fest (14–16 Oct)</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </button>
             </GlassPanel>
@@ -188,241 +186,75 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
         </div>
       </header>
 
-      {/* Quantum Journey Story Section */}
-      <section className="py-section-gap px-gutter bg-surface-container-lowest dark:bg-dark-bg" id="journey">
-        <div className="max-w-container-max mx-auto">
-          {/* Logo Badge */}
-          <div className="flex flex-col items-center justify-center mb-6">
-            <div className="relative group p-2">
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl group-hover:blur-3xl transition-all opacity-70 animate-pulse" />
-              <img
-                src={`${import.meta.env.BASE_URL}quantum-logo.png`}
-                alt="Quantum State Logo"
-                className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 object-contain transform group-hover:scale-105 group-hover:rotate-6 transition-all duration-300 drop-shadow-xl"
-              />
-            </div>
-          </div>
 
-          <div className="text-center mb-16">
-            <div className="inline-block bg-primary/10 dark:bg-primary/20 text-primary font-label-caps text-xs px-4 py-1.5 rounded-full mb-3 font-bold">
-              THE QUANTUM STORY
-            </div>
-            <h2 className="font-headline-lg text-3xl md:text-4xl text-on-surface dark:text-dark-text font-bold mb-4">
-              Your 12-Step Quantum Journey
-            </h2>
-            <p className="font-body-md text-on-surface-variant dark:text-dark-text-muted max-w-2xl mx-auto text-base">
-              A continuous story taking you from initial curiosity to building real quantum circuits.
-            </p>
-          </div>
 
-          <div className="relative max-w-4xl mx-auto">
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-outline-variant/30 dark:bg-dark-border -translate-x-1/2" />
-            <div className="space-y-10 relative z-10">
-              {/* Step 1 */}
-              <div className="flex flex-col md:flex-row items-center justify-between group">
-                <div className="w-full md:w-5/12 text-center md:text-right mb-4 md:mb-0">
-                  <div className="bg-surface-container dark:bg-dark-surface-card p-6 rounded-xl border border-outline-variant/30 dark:border-dark-border group-hover:border-primary/50 transition-colors">
-                    <span className="text-[10px] font-label-caps text-secondary dark:text-secondary-fixed-dim font-bold uppercase block mb-1">15 Sept • PRE-FEST</span>
-                    <h3 className="font-headline-md font-bold text-primary text-lg mb-1">Quantum Unlocked</h3>
-                    <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Get Curious: Beginner student awareness & physical coin/light demos.</p>
-                  </div>
-                </div>
-                <div className="w-14 h-14 rounded-full bg-white dark:bg-dark-surface flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0 shadow-md p-1 group-hover:scale-110 transition-transform overflow-hidden">
-                  <img src={`${import.meta.env.BASE_URL}theme/Picture1.png`} alt="Event 1 Theme" className="w-full h-full object-contain" />
-                </div>
-                <div className="w-full md:w-5/12" />
-              </div>
-
-              {/* Step 2 */}
-              <div className="flex flex-col md:flex-row-reverse items-center justify-between group">
-                <div className="w-full md:w-5/12 text-center md:text-left mb-4 md:mb-0">
-                  <div className="bg-surface-container dark:bg-dark-surface-card p-6 rounded-xl border border-outline-variant/30 dark:border-dark-border group-hover:border-primary/50 transition-colors">
-                    <span className="text-[10px] font-label-caps text-secondary dark:text-secondary-fixed-dim font-bold uppercase block mb-1">18 Sept • FACULTY</span>
-                    <h3 className="font-headline-md font-bold text-secondary dark:text-secondary-fixed-dim text-lg mb-1">Quantum Beyond Classroom</h3>
-                    <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Faculty Awareness & Quantum Across Engineering Departments.</p>
-                  </div>
-                </div>
-                <div className="w-14 h-14 rounded-full bg-white dark:bg-dark-surface flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0 shadow-md p-1 group-hover:scale-110 transition-transform overflow-hidden">
-                  <img src={`${import.meta.env.BASE_URL}theme/Picture2.png`} alt="Event 2 Theme" className="w-full h-full object-contain" />
-                </div>
-                <div className="w-full md:w-5/12" />
-              </div>
-
-              {/* Step 3 */}
-              <div className="flex flex-col md:flex-row items-center justify-between group">
-                <div className="w-full md:w-5/12 text-center md:text-right mb-4 md:mb-0">
-                  <div className="bg-surface-container dark:bg-dark-surface-card p-6 rounded-xl border border-outline-variant/30 dark:border-dark-border group-hover:border-primary/50 transition-colors">
-                    <span className="text-[10px] font-label-caps text-secondary dark:text-secondary-fixed-dim font-bold uppercase block mb-1">22 Sept • PRE-FEST</span>
-                    <h3 className="font-headline-md font-bold text-primary text-lg mb-1">Quantum Unplugged</h3>
-                    <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Think & Discuss: Quantum Café group discussions with "Switch Sides" twist.</p>
-                  </div>
-                </div>
-                <div className="w-14 h-14 rounded-full bg-white dark:bg-dark-surface flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0 shadow-md p-1 group-hover:scale-110 transition-transform overflow-hidden">
-                  <img src={`${import.meta.env.BASE_URL}theme/Picture3.png`} alt="Event 3 Theme" className="w-full h-full object-contain" />
-                </div>
-                <div className="w-full md:w-5/12" />
-              </div>
-
-              {/* Step 4 */}
-              <div className="flex flex-col md:flex-row-reverse items-center justify-between group">
-                <div className="w-full md:w-5/12 text-center md:text-left mb-4 md:mb-0">
-                  <div className="bg-surface-container dark:bg-dark-surface-card p-6 rounded-xl border border-outline-variant/30 dark:border-dark-border group-hover:border-primary/50 transition-colors">
-                    <span className="text-[10px] font-label-caps text-secondary dark:text-secondary-fixed-dim font-bold uppercase block mb-1">26 & 30 Sept • PRE-FEST</span>
-                    <h3 className="font-headline-md font-bold text-secondary dark:text-secondary-fixed-dim text-lg mb-1">Quantum Clash & Q-Canvas</h3>
-                    <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Debate with Twist Cards & 90-Second Poster Pitches.</p>
-                  </div>
-                </div>
-                <div className="w-14 h-14 rounded-full bg-white dark:bg-dark-surface flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0 shadow-md p-1 group-hover:scale-110 transition-transform overflow-hidden">
-                  <img src={`${import.meta.env.BASE_URL}theme/Picture4.png`} alt="Event 4 Theme" className="w-full h-full object-contain" />
-                </div>
-                <div className="w-full md:w-5/12" />
-              </div>
-
-              {/* Step 5 */}
-              <div className="flex flex-col md:flex-row items-center justify-between group">
-                <div className="w-full md:w-5/12 text-center md:text-right mb-4 md:mb-0">
-                  <div className="bg-surface-container dark:bg-dark-surface-card p-6 rounded-xl border border-outline-variant/30 dark:border-dark-border group-hover:border-primary/50 transition-colors">
-                    <span className="text-[10px] font-label-caps text-secondary dark:text-secondary-fixed-dim font-bold uppercase block mb-1">3 & 8 Oct • PRE-FEST</span>
-                    <h3 className="font-headline-md font-bold text-primary text-lg mb-1">Frontiers & Q-Bits Quiz</h3>
-                    <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Research paper presentations & "Bet Your Qubits" strategy quiz.</p>
-                  </div>
-                </div>
-                <div className="w-14 h-14 rounded-full bg-white dark:bg-dark-surface flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0 shadow-md p-1 group-hover:scale-110 transition-transform overflow-hidden">
-                  <img src={`${import.meta.env.BASE_URL}theme/Picture7.png`} alt="Event 7 Theme" className="w-full h-full object-contain" />
-                </div>
-                <div className="w-full md:w-5/12" />
-              </div>
-
-              {/* Step 6 */}
-              <div className="flex flex-col md:flex-row-reverse items-center justify-between group">
-                <div className="w-full md:w-5/12 text-center md:text-left mb-4 md:mb-0">
-                  <div className="bg-primary/10 dark:bg-primary/15 p-6 rounded-xl border-2 border-primary shadow-pulse-pink">
-                    <span className="text-[10px] font-label-caps text-primary font-bold uppercase block mb-1">15 Oct • MAIN FEST DAY 1</span>
-                    <h3 className="font-headline-md font-bold text-primary text-xl mb-1">Quantum Awakening</h3>
-                    <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Understand: Main Fest in-depth awareness & live Qiskit execution.</p>
-                  </div>
-                </div>
-                <div className="w-16 h-16 rounded-full bg-white dark:bg-dark-surface flex items-center justify-center border-4 border-primary z-10 shrink-0 shadow-pulse-pink p-1 group-hover:scale-110 transition-transform overflow-hidden animate-pulse">
-                  <img src={`${import.meta.env.BASE_URL}theme/Picture8.png`} alt="Falcon Theme" className="w-full h-full object-contain" />
-                </div>
-                <div className="w-full md:w-5/12" />
-              </div>
-
-              {/* Step 7 */}
-              <div className="flex flex-col md:flex-row items-center justify-between group">
-                <div className="w-full md:w-5/12 text-center md:text-right mb-4 md:mb-0">
-                  <div className="bg-primary/10 dark:bg-primary/15 p-6 rounded-xl border-2 border-primary shadow-pulse-pink">
-                    <span className="text-[10px] font-label-caps text-primary font-bold uppercase block mb-1">16 Oct • MAIN FEST DAY 2</span>
-                    <h3 className="font-headline-md font-bold text-primary text-xl mb-1">Qiskit Ignition</h3>
-                    <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Code: Hands-on Qiskit workshop with "Build → Break → Fix" challenges.</p>
-                  </div>
-                </div>
-                <div className="w-16 h-16 rounded-full bg-white dark:bg-dark-surface flex items-center justify-center border-4 border-primary z-10 shrink-0 shadow-pulse-pink p-1 group-hover:scale-110 transition-transform overflow-hidden animate-pulse">
-                  <img src={`${import.meta.env.BASE_URL}theme/Picture9.png`} alt="Kookaburra Theme" className="w-full h-full object-contain" />
-                </div>
-                <div className="w-full md:w-5/12" />
-              </div>
-
-              {/* Step 8 */}
-              <div className="flex flex-col md:flex-row-reverse items-center justify-between group">
-                <div className="w-full md:w-5/12 text-center md:text-left mb-4 md:mb-0">
-                  <div className="bg-primary/10 dark:bg-primary/15 p-6 rounded-xl border-2 border-primary shadow-pulse-pink">
-                    <span className="text-[10px] font-label-caps text-primary font-bold uppercase block mb-1">17 Oct • MAIN FEST DAY 3</span>
-                    <h3 className="font-headline-md font-bold text-primary text-xl mb-1">CircuitCraft</h3>
-                    <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Build: Flagship circuit building challenge & "Circuit Relay" team battle.</p>
-                  </div>
-                </div>
-                <div className="w-16 h-16 rounded-full bg-white dark:bg-dark-surface flex items-center justify-center border-4 border-primary z-10 shrink-0 shadow-pulse-pink p-1 group-hover:scale-110 transition-transform overflow-hidden animate-pulse">
-                  <img src={`${import.meta.env.BASE_URL}theme/Picture12.png`} alt="Qiskit Fall Fest Grand Seal" className="w-full h-full object-contain" />
-                </div>
-                <div className="w-full md:w-5/12" />
-              </div>
-
-              {/* Step 9 */}
-              <div className="flex flex-col md:flex-row items-center justify-between group">
-                <div className="w-full md:w-5/12 text-center md:text-right mb-4 md:mb-0">
-                  <div className="bg-surface-container dark:bg-dark-surface-card p-6 rounded-xl border border-outline-variant/30 dark:border-dark-border group-hover:border-primary/50 transition-colors">
-                    <span className="text-[10px] font-label-caps text-secondary dark:text-secondary-fixed-dim font-bold uppercase block mb-1">27 & 31 Oct • POST-FEST</span>
-                    <h3 className="font-headline-md font-bold text-secondary dark:text-secondary-fixed-dim text-lg mb-1">Qubit Quest & Afterglow</h3>
-                    <p className="font-body-md text-on-surface dark:text-dark-text-muted text-xs">Online gamified challenges & expert Q&A with 6-month learning roadmap.</p>
-                  </div>
-                </div>
-                <div className="w-14 h-14 rounded-full bg-white dark:bg-dark-surface flex items-center justify-center border-4 border-surface-container-lowest dark:border-dark-bg z-10 shrink-0 shadow-md p-1 group-hover:scale-110 transition-transform overflow-hidden">
-                  <img src={`${import.meta.env.BASE_URL}theme/Picture11.png`} alt="Post-Fest Theme" className="w-full h-full object-contain" />
-                </div>
-                <div className="w-full md:w-5/12" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Fest 3-Day Highlight Section */}
-      <section className="py-section-gap px-gutter bg-surface-container-lowest dark:bg-dark-bg relative overflow-hidden" id="main-fest">
+      {/* Pinnacle Days 3-Day Highlight Section */}
+      <section className="py-section-gap px-gutter bg-surface-container-lowest dark:bg-dark-bg relative overflow-hidden" id="pinnacle-days">
+        <div id="main-fest" className="absolute -top-20" />
         <div className="max-w-container-max mx-auto relative z-10">
           <div className="text-center mb-16">
             <span className="bg-primary/10 dark:bg-primary/20 text-primary font-label-caps text-xs px-4 py-1.5 rounded-full font-bold inline-block mb-3">
-              THE MAIN EVENT
+              THE PINNACLE DAYS
             </span>
             <h2 className="font-headline-lg text-3xl md:text-4xl text-on-surface dark:text-dark-text font-bold mb-2">
-              Main Fest: 15–17 October 2026
+              The Pinnacle Days: 14–16 October 2026
             </h2>
             <p className="font-body-lg text-primary max-w-2xl mx-auto font-semibold">
-              Three intensive days. From quantum foundations to building live Qiskit circuits.
+              Three intensive days. From IBM industry connect and grand inauguration to the ultimate quantum showdown.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Day 1 */}
+            {/* Day 1: Quantum Connect */}
             <div className="flex flex-col h-full bg-surface-container dark:bg-dark-surface-card rounded-2xl overflow-hidden border border-outline-variant/20 dark:border-dark-border hover:border-primary/50 transition-all group shadow-sm hover:shadow-md">
               <div className="bg-primary/10 dark:bg-primary/15 p-4 border-b border-outline-variant/20 dark:border-dark-border flex justify-between items-center">
                 <span className="font-label-caps text-primary font-bold">DAY 1</span>
-                <span className="font-body-md text-xs text-primary font-semibold">15 Oct 2026</span>
+                <span className="font-body-md text-xs text-primary font-semibold">14 Oct 2026</span>
               </div>
               <div className="p-8 flex flex-col grow">
                 <div className="w-16 h-16 bg-white dark:bg-dark-surface rounded-2xl p-2 border border-primary/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md overflow-hidden">
-                  <img src={`${import.meta.env.BASE_URL}theme/Picture8.png`} alt="Falcon Processor Theme" className="w-full h-full object-contain filter drop-shadow-sm" />
+                  <img src={`${import.meta.env.BASE_URL}theme/Picture3.png`} alt="Quantum Connect Theme" className="w-full h-full object-contain filter drop-shadow-sm" />
                 </div>
-                <h3 className="font-headline-md text-xl font-bold text-on-surface dark:text-dark-text mb-2">Quantum Awakening</h3>
-                <p className="font-label-caps text-xs text-secondary dark:text-secondary-fixed-dim font-bold mb-4">In-depth Quantum + Qiskit Awareness • Falcon Theme</p>
+                <h3 className="font-headline-md text-xl font-bold text-on-surface dark:text-dark-text mb-2">Quantum Connect</h3>
+                <p className="font-label-caps text-xs text-secondary dark:text-secondary-fixed-dim font-bold mb-4">IBM Expert Dialogue & Industry Pathways</p>
                 <p className="font-body-md text-on-surface-variant dark:text-dark-text-muted text-sm mb-6 grow">
-                  Deep-dive from classical 0/1 bits to qubits, superposition, entanglement, and live Qiskit execution demonstrations.
+                  Connect directly with industry leaders and IBM Quantum Algorithm Engineers. Gain deep insights into enterprise architectures, cutting-edge software tooling, and interactive student dialogues.
                 </p>
               </div>
             </div>
 
-            {/* Day 2 */}
+            {/* Day 2: Fest Inaugural & Quantum Vision */}
             <div className="flex flex-col h-full bg-surface-container dark:bg-dark-surface-card rounded-2xl overflow-hidden border-2 border-primary transition-all group shadow-lg relative">
               <div className="bg-primary text-on-primary p-4 border-b border-primary/20 flex justify-between items-center">
                 <span className="font-label-caps font-bold">DAY 2</span>
-                <span className="font-body-md text-xs font-semibold">16 Oct 2026</span>
+                <span className="font-body-md text-xs font-semibold">15 Oct 2026</span>
               </div>
               <div className="p-8 flex flex-col grow">
                 <div className="w-16 h-16 bg-white dark:bg-dark-surface rounded-2xl p-2 border border-secondary/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md overflow-hidden">
-                  <img src={`${import.meta.env.BASE_URL}theme/Picture9.png`} alt="Kookaburra Coding Theme" className="w-full h-full object-contain filter drop-shadow-sm" />
+                  <img src={`${import.meta.env.BASE_URL}theme/Picture8.png`} alt="Fest Inaugural & Quantum Vision Theme" className="w-full h-full object-contain filter drop-shadow-sm" />
                 </div>
-                <h3 className="font-headline-md text-xl font-bold text-on-surface dark:text-dark-text mb-2">Qiskit Ignition</h3>
-                <p className="font-label-caps text-xs text-secondary dark:text-secondary-fixed-dim font-bold mb-4">Hands-on Qiskit Workshop • Kookaburra Theme</p>
+                <h3 className="font-headline-md text-xl font-bold text-on-surface dark:text-dark-text mb-2">Fest Inaugural & Quantum Vision</h3>
+                <p className="font-label-caps text-xs text-secondary dark:text-secondary-fixed-dim font-bold mb-4">Ceremonial Launch & Advanced Architecture</p>
                 <p className="font-body-md text-on-surface-variant dark:text-dark-text-muted text-sm mb-6 grow">
-                  Coding day! Set up environment, apply quantum gates, measure qubits, and debug circuits in the "Build → Break → Fix" challenge.
+                  Celebrate the grand ceremonial inauguration of Qiskit Fall Fest 2026 with academic dignitaries, followed by advanced quantum architecture masterclasses, compiler deep-dives, and visionary keynotes.
                 </p>
               </div>
             </div>
 
-            {/* Day 3 */}
+            {/* Day 3: Quantum Showdown */}
             <div className="flex flex-col h-full bg-surface-container dark:bg-dark-surface-card rounded-2xl overflow-hidden border border-outline-variant/20 dark:border-dark-border hover:border-primary/50 transition-all group shadow-sm hover:shadow-md">
               <div className="bg-primary/10 dark:bg-primary/15 p-4 border-b border-outline-variant/20 dark:border-dark-border flex justify-between items-center">
                 <span className="font-label-caps text-primary font-bold">DAY 3</span>
-                <span className="font-body-md text-xs text-primary font-semibold">17 Oct 2026</span>
+                <span className="font-body-md text-xs text-primary font-semibold">16 Oct 2026</span>
               </div>
               <div className="p-8 flex flex-col grow">
                 <div className="w-16 h-16 bg-white dark:bg-dark-surface rounded-2xl p-2 border border-primary/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md overflow-hidden">
-                  <img src={`${import.meta.env.BASE_URL}theme/Picture12.png`} alt="Qiskit Fall Fest Grand Seal" className="w-full h-full object-contain filter drop-shadow-sm" />
+                  <img src={`${import.meta.env.BASE_URL}theme/Picture12.png`} alt="Quantum Showdown Theme" className="w-full h-full object-contain filter drop-shadow-sm" />
                 </div>
-                <h3 className="font-headline-md text-xl font-bold text-on-surface dark:text-dark-text mb-2">CircuitCraft</h3>
-                <p className="font-label-caps text-xs text-secondary dark:text-secondary-fixed-dim font-bold mb-4">Circuit Building Challenge • Qiskit Fall Fest Seal</p>
+                <h3 className="font-headline-md text-xl font-bold text-on-surface dark:text-dark-text mb-2">Quantum Showdown</h3>
+                <p className="font-label-caps text-xs text-secondary dark:text-secondary-fixed-dim font-bold mb-4">Flagship Competitions & Grand Finale</p>
                 <p className="font-body-md text-on-surface-variant dark:text-dark-text-muted text-sm mb-6 grow">
-                  Flagship team competition! Solve challenge cards, run "Circuit Relay" team battles, and build live quantum circuits.
+                  The ultimate competitive arena! Battle it out in the flagship Quantum Quiz, research presentations, debate & JAM rounds, circuit relays, and a thrilling campus-wide treasure hunt.
                 </p>
               </div>
             </div>
@@ -433,7 +265,7 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
               onClick={onOpenRegister}
               className="bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 rounded-xl shadow-pulse-pink hover:bg-on-primary-fixed-variant transition-all duration-200 inline-flex items-center justify-center gap-2 hover:scale-105 active:scale-110 font-bold text-base"
             >
-              Register for Main Fest (15–17 Oct)
+              Register for Pinnacle Days (14–16 Oct)
             </button>
           </div>
         </div>
