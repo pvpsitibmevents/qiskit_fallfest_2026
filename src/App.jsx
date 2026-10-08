@@ -177,6 +177,9 @@ export default function App() {
         toggleTheme={toggleTheme}
       />
 
+      {/* Spacer for fixed navbar */}
+      <div className="h-20 shrink-0" aria-hidden="true" />
+
       {/* Main Page Content View */}
       <main className="flex-1 w-full flex flex-col relative z-10">
         {renderPage()}

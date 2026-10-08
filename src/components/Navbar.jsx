@@ -6,7 +6,7 @@ export default function Navbar({ activePage, setActivePage, onOpenRegister, them
   const navLinks = [
     { id: 'landing', label: 'Home' },
     { id: 'about', label: 'About' },
-    { id: 'speakers', label: 'Speakers' },
+    { id: 'speakers', label: 'Our Experts' },
     { id: 'schedule', label: 'Schedule' },
     { id: 'members', label: 'Members' },
     { id: 'gallery', label: 'Gallery' },
@@ -15,7 +15,7 @@ export default function Navbar({ activePage, setActivePage, onOpenRegister, them
 
   return (
     <>
-      <nav className="bg-surface/85 dark:bg-dark-bg/85 backdrop-blur-xl border-b border-outline-variant/30 dark:border-dark-border sticky top-0 w-full z-50 transition-all duration-300">
+      <nav className="bg-surface/90 dark:bg-dark-bg/90 backdrop-blur-xl border-b border-outline-variant/30 dark:border-dark-border fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 shadow-xs">
         <div className="flex justify-between items-center w-full px-gutter py-3 max-w-container-max mx-auto">
           {/* Logo & Brand */}
           <button 
@@ -117,7 +117,7 @@ export default function Navbar({ activePage, setActivePage, onOpenRegister, them
             const icons = {
               landing: 'home',
               about: 'info',
-              speakers: 'record_voice_over',
+              speakers: 'psychology',
               schedule: 'calendar_today',
               members: 'groups',
               gallery: 'photo_library',

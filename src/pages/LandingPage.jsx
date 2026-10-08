@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import SpeakersSection from '../components/SpeakersSection';
+import HomeLeadershipExpertsSection from '../components/HomeLeadershipExpertsSection';
 import InauguralGallery from '../components/InauguralGallery';
 import { GlassPanel } from '@/components/ui/glass';
 
@@ -271,8 +271,8 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
         </div>
       </section>
 
-      {/* Keynote Speakers Section */}
-      <SpeakersSection onOpenRegister={onOpenRegister} />
+      {/* Guiding Experts & Leadership Section */}
+      <HomeLeadershipExpertsSection setActivePage={setActivePage} onOpenRegister={onOpenRegister} />
 
       {/* Inaugural Ceremony & Official Poster Release (10.09.2026) */}
       <div id="gallery" className="border-t border-outline-variant/20 dark:border-dark-border">

@@ -27,32 +27,6 @@ export default function SpeakersSection({ onOpenRegister, showHeader = true, cla
 
   const speakers = [
     {
-      id: 'venkata-swamy-tadikonda',
-      name: 'Shri. Venkata Swamy Tadikonda',
-      role: 'Programme Coordinator, QAIC • Advisor, AQV',
-      company: 'QAIC • Amaravati Quantum Valley',
-      companyBadge: 'QAIC • AQV',
-      badgeColor: 'bg-cyan-500/10 text-cyan-600 dark:bg-cyan-400/15 dark:text-cyan-300 border-cyan-500/30',
-      category: 'Guest Speaker',
-      date: '07 October 2026',
-      talkTheme: 'Quantum Technologies: Fundamentals, AQV Initiatives & QAIC Opportunities',
-      bio: 'Leading Andhra Pradesh’s quantum initiatives at QAIC & Amaravati Quantum Valley, driving regional applications and Telugu quantum literacy.',
-      contributions: [
-        'Co-Translator of "Quantum Nation" (Telugu edition) to expand quantum awareness.',
-        'Developing 100+ quantum application use cases for government and industry.',
-        'Fostering quantum adoption across MSMEs, startups, and academic institutions.',
-      ],
-      linkedin: 'https://www.linkedin.com/in/venkata-swamy-tadikonda-a083a216/',
-      images: [
-        `${import.meta.env.BASE_URL}speakers/venkata_swamy.png`,
-        `${import.meta.env.BASE_URL}speakers/venkata_swamy.jpg`,
-        `${import.meta.env.BASE_URL}speakers/Venkata Swamy Tadikonda.jpg`,
-      ],
-      posterImage: `${import.meta.env.BASE_URL}speakers/venkata_swamy_poster.png`,
-      themePosterImage: `${import.meta.env.BASE_URL}speakers/venkata_swamy_website_theme_poster.png`,
-      topics: ['Quantum Tech', 'AQV Initiatives', 'Telugu Edition'],
-    },
-    {
       id: 'kunal-garg',
       name: 'Kunal Garg, Ph.D.',
       role: 'Senior Quantum Computing Developer',
@@ -145,13 +119,13 @@ export default function SpeakersSection({ onOpenRegister, showHeader = true, cla
             Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-container to-secondary">Keynote Speakers</span>
           </h2>
           <p className="font-body-md text-on-surface-variant dark:text-dark-text-muted max-w-3xl mx-auto text-sm sm:text-base">
-            Learn directly from quantum research scientists, algorithm engineers, and ecosystem leaders from IBM Quantum, QAIC, AQV, BQP, and IQ Leap.
+            Learn directly from quantum research scientists, algorithm engineers, and industry pioneers from IBM Quantum, BQP, and IQ Leap.
           </p>
         </div>
       )}
 
-      {/* Clean 5-Speaker Grid with Clear Glass Panels & Borders */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Clean 4-Speaker Grid with Clear Glass Panels & Borders */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {speakers.map((speaker) => (
           <GlassPanel
             id={speaker.id}

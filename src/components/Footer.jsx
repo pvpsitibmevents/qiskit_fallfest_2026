@@ -33,7 +33,7 @@ export default function Footer({ setActivePage, onOpenRegister }) {
             </li>
             <li>
               <button onClick={() => setActivePage('speakers')} className="text-tertiary-fixed-dim hover:text-primary-fixed transition-all duration-200 opacity-80 hover:opacity-100 hover:scale-105 active:scale-110 inline-block">
-                Keynote Speakers
+                Our Experts
               </button>
             </li>
             <li>
