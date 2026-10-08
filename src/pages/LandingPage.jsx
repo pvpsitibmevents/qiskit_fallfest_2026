@@ -55,22 +55,22 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
             </div>
 
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-              A comprehensive quantum computing learning initiative at Prasad V. Potluri Siddhartha Institute of Technology, Vijayawada. Featuring 12 events across Pre-Fest, Main Fest (15–17 Oct), and Post-Fest.
+              A comprehensive quantum computing learning initiative at Prasad V. Potluri Siddhartha Institute of Technology, Vijayawada. Featuring sessions across Pre-Fest, Main Fest (15–17 Oct), and Post-Fest.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 w-full sm:w-auto">
               <button
                 onClick={() => {
-                  const el = document.getElementById('journey');
+                  const el = document.getElementById('main-fest');
                   if (el) {
                     el.scrollIntoView({ behavior: 'smooth' });
                   } else {
-                    setActivePage('journey');
+                    setActivePage('schedule');
                   }
                 }}
                 className="w-full sm:w-auto bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 rounded-xl shadow-pulse-pink hover:bg-on-primary-fixed-variant transition-all duration-200 flex items-center justify-center gap-2 group hover:scale-105 active:scale-110 font-bold"
               >
-                Explore Quantum Journey
+                Explore Main Fest
                 <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </button>
               <button
@@ -165,175 +165,6 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
           </div>
         </div>
       </header>
-
-      {/* Quantum Journey Story Section */}
-      <section className="py-section-gap px-gutter bg-surface-container-lowest" id="journey">
-        <div className="max-w-container-max mx-auto">
-          {/* Logo Badge */}
-          <div className="flex flex-col items-center justify-center mb-6">
-            <div className="relative group p-2">
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl group-hover:blur-3xl transition-all opacity-70 animate-pulse" />
-              <img
-                src={`${import.meta.env.BASE_URL}quantum-logo.png`}
-                alt="Quantum State Logo"
-                className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 object-contain transform group-hover:scale-105 group-hover:rotate-6 transition-all duration-300 drop-shadow-xl"
-              />
-            </div>
-          </div>
-
-          <div className="text-center mb-16">
-            <div className="inline-block bg-primary/10 text-primary font-label-caps text-xs px-4 py-1.5 rounded-full mb-3 font-bold">
-              THE QUANTUM STORY
-            </div>
-            <h2 className="font-headline-lg text-3xl md:text-4xl text-on-surface font-bold mb-4">
-              Your 12-Step Quantum Journey
-            </h2>
-            <p className="font-body-md text-on-surface-variant max-w-2xl mx-auto text-base">
-              A continuous story taking you from initial curiosity to building real quantum circuits.
-            </p>
-          </div>
-
-          <div className="relative max-w-4xl mx-auto">
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-outline-variant/30 -translate-x-1/2" />
-            <div className="space-y-10 relative z-10">
-              {/* Step 1 */}
-              <div className="flex flex-col md:flex-row items-center justify-between group">
-                <div className="w-full md:w-5/12 text-center md:text-right mb-4 md:mb-0">
-                  <div className="bg-surface-container p-6 rounded-xl border border-outline-variant/30 group-hover:border-primary/50 transition-colors">
-                    <span className="text-[10px] font-label-caps text-secondary font-bold uppercase block mb-1">15 Sept • PRE-FEST</span>
-                    <h3 className="font-headline-md font-bold text-primary text-lg mb-1">⚛️ Quantum Unlocked</h3>
-                    <p className="font-body-md text-on-surface text-xs">Get Curious: Beginner student awareness & physical coin/light demos.</p>
-                  </div>
-                </div>
-                <div className="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center border-4 border-surface-container-lowest z-10 shrink-0 shadow-pulse-pink">
-                  <span className="material-symbols-outlined text-primary">key</span>
-                </div>
-                <div className="w-full md:w-5/12" />
-              </div>
-
-              {/* Step 2 */}
-              <div className="flex flex-col md:flex-row-reverse items-center justify-between group">
-                <div className="w-full md:w-5/12 text-center md:text-left mb-4 md:mb-0">
-                  <div className="bg-surface-container p-6 rounded-xl border border-outline-variant/30 group-hover:border-primary/50 transition-colors">
-                    <span className="text-[10px] font-label-caps text-secondary font-bold uppercase block mb-1">18 Sept • FACULTY</span>
-                    <h3 className="font-headline-md font-bold text-secondary text-lg mb-1">☕ Quantum Beyond Classroom</h3>
-                    <p className="font-body-md text-on-surface text-xs">Faculty Awareness & Quantum Across Engineering Departments.</p>
-                  </div>
-                </div>
-                <div className="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center border-4 border-surface-container-lowest z-10 shrink-0">
-                  <span className="material-symbols-outlined text-secondary">co_present</span>
-                </div>
-                <div className="w-full md:w-5/12" />
-              </div>
-
-              {/* Step 3 */}
-              <div className="flex flex-col md:flex-row items-center justify-between group">
-                <div className="w-full md:w-5/12 text-center md:text-right mb-4 md:mb-0">
-                  <div className="bg-surface-container p-6 rounded-xl border border-outline-variant/30 group-hover:border-primary/50 transition-colors">
-                    <span className="text-[10px] font-label-caps text-secondary font-bold uppercase block mb-1">22 Sept • PRE-FEST</span>
-                    <h3 className="font-headline-md font-bold text-primary text-lg mb-1">🧠 Quantum Unplugged</h3>
-                    <p className="font-body-md text-on-surface text-xs">Think & Discuss: Quantum Café group discussions with "Switch Sides" twist.</p>
-                  </div>
-                </div>
-                <div className="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center border-4 border-surface-container-lowest z-10 shrink-0 shadow-pulse-pink">
-                  <span className="material-symbols-outlined text-primary">groups</span>
-                </div>
-                <div className="w-full md:w-5/12" />
-              </div>
-
-              {/* Step 4 */}
-              <div className="flex flex-col md:flex-row-reverse items-center justify-between group">
-                <div className="w-full md:w-5/12 text-center md:text-left mb-4 md:mb-0">
-                  <div className="bg-surface-container p-6 rounded-xl border border-outline-variant/30 group-hover:border-primary/50 transition-colors">
-                    <span className="text-[10px] font-label-caps text-secondary font-bold uppercase block mb-1">26 & 30 Sept • PRE-FEST</span>
-                    <h3 className="font-headline-md font-bold text-secondary text-lg mb-1">⚔️ Quantum Clash & 🎨 Q-Canvas</h3>
-                    <p className="font-body-md text-on-surface text-xs">Debate with Twist Cards & 90-Second Poster Pitches.</p>
-                  </div>
-                </div>
-                <div className="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center border-4 border-surface-container-lowest z-10 shrink-0">
-                  <span className="material-symbols-outlined text-secondary">palette</span>
-                </div>
-                <div className="w-full md:w-5/12" />
-              </div>
-
-              {/* Step 5 */}
-              <div className="flex flex-col md:flex-row items-center justify-between group">
-                <div className="w-full md:w-5/12 text-center md:text-right mb-4 md:mb-0">
-                  <div className="bg-surface-container p-6 rounded-xl border border-outline-variant/30 group-hover:border-primary/50 transition-colors">
-                    <span className="text-[10px] font-label-caps text-secondary font-bold uppercase block mb-1">3 & 8 Oct • PRE-FEST</span>
-                    <h3 className="font-headline-md font-bold text-primary text-lg mb-1">📄 Frontiers & 🧩 Q-Bits Quiz</h3>
-                    <p className="font-body-md text-on-surface text-xs">Research paper presentations & "Bet Your Qubits" strategy quiz.</p>
-                  </div>
-                </div>
-                <div className="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center border-4 border-surface-container-lowest z-10 shrink-0 shadow-pulse-pink">
-                  <span className="material-symbols-outlined text-primary">extension</span>
-                </div>
-                <div className="w-full md:w-5/12" />
-              </div>
-
-              {/* Step 6 */}
-              <div className="flex flex-col md:flex-row-reverse items-center justify-between group">
-                <div className="w-full md:w-5/12 text-center md:text-left mb-4 md:mb-0">
-                  <div className="bg-primary/10 p-6 rounded-xl border-2 border-primary shadow-pulse-pink">
-                    <span className="text-[10px] font-label-caps text-primary font-bold uppercase block mb-1">15 Oct • MAIN FEST DAY 1</span>
-                    <h3 className="font-headline-md font-bold text-primary text-xl mb-1">⚛️ Quantum Awakening</h3>
-                    <p className="font-body-md text-on-surface text-xs">Understand: Main Fest in-depth awareness & live Qiskit execution.</p>
-                  </div>
-                </div>
-                <div className="w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center border-4 border-surface-container-lowest z-10 shrink-0 shadow-pulse-pink animate-pulse">
-                  <span className="material-symbols-outlined text-xl">wb_sunny</span>
-                </div>
-                <div className="w-full md:w-5/12" />
-              </div>
-
-              {/* Step 7 */}
-              <div className="flex flex-col md:flex-row items-center justify-between group">
-                <div className="w-full md:w-5/12 text-center md:text-right mb-4 md:mb-0">
-                  <div className="bg-primary/10 p-6 rounded-xl border-2 border-primary shadow-pulse-pink">
-                    <span className="text-[10px] font-label-caps text-primary font-bold uppercase block mb-1">16 Oct • MAIN FEST DAY 2</span>
-                    <h3 className="font-headline-md font-bold text-primary text-xl mb-1">💻 Qiskit Ignition</h3>
-                    <p className="font-body-md text-on-surface text-xs">Code: Hands-on Qiskit workshop with "Build → Break → Fix" challenges.</p>
-                  </div>
-                </div>
-                <div className="w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center border-4 border-surface-container-lowest z-10 shrink-0 shadow-pulse-pink animate-pulse">
-                  <span className="material-symbols-outlined text-xl">terminal</span>
-                </div>
-                <div className="w-full md:w-5/12" />
-              </div>
-
-              {/* Step 8 */}
-              <div className="flex flex-col md:flex-row-reverse items-center justify-between group">
-                <div className="w-full md:w-5/12 text-center md:text-left mb-4 md:mb-0">
-                  <div className="bg-primary/10 p-6 rounded-xl border-2 border-primary shadow-pulse-pink">
-                    <span className="text-[10px] font-label-caps text-primary font-bold uppercase block mb-1">17 Oct • MAIN FEST DAY 3</span>
-                    <h3 className="font-headline-md font-bold text-primary text-xl mb-1">🔗 CircuitCraft</h3>
-                    <p className="font-body-md text-on-surface text-xs">Build: Flagship circuit building challenge & "Circuit Relay" team battle.</p>
-                  </div>
-                </div>
-                <div className="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center border-4 border-surface-container-lowest z-10 shrink-0 shadow-pulse-pink animate-pulse">
-                  <span className="material-symbols-outlined text-2xl">precision_manufacturing</span>
-                </div>
-                <div className="w-full md:w-5/12" />
-              </div>
-
-              {/* Step 9 */}
-              <div className="flex flex-col md:flex-row items-center justify-between group">
-                <div className="w-full md:w-5/12 text-center md:text-right mb-4 md:mb-0">
-                  <div className="bg-surface-container p-6 rounded-xl border border-outline-variant/30 group-hover:border-primary/50 transition-colors">
-                    <span className="text-[10px] font-label-caps text-secondary font-bold uppercase block mb-1">27 & 31 Oct • POST-FEST</span>
-                    <h3 className="font-headline-md font-bold text-secondary text-lg mb-1">🌐 Qubit Quest & 🎤 Afterglow</h3>
-                    <p className="font-body-md text-on-surface text-xs">Online gamified challenges & expert Q&A with 6-month learning roadmap.</p>
-                  </div>
-                </div>
-                <div className="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center border-4 border-surface-container-lowest z-10 shrink-0">
-                  <span className="material-symbols-outlined text-secondary">rocket_launch</span>
-                </div>
-                <div className="w-full md:w-5/12" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Main Fest 3-Day Highlight Section */}
       <section className="py-section-gap px-gutter bg-surface-container-lowest relative overflow-hidden" id="main-fest">
