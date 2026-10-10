@@ -19,52 +19,77 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
       id: 'quiz',
       title: 'Quantum Quest – The Ultimate Quantum Quiz',
       shortTitle: 'Quantum Quest (Quiz)',
-      track: 'Event 23 • Quantum Knowledge & Rapid-Fire Trivia Arena',
+      track: 'Event 23 • Two-Round Quantum Challenge Arena',
       scheduleInfo: 'Day 5 (16 Oct) • 9:30 AM – 11:30 AM (Tentative)',
-      description: 'High-energy multi-round quantum quiz testing fundamentals, circuit recognition, quantum algorithm trivia, and rapid-fire problem-solving.',
+      description: 'High-energy two-round quantum quiz testing fundamentals, circuit gates, and quantum technology concepts.',
       icon: 'quiz',
       formUrl: QUIZ_FORM_URL,
       buttonText: 'Register for Quiz',
       tag: 'Competition #1',
+      rules: [
+        'Round 1: All participants must participate individually in the preliminary quantum screening quiz.',
+        'Round 2 (Finals): Qualifying participants will be grouped into teams by the judges and faculty committee.',
+        'Team composition, round progression, and final evaluations are strictly decided by the judges.',
+        'Top 3 teams will be declared winners and awarded prizes and certificates.',
+      ],
     },
     {
       number: 2,
       id: 'presentation',
-      title: 'Quantum Vision – Student Presentation Challenge',
-      shortTitle: 'Quantum Vision (Poster / PPT)',
-      track: 'Event 24 • Poster / PPT Presentation Arena',
+      title: 'Quantum Vision – Student PPT Presentation Challenge',
+      shortTitle: 'Quantum Vision (PPT Presentation)',
+      track: 'Event 24 • PPT Presentation & Quantum Idea Arena',
       scheduleInfo: 'Day 5 (16 Oct) • 11:30 AM – 12:30 PM (Tentative)',
-      description: 'Showcase technical posters or PowerPoint slide presentations on quantum computing domains, algorithms, quantum communication, and hardware architectures.',
+      description: 'Present structured PowerPoint slide decks explaining any concept in Quantum Technologies or pitching an innovative Quantum Idea.',
       icon: 'co_present',
       formUrl: PRESENTATION_FORM_URL,
-      buttonText: 'Register for PPT / Poster',
+      buttonText: 'Register for PPT Presentation',
       tag: 'Competition #2',
+      isPpt: true,
+      rules: [
+        'Presentation Scope: Explain any concept in Quantum Technologies (algorithms, hardware, cryptography, quantum internet) or present an original Quantum Idea Presentation.',
+        'Team Format: Individual participation or a Team of 2 members is permitted.',
+        'Official PPT Template: Participants must download and use the official "PVPSIT X QISKIT FALL FEST PPT TEMPLATE".',
+        'Top 3 presentations will be awarded based on technical clarity, innovation, and visual presentation.',
+      ],
     },
     {
       number: 3,
       id: 'debate',
       title: 'Quantum Minds – Debate, JAM & Group Discussion',
-      shortTitle: 'Quantum Minds (Debate & JAM)',
-      track: 'Event 25 • Parliamentary Debate & JAM Arena',
+      shortTitle: 'Quantum Minds (1 vs 1 Debate & JAM)',
+      track: 'Event 25 • 1 vs 1 Parliamentary Debate & JAM Arena',
       scheduleInfo: 'Day 5 (16 Oct) • 1:15 PM – 2:30 PM (Tentative)',
-      description: 'Head-to-head Oxford-style parliamentary debates and Just-A-Minute (JAM) speaking rounds on quantum disruption, classical vs. quantum supremacy, and tech ethics.',
+      description: 'Head-to-head 1 vs 1 Oxford-style debates and Just-A-Minute (JAM) speaking showdowns on quantum disruption, classical vs. quantum supremacy, and tech ethics.',
       icon: 'gavel',
       formUrl: DEBATE_FORM_URL,
       buttonText: 'Register for Debate / JAM',
       tag: 'Competition #3',
+      rules: [
+        'Format: 1 vs 1 (One-on-One) competitive debate and Just-A-Minute (JAM) speaking rounds.',
+        'Topics: Quantum supremacy, quantum ethics, AI vs. Quantum, and future technological frontiers.',
+        'Evaluated on technical reasoning, spontaneity, argumentative rebuttal, and delivery.',
+        'Top 3 debaters will receive prizes and certificates.',
+      ],
     },
     {
       number: 4,
       id: 'treasure-hunt',
       title: 'Quantum Trail – The Qiskit Treasure Hunt',
       shortTitle: 'Quantum Trail (Treasure Hunt)',
-      track: 'Event 26 • Campus Cryptographic Race',
+      track: 'Event 26 • Two-Round Cryptographic Campus Race',
       scheduleInfo: 'Day 5 (16 Oct) • 2:30 PM – 4:30 PM (Tentative)',
-      description: 'Thrilling campus-wide clue-solving race: teams decode quantum circuit puzzles, decipher quantum key cryptography riddles, and race across checkpoints.',
+      description: 'Adrenaline-packed campus puzzle race: decipher quantum logic riddles, decode circuit clues, and navigate physical and digital checkpoints.',
       icon: 'travel_explore',
       formUrl: TREASURE_HUNT_FORM_URL,
       buttonText: 'Register for Treasure Hunt',
       tag: 'Competition #4',
+      rules: [
+        'Round 1: Preliminary Quiz-based screening round testing quantum problem-solving and deduction.',
+        'Round 2 (The Real Hunt): Only the Top 6 to 8 teams (consisting of 3 members each) will qualify and advance to the final Round 2 campus hunt.',
+        'The real treasure hunt starts in Round 2, with detailed hunt rules and clue paths revealed on the spot.',
+        'Top winning squads to reach the final checkpoint and decode the vault will receive prizes and medals.',
+      ],
     },
   ];
 
@@ -315,24 +340,35 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
           title: 'Event 23: Quantum Quest – The Ultimate Quantum Quiz',
           typeBadge: 'Flagship Competition',
           isCompetition: true,
-          competitionTag: 'Activity 1: Quantum Quiz Arena',
+          competitionTag: 'Activity 1: Two-Round Quiz Arena',
           formUrl: QUIZ_FORM_URL,
           buttonText: 'Register for Quiz',
-          description: 'High-energy multi-round quantum quiz testing fundamentals, circuit recognition, quantum algorithm trivia, and rapid-fire problem solving.',
+          description: 'High-energy two-round quantum quiz testing fundamentals, circuit recognition, quantum algorithm trivia, and rapid-fire problem-solving.',
           icon: 'quiz',
+          rules: [
+            'Round 1: Individual screening round for all participants.',
+            'Round 2 (Finals): Qualifying participants grouped into teams by faculty and judges.',
+            'Evaluation and progression are strictly up to the judges. Top 3 teams win prizes!',
+          ],
         },
         {
           id: 'd5-e24',
           sessionNumber: 'Event 24',
           time: '11:30 AM – 12:30 PM',
-          title: 'Event 24: Quantum Vision – Student Presentation Challenge (Poster / PPT)',
+          title: 'Event 24: Quantum Vision – Student PPT Presentation Challenge',
           typeBadge: 'Flagship Competition',
           isCompetition: true,
-          competitionTag: 'Activity 2: Poster & PPT Presentations',
+          competitionTag: 'Activity 2: PPT Presentation & Idea Pitch',
           formUrl: PRESENTATION_FORM_URL,
-          buttonText: 'Register for Presentation',
-          description: 'Student presentation challenge featuring technical poster displays and PPT presentations on specific quantum domains, algorithms, and application pitches.',
+          buttonText: 'Register for PPT Presentation',
+          isPpt: true,
+          description: 'Student slide presentation challenge: explain any concept in Quantum Technologies or pitch an innovative Quantum Idea using the official PPT template.',
           icon: 'co_present',
+          rules: [
+            'Topic: Explain any concept in Quantum Technologies or pitch an original Quantum Idea Presentation.',
+            'Team size: Individual or Team of 2 members allowed.',
+            'Mandatory Template: Download and use "PVPSIT X QISKIT FALL FEST PPT TEMPLATE". Top 3 win!',
+          ],
         },
         {
           id: 'd5-networking',
@@ -350,11 +386,15 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
           title: 'Event 25: Quantum Minds – Debate, JAM & Group Discussion',
           typeBadge: 'Flagship Competition',
           isCompetition: true,
-          competitionTag: 'Activity 3: Debate & JAM Arena',
+          competitionTag: 'Activity 3: 1 vs 1 Debate & JAM Arena',
           formUrl: DEBATE_FORM_URL,
           buttonText: 'Register for Debate / JAM',
-          description: 'Dynamic competitive arena featuring head-to-head Oxford-style debates and Just-A-Minute (JAM) rounds tackling quantum technology ethics, revolution vs. hype, and the future of computing.',
+          description: 'Dynamic competitive arena featuring head-to-head 1 vs 1 Oxford-style debates and Just-A-Minute (JAM) rounds tackling quantum technology ethics, revolution vs. hype, and the future of computing.',
           icon: 'gavel',
+          rules: [
+            'Format: 1 vs 1 (One-on-One) competitive debate and JAM speaking battles.',
+            'Judged on technical articulation, spontaneous rebuttal, and reasoning. Top 3 win prizes!',
+          ],
         },
         {
           id: 'd5-e26',
@@ -363,11 +403,16 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
           title: 'Event 26: Quantum Trail – The Qiskit Treasure Hunt',
           typeBadge: 'Flagship Competition',
           isCompetition: true,
-          competitionTag: 'Activity 4: Campus Cryptographic Hunt',
+          competitionTag: 'Activity 4: Two-Round Cryptographic Hunt',
           formUrl: TREASURE_HUNT_FORM_URL,
           buttonText: 'Register for Treasure Hunt',
-          description: 'Thrilling campus-wide clue-solving race: teams decode quantum circuit puzzles, decipher quantum key cryptography riddles, and race across checkpoints to uncover the final prize.',
+          description: 'Thrilling campus-wide clue-solving race: teams decode quantum circuit puzzles, decipher quantum key cryptography riddles, and race across checkpoints.',
           icon: 'travel_explore',
+          rules: [
+            'Round 1: Preliminary Quiz-based screening round testing quantum problem-solving.',
+            'Round 2 (The Real Hunt): Only Top 6 to 8 teams (3 members per team) advance to the campus hunt.',
+            'Detailed hunt rules announced on the spot. Top finishing teams win!',
+          ],
         },
       ],
     },
@@ -651,6 +696,47 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
                         <span className="material-symbols-outlined text-base text-secondary">event</span>
                         <span>{act.scheduleInfo}</span>
                       </div>
+
+                      {/* Competition Rules & Format */}
+                      {act.rules && act.rules.length > 0 && (
+                        <div className="mb-4 p-3.5 rounded-xl bg-secondary/10 dark:bg-secondary/15 border border-secondary/25 text-left">
+                          <div className="flex items-center gap-1.5 text-xs font-bold text-secondary dark:text-secondary-fixed mb-2 uppercase tracking-wide">
+                            <span className="material-symbols-outlined text-sm">checklist</span>
+                            <span>Competition Format &amp; Rules</span>
+                          </div>
+                          <ul className="space-y-1.5 text-xs text-on-surface/90 dark:text-dark-text/90">
+                            {act.rules.map((rule, idx) => (
+                              <li key={idx} className="flex items-start gap-2">
+                                <span className="material-symbols-outlined text-[13px] text-secondary mt-0.5 shrink-0">check_circle</span>
+                                <span className="leading-relaxed">{rule}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {/* Official PPT Template Download Button */}
+                      {act.isPpt && (
+                        <div className="mb-4 p-3.5 rounded-xl bg-gradient-to-r from-amber-500/15 to-secondary/10 border border-amber-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left">
+                          <div className="flex items-center gap-2.5">
+                            <div className="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+                              <span className="material-symbols-outlined text-lg">download</span>
+                            </div>
+                            <div>
+                              <p className="text-xs font-bold text-on-surface dark:text-dark-text">Official PPT Presentation Template</p>
+                              <p className="text-[11px] text-on-surface-variant dark:text-dark-text-muted">Mandatory slide template for participants</p>
+                            </div>
+                          </div>
+                          <a
+                            href={`${import.meta.env.BASE_URL}pvpsit_qiskit_fall_fest_ppt_template.pptx`}
+                            download="PVPSIT X QISKIT FALL FEST PPT TEMPLATE.pptx"
+                            className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-amber-500 text-white hover:bg-amber-600 text-xs font-bold shadow-sm transition-all shrink-0 hover:scale-105 active:scale-95"
+                          >
+                            <span className="material-symbols-outlined text-sm">file_download</span>
+                            <span>Download Template (.pptx)</span>
+                          </a>
+                        </div>
+                      )}
                     </div>
 
                     <div className="pt-4 border-t border-secondary/20 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
@@ -725,7 +811,7 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
                 </span>
               </div>
 
-              {/* 4 Competition Winners Cards with Placeholders / TBD */}
+              {/* 4 Competition Winners Cards / TBD */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* 1. Quiz Competition */}
                 <div className="p-6 rounded-2xl bg-white/60 dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border shadow-sm flex flex-col justify-between">
@@ -791,10 +877,10 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
                     </div>
                     <h3 className="font-headline-md text-lg font-bold text-on-surface dark:text-dark-text mb-2 flex items-center gap-2">
                       <span className="material-symbols-outlined text-secondary">co_present</span>
-                      <span>Quantum Vision – Student Presentation (Poster / PPT)</span>
+                      <span>Quantum Vision – Student PPT Presentation Challenge</span>
                     </h3>
                     <p className="text-xs text-on-surface-variant dark:text-dark-text-muted mb-4">
-                      Best technical presentations and visual posters judged on clarity, innovation, and scientific depth.
+                      Best technical presentations and quantum idea pitches judged on clarity, innovation, and scientific depth.
                     </p>
 
                     <div className="space-y-2.5 text-xs">
@@ -1044,6 +1130,47 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
                           {session.description}
                         </p>
 
+                        {/* Competition Format & Rules */}
+                        {session.rules && session.rules.length > 0 && (
+                          <div className="mt-3 ml-0 sm:ml-12 p-3.5 rounded-xl bg-secondary/10 dark:bg-secondary/15 border border-secondary/25 text-left">
+                            <div className="flex items-center gap-1.5 text-xs font-bold text-secondary dark:text-secondary-fixed mb-2 uppercase tracking-wide">
+                              <span className="material-symbols-outlined text-sm">checklist</span>
+                              <span>Competition Format &amp; Rules</span>
+                            </div>
+                            <ul className="space-y-1.5 text-xs text-on-surface/90 dark:text-dark-text/90">
+                              {session.rules.map((rule, idx) => (
+                                <li key={idx} className="flex items-start gap-2">
+                                  <span className="material-symbols-outlined text-[13px] text-secondary mt-0.5 shrink-0">check_circle</span>
+                                  <span className="leading-relaxed">{rule}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+
+                        {/* Official PPT Template Download Button */}
+                        {session.isPpt && (
+                          <div className="mt-3 ml-0 sm:ml-12 p-3.5 rounded-xl bg-gradient-to-r from-amber-500/15 to-secondary/10 border border-amber-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left">
+                            <div className="flex items-center gap-2.5">
+                              <div className="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+                                <span className="material-symbols-outlined text-lg">download</span>
+                              </div>
+                              <div>
+                                <p className="text-xs font-bold text-on-surface dark:text-dark-text">Official PPT Presentation Template</p>
+                                <p className="text-[11px] text-on-surface-variant dark:text-dark-text-muted">Mandatory slide template for participants</p>
+                              </div>
+                            </div>
+                            <a
+                              href={`${import.meta.env.BASE_URL}pvpsit_qiskit_fall_fest_ppt_template.pptx`}
+                              download="PVPSIT X QISKIT FALL FEST PPT TEMPLATE.pptx"
+                              className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-amber-500 text-white hover:bg-amber-600 text-xs font-bold shadow-sm transition-all shrink-0 hover:scale-105 active:scale-95"
+                            >
+                              <span className="material-symbols-outlined text-sm">file_download</span>
+                              <span>Download Template (.pptx)</span>
+                            </a>
+                          </div>
+                        )}
+
                         {/* If session is a competition, render dedicated Google Form button */}
                         {session.isCompetition && session.formUrl && (
                           <div className="mt-4 pt-4 ml-0 sm:ml-12 border-t border-secondary/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -1100,7 +1227,7 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
                     onClick={() => setActiveFilter('WINNERS')}
                     className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-500 text-white hover:bg-amber-600 text-xs font-bold transition-all shadow-sm shrink-0"
                   >
-                    <span>View Winners Placeholders</span>
+                    <span>View Winners (17 Oct)</span>
                     <span className="material-symbols-outlined text-sm">arrow_forward</span>
                   </button>
                 </div>
@@ -1111,7 +1238,7 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
                     <span className="text-amber-700 dark:text-amber-300 font-semibold italic">TBD (Winners Announced 17 Oct)</span>
                   </div>
                   <div className="p-3.5 rounded-xl bg-surface-container/60 dark:bg-dark-surface/60 border border-outline-variant/20">
-                    <span className="font-bold text-secondary block mb-1">PPT / Poster Challenge</span>
+                    <span className="font-bold text-secondary block mb-1">PPT Presentation Challenge</span>
                     <span className="text-amber-700 dark:text-amber-300 font-semibold italic">TBD (Winners Announced 17 Oct)</span>
                   </div>
                   <div className="p-3.5 rounded-xl bg-surface-container/60 dark:bg-dark-surface/60 border border-outline-variant/20">

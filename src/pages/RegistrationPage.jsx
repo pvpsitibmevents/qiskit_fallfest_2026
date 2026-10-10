@@ -191,29 +191,42 @@ export default function RegistrationPage({ setActivePage }) {
               </div>
             </a>
 
-            {/* Presentation */}
-            <a
-              href={PRESENTATION_FORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-4 rounded-2xl bg-white dark:bg-dark-surface-card border border-secondary/30 hover:border-secondary transition-all hover:-translate-y-1 hover:shadow-md flex flex-col justify-between group"
-            >
+            {/* PPT Presentation */}
+            <div className="p-4 rounded-2xl bg-white dark:bg-dark-surface-card border border-secondary/30 hover:border-secondary transition-all hover:-translate-y-1 hover:shadow-md flex flex-col justify-between group">
               <div>
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-secondary/15 text-secondary">
                   Event 24 • 11:30 AM
                 </span>
                 <h4 className="font-bold text-sm text-on-surface dark:text-dark-text mt-2 group-hover:text-secondary transition-colors">
-                  Quantum Vision (PPT/Poster)
+                  Quantum Vision (PPT Presentation)
                 </h4>
                 <p className="text-[11px] text-on-surface-variant dark:text-dark-text-muted mt-1">
-                  Student Presentation Challenge
+                  Student PPT Challenge &amp; Quantum Idea Pitch
                 </p>
               </div>
-              <div className="mt-3 pt-2 border-t border-secondary/15 flex items-center justify-between text-xs font-bold text-secondary">
-                <span>Presentation Form</span>
-                <span className="material-symbols-outlined text-sm">open_in_new</span>
+              <div className="mt-3 pt-2 border-t border-secondary/15 flex flex-col gap-2">
+                <a
+                  href={`${import.meta.env.BASE_URL}pvpsit_qiskit_fall_fest_ppt_template.pptx`}
+                  download="PVPSIT X QISKIT FALL FEST PPT TEMPLATE.pptx"
+                  className="flex items-center justify-between text-[11px] font-bold text-amber-600 dark:text-amber-400 hover:text-amber-700 transition-colors"
+                >
+                  <span className="flex items-center gap-1">
+                    <span className="material-symbols-outlined text-sm">download</span>
+                    <span>Download PPT Template</span>
+                  </span>
+                  <span className="material-symbols-outlined text-xs">file_download</span>
+                </a>
+                <a
+                  href={PRESENTATION_FORM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between text-xs font-bold text-secondary hover:underline"
+                >
+                  <span>Register for PPT</span>
+                  <span className="material-symbols-outlined text-sm">open_in_new</span>
+                </a>
               </div>
-            </a>
+            </div>
 
             {/* Debate */}
             <a
