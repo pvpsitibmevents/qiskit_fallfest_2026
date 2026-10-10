@@ -107,27 +107,24 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
       sessions: [
         {
           id: 'd1-s1',
-          sessionNumber: 'Session 1',
           time: '9:30 AM – 11:30 AM',
-          title: 'Session 1: Quantum Awareness & Foundations',
+          title: 'Quantum Awareness & Foundations',
           typeBadge: 'Foundations & Lecture',
           description: 'Introduction to the quantum realm: classical bits vs. qubits, principles of superposition, quantum entanglement, and computational paradigm shifts.',
           icon: 'school',
         },
         {
           id: 'd1-s2',
-          sessionNumber: 'Session 2',
           time: '11:30 AM – 12:00 PM',
-          title: 'Session 2: Introduction to Qiskit Fall Fest 2026 & Event Roadmap',
+          title: 'Introduction to Qiskit Fall Fest 2026 & Event Roadmap',
           typeBadge: 'Orientation & Roadmap',
           description: 'Comprehensive walkthrough of Qiskit Fall Fest 2026 at PVPSIT, academic collaboration with IBM Quantum & RGUKT, schedule milestones, and learning paths.',
           icon: 'map',
         },
         {
           id: 'd1-s3',
-          sessionNumber: 'Session 3',
           time: '12:00 PM – 12:15 PM',
-          title: 'Session 3: Student Engagement & Team Formation',
+          title: 'Student Engagement & Team Formation',
           typeBadge: 'Networking & Teams',
           description: 'Community networking, team matching for upcoming festival challenges, project cohort formation, and guidance on competition participation.',
           icon: 'groups',
@@ -146,45 +143,40 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
       sessions: [
         {
           id: 'd2-s4',
-          sessionNumber: 'Session 4',
           time: '9:30 AM – 11:00 AM',
-          title: 'Session 4: Getting Started with Qiskit – From Concepts to Code',
+          title: 'Getting Started with Qiskit – From Concepts to Code',
           typeBadge: 'Coding Workshop',
           description: 'Deconstructing Qiskit primitives: QuantumCircuit classes, single-qubit gates (X, H, Z, S), multi-qubit gates (CNOT, Toffoli), and visual circuit drawing.',
           icon: 'terminal',
         },
         {
           id: 'd2-s5',
-          sessionNumber: 'Session 5',
           time: '11:00 AM – 11:15 AM',
-          title: 'Session 5: Qiskit Environment Setup & Access Check',
+          title: 'Qiskit Environment Setup & Access Check',
           typeBadge: 'Lab Check',
           description: 'Configuring Python environments, Jupyter Notebook instances, Qiskit library dependencies, and verifying IBM Quantum cloud authentication tokens.',
           icon: 'tune',
         },
         {
           id: 'd2-s6',
-          sessionNumber: 'Session 6',
           time: '11:15 AM – 1:00 PM',
-          title: 'Session 6: Hands-on Quantum Circuit Programming with Qiskit',
+          title: 'Hands-on Quantum Circuit Programming with Qiskit',
           typeBadge: 'Hands-on Lab',
           description: 'Step-by-step guided coding: synthesizing Bell states, GHZ quantum entangled states, quantum teleportation circuits, and running statevector simulations on local backends.',
           icon: 'code',
         },
         {
           id: 'd2-s7',
-          sessionNumber: 'Session 7',
           time: '2:00 PM – 3:30 PM',
-          title: 'Session 7: Exploring Quantum Circuits – Practical Challenge',
+          title: 'Exploring Quantum Circuits – Practical Challenge',
           typeBadge: 'Practical Lab Challenge',
           description: 'Live practical challenge where participant teams construct custom quantum circuits from target specifications, minimize gate depth, and execute measurements.',
           icon: 'precision_manufacturing',
         },
         {
           id: 'd2-s8',
-          sessionNumber: 'Session 8',
           time: '3:30 PM – 4:00 PM',
-          title: 'Session 8: Qiskit Practice, Queries & Troubleshooting',
+          title: 'Qiskit Practice, Queries & Troubleshooting',
           typeBadge: 'Q&A & Debugging',
           description: 'Interactive troubleshooting desk: debugging circuit errors, analyzing measurement histograms, and Q&A on transpilation and circuit optimization.',
           icon: 'support',
@@ -203,36 +195,32 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
       sessions: [
         {
           id: 'd3-s9',
-          sessionNumber: 'Session 9',
           time: '10:00 AM – 11:00 AM',
-          title: 'Session 9: Quantum Computing at IBM – Opportunities, Careers & Industry Perspectives',
+          title: 'Quantum Computing at IBM – Opportunities, Careers & Industry Perspectives',
           typeBadge: 'Industry Keynote',
           description: 'Overview of enterprise quantum computing, IBM Quantum System One & Two architectures, real-world industry adoption, and career trajectories in quantum software.',
           icon: 'business_center',
         },
         {
           id: 'd3-s10',
-          sessionNumber: 'Session 10',
           time: '11:00 AM – 11:15 AM',
-          title: 'Session 10: Interactive Student Dialogue with IBM Speaker',
+          title: 'Interactive Student Dialogue with IBM Speaker',
           typeBadge: 'Interactive Dialogue',
           description: 'Direct interactive dialogue and Q&A session discussing quantum algorithm workflows, Qiskit Runtime, research possibilities, and career guidance.',
           icon: 'forum',
         },
         {
           id: 'd3-s11',
-          sessionNumber: 'Session 11',
           time: '2:00 PM – 4:00 PM',
-          title: 'Session 11: Quantum Resources, Tools & Future Technology Landscape',
+          title: 'Quantum Resources, Tools & Future Technology Landscape',
           typeBadge: 'Technology Deep-Dive',
           description: 'Comprehensive exploration of open-source quantum toolkits, error suppression techniques, Qiskit Runtime primitives (Sampler & Estimator), and the 10-year quantum roadmap.',
           icon: 'hub',
         },
         {
           id: 'd3-s12',
-          sessionNumber: 'Session 12',
           time: '4:00 PM – 4:15 PM',
-          title: 'Session 12: Reflection & Preparation for Quantum Challenge Day',
+          title: 'Reflection & Preparation for Quantum Challenge Day',
           typeBadge: 'Briefing & Reflection',
           description: 'Synthesis of key learnings from Days 1–3, preparation strategy for the Grand Inauguration and Day 5 flagship competitions.',
           icon: 'psychology',
@@ -251,7 +239,6 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
       sessions: [
         {
           id: 'd4-morning-welcome',
-          sessionNumber: 'Morning Gathering',
           time: '9:30 AM – 10:00 AM',
           title: 'Welcome & Gathering of Participants',
           typeBadge: 'Reception',
@@ -260,43 +247,38 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
         },
         {
           id: 'd4-s13',
-          sessionNumber: 'Session 13',
           time: '10:00 AM – 10:20 AM',
-          title: 'Session 13: Formal Inauguration of Qiskit Fall Fest 2026',
+          title: 'Formal Inauguration of Qiskit Fall Fest 2026',
           typeBadge: 'Grand Inauguration',
           description: 'Ceremonial lighting of the lamp and formal inauguration of the flagship PVPSIT Qiskit Fall Fest 2026 in collaboration with IBM Quantum & RGUKT.',
           icon: 'celebration',
         },
         {
           id: 'd4-s14',
-          sessionNumber: 'Session 14',
           time: '10:20 AM – 10:35 AM',
-          title: 'Session 14: Presidential Address / Address by Principal',
+          title: 'Presidential Address / Address by Principal',
           typeBadge: 'Presidential Address',
           description: 'Inspirational presidential remarks by institutional leadership emphasizing technological innovation, quantum literacy, and student research excellence.',
           icon: 'campaign',
         },
         {
           id: 'd4-s15',
-          sessionNumber: 'Session 15',
           time: '10:35 AM – 10:50 AM',
-          title: 'Session 15: Qiskit Fall Fest 2026 – Vision, Objectives & Student Opportunities',
+          title: 'Qiskit Fall Fest 2026 – Vision, Objectives & Student Opportunities',
           typeBadge: 'Vision & Scope',
           description: 'Presentation outlining the core mission of Q-CONNECT 2026, upcoming hack challenges, regional community building, and opportunities for participating students.',
           icon: 'visibility',
         },
         {
           id: 'd4-s16',
-          sessionNumber: 'Session 16',
           time: '10:50 AM – 11:00 AM',
-          title: 'Session 16: Introduction of Faculty & Student Coordinators',
+          title: 'Introduction of Faculty & Student Coordinators',
           typeBadge: 'Coordination Briefing',
           description: 'Official introduction and briefing of event coordination teams and organizing committee for the fest.',
           icon: 'badge',
         },
         {
           id: 'd4-afternoon-expert',
-          sessionNumber: 'Afternoon Keynote',
           time: '2:00 PM – 3:00 PM',
           title: 'Expert Keynote Session: Advanced Quantum Computing & Algorithms',
           typeBadge: 'Expert Keynote',
@@ -305,7 +287,6 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
         },
         {
           id: 'd4-afternoon-deepdive',
-          sessionNumber: 'Technical Session',
           time: '3:00 PM – 4:00 PM',
           title: 'Technical Session: Quantum Circuit Design & Deep-Dive',
           typeBadge: 'Technical Workshop',
@@ -314,7 +295,6 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
         },
         {
           id: 'd4-afternoon-wrapup',
-          sessionNumber: 'Closing Briefing',
           time: '4:00 PM – 4:15 PM',
           title: 'Day 4 Wrap-Up & Competition Day Briefing',
           typeBadge: 'Competition Eve',
@@ -335,7 +315,6 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
       sessions: [
         {
           id: 'd5-quiz',
-          sessionNumber: 'Quantum Quiz',
           time: '9:30 AM – 11:30 AM',
           title: 'Quantum Quest – The Ultimate Quantum Quiz',
           typeBadge: 'Flagship Competition',
@@ -353,7 +332,6 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
         },
         {
           id: 'd5-ppt',
-          sessionNumber: 'PPT Presentation',
           time: '11:30 AM – 12:30 PM',
           title: 'PPT Presentation',
           typeBadge: 'Flagship Competition',
@@ -372,7 +350,6 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
         },
         {
           id: 'd5-networking',
-          sessionNumber: 'Networking',
           time: '12:30 PM – 1:15 PM',
           title: 'Participant Interaction & Networking',
           typeBadge: 'Community Break',
@@ -381,7 +358,6 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
         },
         {
           id: 'd5-debate',
-          sessionNumber: 'Debate & JAM',
           time: '1:15 PM – 2:30 PM',
           title: 'Quantum Minds – Debate, JAM & Group Discussion',
           typeBadge: 'Flagship Competition',
@@ -398,7 +374,6 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
         },
         {
           id: 'd5-treasure-hunt',
-          sessionNumber: 'Treasure Hunt',
           time: '2:30 PM – 4:30 PM',
           title: 'Quantum Trail – The Qiskit Treasure Hunt',
           typeBadge: 'Flagship Competition',
@@ -1088,10 +1063,12 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
                         {/* Session Top Meta */}
                         <div className="flex flex-wrap items-center justify-between gap-2 mb-3 pb-3 border-b border-outline-variant/20 dark:border-dark-border">
                           <div className="flex flex-wrap items-center gap-2">
-                            <span className="text-xs font-bold text-primary font-label-caps bg-primary/10 dark:bg-primary/20 px-2.5 py-0.5 rounded-md">
-                              {session.sessionNumber}
-                            </span>
-                            <span className="text-[11px] font-label-caps font-semibold text-on-surface-variant dark:text-dark-text-muted bg-surface-container/60 dark:bg-dark-surface/60 px-2.5 py-0.5 rounded-md border border-outline-variant/20">
+                            {session.sessionNumber && (
+                              <span className="text-xs font-bold text-primary font-label-caps bg-primary/10 dark:bg-primary/20 px-2.5 py-0.5 rounded-md">
+                                {session.sessionNumber}
+                              </span>
+                            )}
+                            <span className="text-[11px] font-label-caps font-semibold text-primary dark:text-primary-fixed bg-primary/10 dark:bg-primary/20 px-2.5 py-0.5 rounded-md border border-primary/20">
                               {session.typeBadge}
                             </span>
                             {session.isCompetition && (
