@@ -8,9 +8,12 @@ export default function MembersPage({ onOpenRegister }) {
     role: 'Convenor & Vice President',
     title: 'Vice President of Siddhartha Academy & Convenor of PVPSIT',
     images: [
-      `${import.meta.env.BASE_URL}team/Vellanki Nagabhushana Rao.jpeg`,
       `${import.meta.env.BASE_URL}team/vellanki_nagabhushana_rao.jpeg`,
       `${import.meta.env.BASE_URL}team/vellanki_nagabhushana_rao.jpg`,
+      `${import.meta.env.BASE_URL}team/vellanki.jpeg`,
+      `${import.meta.env.BASE_URL}team/vellanki.jpg`,
+      `${import.meta.env.BASE_URL}team/Vellanki Nagabhushana Rao.jpeg`,
+      `${import.meta.env.BASE_URL}team/Vellanki Nagabhushana Rao.jpg`,
       `${import.meta.env.BASE_URL}team/Vellanki Nagabhushana Rao -Vice President of Siddhartha academy and Convenor of PVPSIT.jpeg`,
     ],
   };
@@ -224,11 +227,10 @@ export default function MembersPage({ onOpenRegister }) {
   }, []);
 
   const handleImageError = (e, memberImages) => {
-    const currentSrc = e.target.getAttribute('src');
-    const currentIndex = memberImages.indexOf(currentSrc);
-    if (currentIndex !== -1 && currentIndex < memberImages.length - 1) {
-      // Try next fallback image URL
-      e.target.setAttribute('src', memberImages[currentIndex + 1]);
+    const nextIndex = (parseInt(e.target.dataset.fallbackIndex || '0', 10)) + 1;
+    if (nextIndex < memberImages.length) {
+      e.target.dataset.fallbackIndex = nextIndex;
+      e.target.setAttribute('src', memberImages[nextIndex]);
     } else {
       // Hide broken image and show person icon fallback
       e.target.style.display = 'none';
@@ -243,6 +245,7 @@ export default function MembersPage({ onOpenRegister }) {
       <img
         src={member.images[0]}
         alt={member.name}
+        data-fallback-index="0"
         loading="eager"
         fetchpriority="high"
         className="w-full h-full object-cover"
