@@ -19,7 +19,7 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
       id: 'quiz',
       title: 'Quantum Quest – The Ultimate Quantum Quiz',
       shortTitle: 'Quantum Quest (Quiz)',
-      track: 'Event 23 • Two-Round Quantum Challenge Arena',
+      track: 'Two-Round Quantum Challenge Arena',
       scheduleInfo: 'Day 5 (16 Oct) • 9:30 AM – 11:30 AM (Tentative)',
       description: 'High-energy two-round quantum quiz testing fundamentals, circuit gates, and quantum technology concepts.',
       icon: 'quiz',
@@ -36,9 +36,9 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
     {
       number: 2,
       id: 'presentation',
-      title: 'Quantum Vision – Student PPT Presentation Challenge',
-      shortTitle: 'Quantum Vision (PPT Presentation)',
-      track: 'Event 24 • PPT Presentation & Quantum Idea Arena',
+      title: 'PPT Presentation',
+      shortTitle: 'PPT Presentation',
+      track: 'PPT Presentation & Quantum Idea Arena',
       scheduleInfo: 'Day 5 (16 Oct) • 11:30 AM – 12:30 PM (Tentative)',
       description: 'Present structured PowerPoint slide decks explaining any concept in Quantum Technologies or pitching an innovative Quantum Idea.',
       icon: 'co_present',
@@ -58,7 +58,7 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
       id: 'debate',
       title: 'Quantum Minds – Debate, JAM & Group Discussion',
       shortTitle: 'Quantum Minds (1 vs 1 Debate & JAM)',
-      track: 'Event 25 • 1 vs 1 Parliamentary Debate & JAM Arena',
+      track: '1 vs 1 Parliamentary Debate & JAM Arena',
       scheduleInfo: 'Day 5 (16 Oct) • 1:15 PM – 2:30 PM (Tentative)',
       description: 'Head-to-head 1 vs 1 Oxford-style debates and Just-A-Minute (JAM) speaking showdowns on quantum disruption, classical vs. quantum supremacy, and tech ethics.',
       icon: 'gavel',
@@ -77,7 +77,7 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
       id: 'treasure-hunt',
       title: 'Quantum Trail – The Qiskit Treasure Hunt',
       shortTitle: 'Quantum Trail (Treasure Hunt)',
-      track: 'Event 26 • Two-Round Cryptographic Campus Race',
+      track: 'Two-Round Cryptographic Campus Race',
       scheduleInfo: 'Day 5 (16 Oct) • 2:30 PM – 4:30 PM (Tentative)',
       description: 'Adrenaline-packed campus puzzle race: decipher quantum logic riddles, decode circuit clues, and navigate physical and digital checkpoints.',
       icon: 'travel_explore',
@@ -334,10 +334,10 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
       badgeColor: 'bg-purple-500/10 text-purple-600 dark:bg-purple-400/15 dark:text-purple-300 border-purple-500/30',
       sessions: [
         {
-          id: 'd5-e23',
-          sessionNumber: 'Event 23',
+          id: 'd5-quiz',
+          sessionNumber: 'Quantum Quiz',
           time: '9:30 AM – 11:30 AM',
-          title: 'Event 23: Quantum Quest – The Ultimate Quantum Quiz',
+          title: 'Quantum Quest – The Ultimate Quantum Quiz',
           typeBadge: 'Flagship Competition',
           isCompetition: true,
           competitionTag: 'Activity 1: Two-Round Quiz Arena',
@@ -352,10 +352,10 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
           ],
         },
         {
-          id: 'd5-e24',
-          sessionNumber: 'Event 24',
+          id: 'd5-ppt',
+          sessionNumber: 'PPT Presentation',
           time: '11:30 AM – 12:30 PM',
-          title: 'Event 24: Quantum Vision – Student PPT Presentation Challenge',
+          title: 'PPT Presentation',
           typeBadge: 'Flagship Competition',
           isCompetition: true,
           competitionTag: 'Activity 2: PPT Presentation & Idea Pitch',
@@ -380,10 +380,10 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
           icon: 'diversity_3',
         },
         {
-          id: 'd5-e25',
-          sessionNumber: 'Event 25',
+          id: 'd5-debate',
+          sessionNumber: 'Debate & JAM',
           time: '1:15 PM – 2:30 PM',
-          title: 'Event 25: Quantum Minds – Debate, JAM & Group Discussion',
+          title: 'Quantum Minds – Debate, JAM & Group Discussion',
           typeBadge: 'Flagship Competition',
           isCompetition: true,
           competitionTag: 'Activity 3: 1 vs 1 Debate & JAM Arena',
@@ -397,10 +397,10 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
           ],
         },
         {
-          id: 'd5-e26',
-          sessionNumber: 'Event 26',
+          id: 'd5-treasure-hunt',
+          sessionNumber: 'Treasure Hunt',
           time: '2:30 PM – 4:30 PM',
-          title: 'Event 26: Quantum Trail – The Qiskit Treasure Hunt',
+          title: 'Quantum Trail – The Qiskit Treasure Hunt',
           typeBadge: 'Flagship Competition',
           isCompetition: true,
           competitionTag: 'Activity 4: Two-Round Cryptographic Hunt',
@@ -818,7 +818,7 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-3">
                       <span className="text-xs font-bold text-secondary bg-secondary/10 px-2.5 py-1 rounded-md border border-secondary/20">
-                        Event 23
+                        Quantum Quiz
                       </span>
                       <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
                         TBD / Scheduled
@@ -869,7 +869,7 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-3">
                       <span className="text-xs font-bold text-secondary bg-secondary/10 px-2.5 py-1 rounded-md border border-secondary/20">
-                        Event 24
+                        PPT Presentation
                       </span>
                       <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
                         TBD / Scheduled
@@ -877,7 +877,7 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
                     </div>
                     <h3 className="font-headline-md text-lg font-bold text-on-surface dark:text-dark-text mb-2 flex items-center gap-2">
                       <span className="material-symbols-outlined text-secondary">co_present</span>
-                      <span>Quantum Vision – Student PPT Presentation Challenge</span>
+                      <span>PPT Presentation</span>
                     </h3>
                     <p className="text-xs text-on-surface-variant dark:text-dark-text-muted mb-4">
                       Best technical presentations and quantum idea pitches judged on clarity, innovation, and scientific depth.
@@ -920,7 +920,7 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-3">
                       <span className="text-xs font-bold text-secondary bg-secondary/10 px-2.5 py-1 rounded-md border border-secondary/20">
-                        Event 25
+                        Debate &amp; JAM
                       </span>
                       <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
                         TBD / Scheduled
@@ -971,7 +971,7 @@ export default function SchedulePage({ onOpenRegister, setActivePage }) {
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-3">
                       <span className="text-xs font-bold text-secondary bg-secondary/10 px-2.5 py-1 rounded-md border border-secondary/20">
-                        Event 26
+                        Treasure Hunt
                       </span>
                       <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
                         TBD / Scheduled

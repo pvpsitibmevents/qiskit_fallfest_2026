@@ -89,7 +89,7 @@ export default function RegistrationPage({ setActivePage }) {
       title: 'Competitions Only (16 Oct)',
       badge: 'Arena',
       badgeColor: 'bg-outline-variant/50 text-on-surface dark:text-dark-text',
-      desc: 'Direct participation in the 4 flagship challenges: Quantum Quest, Presentation Challenge, Debate/JAM, and Treasure Hunt.',
+      desc: 'Direct participation in the 4 flagship challenges: Quantum Quest, PPT Presentation, Debate/JAM, and Treasure Hunt.',
       icon: 'emoji_events',
     },
   ];
@@ -176,7 +176,7 @@ export default function RegistrationPage({ setActivePage }) {
             >
               <div>
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-secondary/15 text-secondary">
-                  Event 23 • 9:30 AM
+                  9:30 AM
                 </span>
                 <h4 className="font-bold text-sm text-on-surface dark:text-dark-text mt-2 group-hover:text-secondary transition-colors">
                   Quantum Quest (Quiz)
@@ -195,10 +195,10 @@ export default function RegistrationPage({ setActivePage }) {
             <div className="p-4 rounded-2xl bg-white dark:bg-dark-surface-card border border-secondary/30 hover:border-secondary transition-all hover:-translate-y-1 hover:shadow-md flex flex-col justify-between group">
               <div>
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-secondary/15 text-secondary">
-                  Event 24 • 11:30 AM
+                  11:30 AM
                 </span>
                 <h4 className="font-bold text-sm text-on-surface dark:text-dark-text mt-2 group-hover:text-secondary transition-colors">
-                  Quantum Vision (PPT Presentation)
+                  PPT Presentation
                 </h4>
                 <p className="text-[11px] text-on-surface-variant dark:text-dark-text-muted mt-1">
                   Student PPT Challenge &amp; Quantum Idea Pitch
@@ -237,7 +237,7 @@ export default function RegistrationPage({ setActivePage }) {
             >
               <div>
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-secondary/15 text-secondary">
-                  Event 25 • 1:15 PM
+                  1:15 PM
                 </span>
                 <h4 className="font-bold text-sm text-on-surface dark:text-dark-text mt-2 group-hover:text-secondary transition-colors">
                   Quantum Minds (Debate/JAM)
@@ -261,7 +261,7 @@ export default function RegistrationPage({ setActivePage }) {
             >
               <div>
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-secondary/15 text-secondary">
-                  Event 26 • 2:30 PM
+                  2:30 PM
                 </span>
                 <h4 className="font-bold text-sm text-on-surface dark:text-dark-text mt-2 group-hover:text-secondary transition-colors">
                   Quantum Trail (Hunt)
