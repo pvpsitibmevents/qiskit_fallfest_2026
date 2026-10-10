@@ -207,6 +207,17 @@ export default function MembersPage({ onOpenRegister }) {
         `${import.meta.env.BASE_URL}team/jai_teja.jpeg`,
       ],
     },
+    {
+      name: 'Joshua',
+      role: 'Student Organizer',
+      branch: 'Student Team',
+      images: [
+        `${import.meta.env.BASE_URL}team/Joshua.jpeg`,
+        `${import.meta.env.BASE_URL}team/joshua.jpeg`,
+        `${import.meta.env.BASE_URL}team/Joshua.jpg`,
+        `${import.meta.env.BASE_URL}team/joshua.jpg`,
+      ],
+    },
   ];
 
   // Preload all team member images into browser cache instantly on mount
@@ -537,8 +548,8 @@ export default function MembersPage({ onOpenRegister }) {
             </GlassPanel>
           </div>
 
-          {/* Student Coordinators Grid (10 Members in Floating Glass Panels) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 max-w-6xl mx-auto">
+          {/* Student Coordinators Grid (11 Members in Floating Glass Panels) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 max-w-6xl mx-auto">
             {studentCoordinators.map((student, idx) => (
               <GlassPanel
                 key={idx}
