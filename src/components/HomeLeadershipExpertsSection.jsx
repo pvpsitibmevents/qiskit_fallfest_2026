@@ -6,6 +6,31 @@ export default function HomeLeadershipExpertsSection({ setActivePage, onOpenRegi
 
   const experts = [
     {
+      id: 'vellanki-nagabhushana-rao',
+      name: 'Sri Vellanki Nagabhushana Rao',
+      role: 'Convenor & Vice President',
+      title: 'Vice President, Siddhartha Academy & Convenor, PVPSIT',
+      department: 'Siddhartha Academy • Management Leadership',
+      badgeColor: 'bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-fixed-dim border-primary/30',
+      images: [
+        `${import.meta.env.BASE_URL}team/Vellanki Nagabhushana Rao.jpeg`,
+        `${import.meta.env.BASE_URL}team/vellanki_nagabhushana_rao.jpeg`,
+        `${import.meta.env.BASE_URL}team/vellanki_nagabhushana_rao.jpg`,
+        `${import.meta.env.BASE_URL}team/Vellanki Nagabhushana Rao -Vice President of Siddhartha academy and Convenor of PVPSIT.jpeg`,
+      ],
+      shortBio:
+        'Vice President of Siddhartha Academy and Convenor of PVPSIT. Providing visionary institutional leadership, patronage, and strategic steering for Q-CONNECT 2026.',
+      fullBio:
+        'Sri Vellanki Nagabhushana Rao serves as the Vice President of Siddhartha Academy of General & Technical Education (SAGTE) and Convenor of Prasad V. Potluri Siddhartha Institute of Technology (PVPSIT). Under his leadership and administrative stewardship, PVPSIT continues to lead in engineering excellence and multidisciplinary technical education. He actively champions forward-looking pedagogical initiatives, state-of-the-art research laboratories, and premier global industry partnerships such as PVPSIT Qiskit Fall Fest 2026 with IBM Quantum.',
+      contributions: [
+        'Management Leadership and Convenor of PVPSIT Qiskit Fall Fest 2026 (Q-CONNECT 2026).',
+        'Executive governance and institutional patronage across Siddhartha Academy and PVPSIT.',
+        'Championing cutting-edge quantum computing infrastructure and advanced technical labs.',
+        'Empowering students and faculty to engage in national and global technological frontiers.',
+      ],
+      topics: ['Convenor PVPSIT', 'Vice President SAGTE', 'Executive Leadership', 'Institutional Patron'],
+    },
+    {
       id: 'sivaji-babu',
       name: 'Dr. K. Sivaji Babu',
       role: 'Chief Patron',
@@ -131,8 +156,8 @@ export default function HomeLeadershipExpertsSection({ setActivePage, onOpenRegi
         </p>
       </div>
 
-      {/* 4 Leadership Expert Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* 5 Leadership Expert Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
         {experts.map((expert) => (
           <GlassPanel
             key={expert.id}

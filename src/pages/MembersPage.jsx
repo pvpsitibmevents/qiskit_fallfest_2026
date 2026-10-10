@@ -3,6 +3,18 @@ import { GlassPanel } from '@/components/ui/glass';
 
 export default function MembersPage({ onOpenRegister }) {
   // Leadership & Team Structure with fallback aliases
+  const convenor = {
+    name: 'Sri Vellanki Nagabhushana Rao',
+    role: 'Convenor & Vice President',
+    title: 'Vice President of Siddhartha Academy & Convenor of PVPSIT',
+    images: [
+      `${import.meta.env.BASE_URL}team/Vellanki Nagabhushana Rao.jpeg`,
+      `${import.meta.env.BASE_URL}team/vellanki_nagabhushana_rao.jpeg`,
+      `${import.meta.env.BASE_URL}team/vellanki_nagabhushana_rao.jpg`,
+      `${import.meta.env.BASE_URL}team/Vellanki Nagabhushana Rao -Vice President of Siddhartha academy and Convenor of PVPSIT.jpeg`,
+    ],
+  };
+
   const chiefPatron = {
     name: 'Dr. K. Sivaji Babu',
     role: 'Chief Patron',
@@ -197,6 +209,7 @@ export default function MembersPage({ onOpenRegister }) {
   // Preload all team member images into browser cache instantly on mount
   useEffect(() => {
     const allImages = [
+      ...convenor.images,
       ...chiefPatron.images,
       ...deptHead.images,
       ...leadOrganizer.images,
@@ -274,9 +287,43 @@ export default function MembersPage({ onOpenRegister }) {
           </p>
         </div>
 
-        {/* Leadership Hierarchy (High Official to Lowers: Chief Patron -> Department Head -> Lead Organizer) */}
+        {/* Leadership Hierarchy (High Official to Lowers: Convenor -> Chief Patron / Principal Sir -> Department Head -> Lead Organizer) */}
         <div className="flex flex-col items-center mb-20">
-          {/* Level 1: Chief Patron (Principal Sir) */}
+          {/* Level 1: Convenor & Vice President (Sri Vellanki Nagabhushana Rao) */}
+          <GlassPanel
+            blur={0}
+            dome={1.6}
+            strength={0.45}
+            radius={24}
+            className="w-full max-w-lg rounded-2xl shadow-xl transition-all duration-300 hover:-translate-y-2.5 hover:shadow-2xl relative overflow-hidden group"
+            contentClassName="p-7 flex flex-col items-center text-center relative"
+          >
+            <div className="absolute -top-10 -right-10 w-28 h-28 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all pointer-events-none" />
+            <div className="absolute -bottom-10 -left-10 w-28 h-28 bg-secondary/10 rounded-full blur-2xl group-hover:bg-secondary/20 transition-all pointer-events-none" />
+
+            <div className="bg-primary text-on-primary font-label-caps text-xs px-4 py-1.5 rounded-full mb-5 font-bold shadow-sm uppercase tracking-wider relative z-10">
+              {convenor.role}
+            </div>
+            <div className="relative z-10">
+              {renderPhotoCard(convenor, 'w-32 h-32')}
+            </div>
+            <h3 className="font-headline-md text-xl sm:text-2xl font-bold text-on-surface dark:text-dark-text mb-1 mt-5 relative z-10 group-hover:text-primary transition-colors">
+              {convenor.name}
+            </h3>
+            <p className="font-body-md text-sm sm:text-base text-primary font-semibold mb-1 relative z-10">
+              {convenor.title}
+            </p>
+            <span className="text-xs text-on-surface-variant dark:text-dark-text-muted font-label-caps tracking-wide relative z-10">
+              Management Leadership • Siddhartha Academy &amp; PVPSIT
+            </span>
+          </GlassPanel>
+
+          {/* Hierarchy Connector Stem 1 */}
+          <div className="w-0.5 h-10 bg-gradient-to-b from-primary to-secondary relative flex items-center justify-center my-1">
+            <div className="w-2.5 h-2.5 rounded-full bg-secondary shadow-sm animate-pulse" />
+          </div>
+
+          {/* Level 2: Chief Patron (Principal Sir) */}
           <GlassPanel
             blur={0}
             dome={1.6}
@@ -301,16 +348,16 @@ export default function MembersPage({ onOpenRegister }) {
               {chiefPatron.title}
             </p>
             <span className="text-xs text-on-surface-variant dark:text-dark-text-muted font-label-caps tracking-wide relative z-10">
-              Patron & Institutional Leadership • PVPSIT
+              Patron &amp; Institutional Leadership • PVPSIT
             </span>
           </GlassPanel>
 
-          {/* Hierarchy Connector Stem 1 */}
+          {/* Hierarchy Connector Stem 2 */}
           <div className="w-0.5 h-10 bg-gradient-to-b from-primary to-secondary relative flex items-center justify-center my-1">
-            <div className="w-2.5 h-2.5 rounded-full bg-secondary shadow-sm animate-pulse" />
+            <div className="w-2.5 h-2.5 rounded-full bg-primary shadow-sm animate-pulse" />
           </div>
 
-          {/* Level 2: Department Head (HOD Ma'am) */}
+          {/* Level 3: Department Head (HOD Ma'am) */}
           <GlassPanel
             blur={0}
             dome={1.6}
@@ -335,16 +382,16 @@ export default function MembersPage({ onOpenRegister }) {
               {deptHead.title}
             </p>
             <span className="text-xs text-on-surface-variant dark:text-dark-text-muted font-label-caps tracking-wide relative z-10">
-              Departmental Guidance & Academic Leadership
+              Departmental Guidance &amp; Academic Leadership
             </span>
           </GlassPanel>
 
-          {/* Hierarchy Connector Stem 2 */}
+          {/* Hierarchy Connector Stem 3 */}
           <div className="w-0.5 h-10 bg-gradient-to-b from-secondary to-primary relative flex items-center justify-center my-1">
             <div className="w-2.5 h-2.5 rounded-full bg-primary shadow-sm animate-pulse" />
           </div>
 
-          {/* Level 3: Lead Organizer (Faculty Lead) */}
+          {/* Level 4: Lead Organizer (Faculty Lead) */}
           <GlassPanel
             blur={0}
             dome={1.6}
