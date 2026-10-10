@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
 
+// Official Google Form URLs
+export const MAIN_REGISTRATION_FORM_URL = 'https://forms.gle/MrYwotpeYyVBaB377';
+export const QUIZ_FORM_URL = 'https://forms.gle/mo6A4kiYm4tbqUE66';
+export const DEBATE_FORM_URL = 'https://forms.gle/Na2zif7sXG94K9g17';
+export const PRESENTATION_FORM_URL = 'https://forms.gle/Koq8ZsLtHo7xtUbx6';
+export const TREASURE_HUNT_FORM_URL = 'https://forms.gle/idSz2g9a1Vna29888';
+
 // Deployed Google Apps Script Web App URL for Google Sheets integration
 const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbyUZtXtv2gxIL2cou_-je-Ph4kq8ZMzGGCW-GiEPh4ONNvSQhCS523E-49D6bioFpL4/exec';
 
@@ -10,7 +17,7 @@ export default function RegistrationPage({ setActivePage }) {
     phone: '',
     department: 'Computer Science & Engineering',
     year: '3rd Year',
-    registrationType: 'Full Pass (Pre-Fest + Main Fest + Post-Fest)',
+    registrationType: 'Full 5-Day Festival Pass (12–16 Oct 2026)',
     college: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -62,35 +69,35 @@ export default function RegistrationPage({ setActivePage }) {
 
   const tracks = [
     {
-      id: 'Full Pass (Pre-Fest + Main Fest + Post-Fest)',
-      title: 'Full Festival Pass',
+      id: 'Full 5-Day Festival Pass (12–16 Oct 2026)',
+      title: 'Full Festival Pass (5 Days)',
       badge: 'Recommended',
       badgeColor: 'bg-primary text-white',
-      desc: 'All-inclusive access: Pre-fest workshops, 3-day Main Fest (15–17 Oct), CircuitCraft hackathon, and post-fest challenges.',
+      desc: 'All-inclusive access: 12–16 Oct 2026 — Foundations, Qiskit Hands-on Labs, IBM Perspectives, Grand Inauguration, and Day 5 Competitions.',
       icon: 'stars',
     },
     {
-      id: 'Main Fest Only (Oct 15–17)',
-      title: 'Main Fest Pass',
-      badge: '3 Days',
+      id: 'Hands-on Labs & Inauguration (13–15 Oct)',
+      title: 'Labs & Inauguration Pass',
+      badge: 'Workshops',
       badgeColor: 'bg-secondary text-white',
-      desc: 'Oct 15–17: Keynote addresses by IBM scientists, hands-on Qiskit Ignition workshop, and CircuitCraft team challenge.',
+      desc: 'Access to Qiskit coding sessions, IBM tech interaction, and ceremonial grand inauguration keynote lectures.',
       icon: 'rocket_launch',
     },
     {
-      id: 'Pre-Fest Sessions Only (15 Sept - 8 Oct)',
-      title: 'Pre-Fest Track Only',
-      badge: 'Sessions',
+      id: 'Special Competitions Track (16 Oct)',
+      title: 'Competitions Only (16 Oct)',
+      badge: 'Arena',
       badgeColor: 'bg-outline-variant/50 text-on-surface dark:text-dark-text',
-      desc: 'Introductory awareness lectures, Quantum Clash debates, Q-Canvas poster pitches, and Q-Bits strategy quiz.',
-      icon: 'school',
+      desc: 'Direct participation in the 4 flagship challenges: Quantum Quest, Presentation Challenge, Debate/JAM, and Treasure Hunt.',
+      icon: 'emoji_events',
     },
   ];
 
   const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
     'PVPSIT Qiskit Fall Fest 2026: Q-CONNECT'
-  )}&dates=20261015T033000Z/20261017T113000Z&details=${encodeURIComponent(
-    'Q-CONNECT 2026: From Quantum Curiosity to Quantum Circuits at PVPSIT, Vijayawada. Keynotes, workshops & CircuitCraft.'
+  )}&dates=20261012T040000Z/20261016T113000Z&details=${encodeURIComponent(
+    'Q-CONNECT 2026: From Quantum Curiosity to Quantum Circuits at PVPSIT, Vijayawada. 5 Days of Keynotes, workshops & competitions.'
   )}&location=${encodeURIComponent(
     'Prasad V. Potluri Siddhartha Institute of Technology, Kanuru, Vijayawada, Andhra Pradesh 520007'
   )}`;
@@ -111,8 +118,152 @@ export default function RegistrationPage({ setActivePage }) {
         </h1>
 
         <p className="font-body-lg text-base sm:text-lg text-on-surface-variant dark:text-dark-text-muted max-w-2xl mx-auto leading-relaxed">
-          From Quantum Curiosity to Quantum Circuits. Register for free to attend keynotes, hands-on Qiskit coding workshops, and team challenges at PVPSIT, Vijayawada.
+          From Quantum Curiosity to Quantum Circuits. Register for free to attend keynotes, hands-on Qiskit coding workshops, and team challenges at PVPSIT, Vijayawada (12–16 October 2026).
         </p>
+
+        {/* Primary Official Google Form Banner */}
+        <div className="max-w-4xl mx-auto pt-4">
+          <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-primary/15 via-secondary/10 to-primary/10 border-2 border-primary/40 shadow-xl relative overflow-hidden text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase tracking-wider">
+                <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
+                <span>Official Google Form</span>
+              </div>
+              <h2 className="font-headline-md text-xl sm:text-2xl font-bold text-on-surface dark:text-dark-text">
+                Register for Qiskit Fall Fest 2026
+              </h2>
+              <p className="text-xs sm:text-sm text-on-surface-variant dark:text-dark-text-muted max-w-xl">
+                Fill out the official Google Form for full festival registration, workshop seats, IBM certificates, and access credentials.
+              </p>
+            </div>
+            <a
+              href={MAIN_REGISTRATION_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-primary text-on-primary font-bold text-sm sm:text-base hover:bg-on-primary-fixed-variant transition-all shadow-pulse-pink hover:scale-105 active:scale-95 shrink-0"
+            >
+              <span className="material-symbols-outlined text-lg">how_to_reg</span>
+              <span>Open Official Google Form</span>
+              <span className="material-symbols-outlined text-base">open_in_new</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Day 5 Special Competitions Forms (16 Oct) */}
+        <div className="max-w-4xl mx-auto pt-6 text-left">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+            <div>
+              <h3 className="font-headline-md text-lg sm:text-xl font-bold text-on-surface dark:text-dark-text flex items-center gap-2">
+                <span className="material-symbols-outlined text-secondary">emoji_events</span>
+                <span>Day 5 Special Competitions Forms (16 October 2026)</span>
+              </h3>
+              <p className="text-xs text-on-surface-variant dark:text-dark-text-muted">
+                Register for individual flagship competitions using their dedicated Google Forms:
+              </p>
+            </div>
+            <span className="text-[11px] font-semibold text-amber-700 dark:text-amber-300 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20 self-start sm:self-auto">
+              All Timings Tentative
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {/* Quiz */}
+            <a
+              href={QUIZ_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 rounded-2xl bg-white dark:bg-dark-surface-card border border-secondary/30 hover:border-secondary transition-all hover:-translate-y-1 hover:shadow-md flex flex-col justify-between group"
+            >
+              <div>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-secondary/15 text-secondary">
+                  Event 23 • 9:30 AM
+                </span>
+                <h4 className="font-bold text-sm text-on-surface dark:text-dark-text mt-2 group-hover:text-secondary transition-colors">
+                  Quantum Quest (Quiz)
+                </h4>
+                <p className="text-[11px] text-on-surface-variant dark:text-dark-text-muted mt-1">
+                  Ultimate Quantum Quiz challenge
+                </p>
+              </div>
+              <div className="mt-3 pt-2 border-t border-secondary/15 flex items-center justify-between text-xs font-bold text-secondary">
+                <span>Quiz Form</span>
+                <span className="material-symbols-outlined text-sm">open_in_new</span>
+              </div>
+            </a>
+
+            {/* Presentation */}
+            <a
+              href={PRESENTATION_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 rounded-2xl bg-white dark:bg-dark-surface-card border border-secondary/30 hover:border-secondary transition-all hover:-translate-y-1 hover:shadow-md flex flex-col justify-between group"
+            >
+              <div>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-secondary/15 text-secondary">
+                  Event 24 • 11:30 AM
+                </span>
+                <h4 className="font-bold text-sm text-on-surface dark:text-dark-text mt-2 group-hover:text-secondary transition-colors">
+                  Quantum Vision (PPT/Poster)
+                </h4>
+                <p className="text-[11px] text-on-surface-variant dark:text-dark-text-muted mt-1">
+                  Student Presentation Challenge
+                </p>
+              </div>
+              <div className="mt-3 pt-2 border-t border-secondary/15 flex items-center justify-between text-xs font-bold text-secondary">
+                <span>Presentation Form</span>
+                <span className="material-symbols-outlined text-sm">open_in_new</span>
+              </div>
+            </a>
+
+            {/* Debate */}
+            <a
+              href={DEBATE_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 rounded-2xl bg-white dark:bg-dark-surface-card border border-secondary/30 hover:border-secondary transition-all hover:-translate-y-1 hover:shadow-md flex flex-col justify-between group"
+            >
+              <div>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-secondary/15 text-secondary">
+                  Event 25 • 1:15 PM
+                </span>
+                <h4 className="font-bold text-sm text-on-surface dark:text-dark-text mt-2 group-hover:text-secondary transition-colors">
+                  Quantum Minds (Debate/JAM)
+                </h4>
+                <p className="text-[11px] text-on-surface-variant dark:text-dark-text-muted mt-1">
+                  Debate, JAM &amp; Group Discussion
+                </p>
+              </div>
+              <div className="mt-3 pt-2 border-t border-secondary/15 flex items-center justify-between text-xs font-bold text-secondary">
+                <span>Debate Form</span>
+                <span className="material-symbols-outlined text-sm">open_in_new</span>
+              </div>
+            </a>
+
+            {/* Treasure Hunt */}
+            <a
+              href={TREASURE_HUNT_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 rounded-2xl bg-white dark:bg-dark-surface-card border border-secondary/30 hover:border-secondary transition-all hover:-translate-y-1 hover:shadow-md flex flex-col justify-between group"
+            >
+              <div>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-secondary/15 text-secondary">
+                  Event 26 • 2:30 PM
+                </span>
+                <h4 className="font-bold text-sm text-on-surface dark:text-dark-text mt-2 group-hover:text-secondary transition-colors">
+                  Quantum Trail (Hunt)
+                </h4>
+                <p className="text-[11px] text-on-surface-variant dark:text-dark-text-muted mt-1">
+                  Campus-wide Treasure Hunt
+                </p>
+              </div>
+              <div className="mt-3 pt-2 border-t border-secondary/15 flex items-center justify-between text-xs font-bold text-secondary">
+                <span>Hunt Form</span>
+                <span className="material-symbols-outlined text-sm">open_in_new</span>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
 
       {!submitted ? (
@@ -398,16 +549,16 @@ export default function RegistrationPage({ setActivePage }) {
                 <div className="flex items-start gap-3">
                   <span className="material-symbols-outlined text-primary text-lg mt-0.5">calendar_today</span>
                   <div>
-                    <strong className="block text-on-surface dark:text-dark-text font-bold">Main Fest Dates</strong>
-                    <span className="text-on-surface-variant dark:text-dark-text-muted">15, 16 & 17 October 2026</span>
+                    <strong className="block text-on-surface dark:text-dark-text font-bold">5-Day Festival Dates</strong>
+                    <span className="text-on-surface-variant dark:text-dark-text-muted">12 – 16 October 2026</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-secondary text-lg mt-0.5">schedule</span>
+                  <span className="material-symbols-outlined text-amber-500 text-lg mt-0.5">military_tech</span>
                   <div>
-                    <strong className="block text-on-surface dark:text-dark-text font-bold">Pre-Fest Sessions</strong>
-                    <span className="text-on-surface-variant dark:text-dark-text-muted">15 Sept – 8 Oct 2026 (7 awareness & competition events)</span>
+                    <strong className="block text-on-surface dark:text-dark-text font-bold">Grand Valedictory Ceremony</strong>
+                    <span className="text-on-surface-variant dark:text-dark-text-muted">17 October 2026 (Awards & Felicitation)</span>
                   </div>
                 </div>
 

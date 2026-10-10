@@ -2,74 +2,73 @@ import React, { useState } from 'react';
 import { GlassPanel } from '@/components/ui/glass';
 import { GlassSelect, GlassSelectTrigger, GlassSelectContent, GlassSelectItem } from '@/components/ui/glass-select';
 
-export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setActivePage }) {
-  const [activeFilter, setActiveFilter] = useState('ALL'); // 'ALL', 'DAY1', 'DAY2', 'DAY3', 'DAY4', 'DAY5', 'COMPETITIONS'
+// Official Google Form URLs
+const MAIN_REGISTRATION_FORM_URL = 'https://forms.gle/MrYwotpeYyVBaB377';
+const QUIZ_FORM_URL = 'https://forms.gle/mo6A4kiYm4tbqUE66';
+const DEBATE_FORM_URL = 'https://forms.gle/Na2zif7sXG94K9g17';
+const PRESENTATION_FORM_URL = 'https://forms.gle/Koq8ZsLtHo7xtUbx6';
+const TREASURE_HUNT_FORM_URL = 'https://forms.gle/idSz2g9a1Vna29888';
 
-  // 5 Core Activities / Competitions (Themed in secondary #6252a1 purple)
+export default function SchedulePage({ onOpenRegister, setActivePage }) {
+  const [activeFilter, setActiveFilter] = useState('ALL'); // 'ALL', 'DAY1', 'DAY2', 'DAY3', 'DAY4', 'DAY5', 'COMPETITIONS', 'WINNERS'
+
+  // 4 Flagship Day 5 Competitions (Themed in secondary #6252a1 purple)
   const competitionActivities = [
     {
       number: 1,
-      id: 'debate-jam',
-      title: 'Debate and Jam',
-      track: 'Turncoat & Just-A-Minute (JAM) Arena',
-      scheduleInfo: 'Day 5 (16 Oct) • 1:15 PM – 2:30 PM',
-      description: 'Competitive head-to-head Oxford-style debate and Just-A-Minute (JAM) speaking rounds on quantum disruption, classical vs. quantum computing, and technological ethics.',
-      icon: 'gavel',
-      color: 'from-secondary/20 to-secondary-container/20 border-secondary/40 text-secondary',
-      badgeColor: 'bg-secondary/15 text-secondary dark:bg-secondary/25 dark:text-secondary-fixed border-secondary/30',
-      tag: 'Activity #1',
+      id: 'quiz',
+      title: 'Quantum Quest – The Ultimate Quantum Quiz',
+      shortTitle: 'Quantum Quest (Quiz)',
+      track: 'Event 23 • Quantum Knowledge & Rapid-Fire Trivia Arena',
+      scheduleInfo: 'Day 5 (16 Oct) • 9:30 AM – 11:30 AM (Tentative)',
+      description: 'High-energy multi-round quantum quiz testing fundamentals, circuit recognition, quantum algorithm trivia, and rapid-fire problem-solving.',
+      icon: 'quiz',
+      formUrl: QUIZ_FORM_URL,
+      buttonText: 'Register for Quiz',
+      tag: 'Competition #1',
     },
     {
       number: 2,
-      id: 'poster-ppt',
-      title: 'Poster or PPT Presentation',
-      track: 'Quantum Vision — Presentation Track',
-      scheduleInfo: 'Day 5 (16 Oct) • 11:30 AM – 12:30 PM',
-      description: 'Present high-impact technical posters or structured slide decks explaining specific quantum computing domains, algorithms, quantum internet, or hardware architectures.',
-      icon: 'palette',
-      color: 'from-secondary/20 to-secondary-container/20 border-secondary/40 text-secondary',
-      badgeColor: 'bg-secondary/15 text-secondary dark:bg-secondary/25 dark:text-secondary-fixed border-secondary/30',
-      tag: 'Activity #2',
+      id: 'presentation',
+      title: 'Quantum Vision – Student Presentation Challenge',
+      shortTitle: 'Quantum Vision (Poster / PPT)',
+      track: 'Event 24 • Poster / PPT Presentation Arena',
+      scheduleInfo: 'Day 5 (16 Oct) • 11:30 AM – 12:30 PM (Tentative)',
+      description: 'Showcase technical posters or PowerPoint slide presentations on quantum computing domains, algorithms, quantum communication, and hardware architectures.',
+      icon: 'co_present',
+      formUrl: PRESENTATION_FORM_URL,
+      buttonText: 'Register for PPT / Poster',
+      tag: 'Competition #2',
     },
     {
       number: 3,
-      id: 'circuit-challenge',
-      title: 'Circuit Building Challenge with Qiskit',
-      track: 'CircuitCraft Hack & Build',
-      scheduleInfo: 'Day 2 (13 Oct) • 2:00 PM – 3:30 PM',
-      description: 'Hands-on practical circuit building challenge where participant teams solve target circuit puzzles, implement quantum gates, and optimize circuit depth in Qiskit.',
-      icon: 'precision_manufacturing',
-      color: 'from-secondary/20 to-secondary-container/20 border-secondary/40 text-secondary',
-      badgeColor: 'bg-secondary/15 text-secondary dark:bg-secondary/25 dark:text-secondary-fixed border-secondary/30',
-      tag: 'Activity #3',
+      id: 'debate',
+      title: 'Quantum Minds – Debate, JAM & Group Discussion',
+      shortTitle: 'Quantum Minds (Debate & JAM)',
+      track: 'Event 25 • Parliamentary Debate & JAM Arena',
+      scheduleInfo: 'Day 5 (16 Oct) • 1:15 PM – 2:30 PM (Tentative)',
+      description: 'Head-to-head Oxford-style parliamentary debates and Just-A-Minute (JAM) speaking rounds on quantum disruption, classical vs. quantum supremacy, and tech ethics.',
+      icon: 'gavel',
+      formUrl: DEBATE_FORM_URL,
+      buttonText: 'Register for Debate / JAM',
+      tag: 'Competition #3',
     },
     {
       number: 4,
-      id: 'quiz-treasure',
-      title: 'Quiz & Treasure Hunt',
-      track: 'Quantum Quest & The Qiskit Trail',
-      scheduleInfo: 'Day 5 (16 Oct) • Quiz: 9:30 AM | Treasure Hunt: 2:30 PM',
-      description: 'Dual excitement: a multi-round competitive quantum quiz in the morning, followed by an action-packed campus-wide clue-solving cryptographic treasure hunt in the afternoon.',
+      id: 'treasure-hunt',
+      title: 'Quantum Trail – The Qiskit Treasure Hunt',
+      shortTitle: 'Quantum Trail (Treasure Hunt)',
+      track: 'Event 26 • Campus Cryptographic Race',
+      scheduleInfo: 'Day 5 (16 Oct) • 2:30 PM – 4:30 PM (Tentative)',
+      description: 'Thrilling campus-wide clue-solving race: teams decode quantum circuit puzzles, decipher quantum key cryptography riddles, and race across checkpoints.',
       icon: 'travel_explore',
-      color: 'from-secondary/20 to-secondary-container/20 border-secondary/40 text-secondary',
-      badgeColor: 'bg-secondary/15 text-secondary dark:bg-secondary/25 dark:text-secondary-fixed border-secondary/30',
-      tag: 'Activity #4',
-    },
-    {
-      number: 5,
-      id: 'idea-presentation',
-      title: 'Idea Presentation',
-      track: 'Quantum Innovation & Pitch Track',
-      scheduleInfo: 'Day 5 (16 Oct) • 11:30 AM – 12:30 PM',
-      description: 'Pitch original quantum application ideas, use-cases for government/industry, and innovative societal solutions addressing healthcare, finance, logistics, and cryptography.',
-      icon: 'lightbulb',
-      color: 'from-secondary/20 to-secondary-container/20 border-secondary/40 text-secondary',
-      badgeColor: 'bg-secondary/15 text-secondary dark:bg-secondary/25 dark:text-secondary-fixed border-secondary/30',
-      tag: 'Activity #5',
+      formUrl: TREASURE_HUNT_FORM_URL,
+      buttonText: 'Register for Treasure Hunt',
+      tag: 'Competition #4',
     },
   ];
 
-  // Complete 5-Day Event Schedule
+  // Complete 5-Day Event Schedule (Coordinators & Speaker cards removed per user specification)
   const scheduleDays = [
     {
       dayNumber: 1,
@@ -86,8 +85,8 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
           sessionNumber: 'Session 1',
           time: '9:30 AM – 11:30 AM',
           title: 'Session 1: Quantum Awareness & Foundations',
-          typeBadge: 'Foundations & Keynote',
-          description: 'Introduction to the quantum realm: classical bits vs. qubits, principles of superposition, quantum entanglement, and why quantum computing represents a computational paradigm shift.',
+          typeBadge: 'Foundations & Lecture',
+          description: 'Introduction to the quantum realm: classical bits vs. qubits, principles of superposition, quantum entanglement, and computational paradigm shifts.',
           icon: 'school',
         },
         {
@@ -104,7 +103,7 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
           sessionNumber: 'Session 3',
           time: '12:00 PM – 12:15 PM',
           title: 'Session 3: Student Engagement & Team Formation',
-          typeBadge: 'Engagement & Networking',
+          typeBadge: 'Networking & Teams',
           description: 'Community networking, team matching for upcoming festival challenges, project cohort formation, and guidance on competition participation.',
           icon: 'groups',
         },
@@ -144,7 +143,7 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
           time: '11:15 AM – 1:00 PM',
           title: 'Session 6: Hands-on Quantum Circuit Programming with Qiskit',
           typeBadge: 'Hands-on Lab',
-          description: 'Step-by-step guided coding: synthesizing Bell states, GHZ quantum entangled states, quantum teleportation circuits, and running statevector simulation on local backends.',
+          description: 'Step-by-step guided coding: synthesizing Bell states, GHZ quantum entangled states, quantum teleportation circuits, and running statevector simulations on local backends.',
           icon: 'code',
         },
         {
@@ -152,9 +151,7 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
           sessionNumber: 'Session 7',
           time: '2:00 PM – 3:30 PM',
           title: 'Session 7: Exploring Quantum Circuits – Practical Challenge',
-          typeBadge: 'Competition Track',
-          isCompetition: true,
-          competitionTag: 'Activity 3: Circuit Building Challenge with Qiskit',
+          typeBadge: 'Practical Lab Challenge',
           description: 'Live practical challenge where participant teams construct custom quantum circuits from target specifications, minimize gate depth, and execute measurements.',
           icon: 'precision_manufacturing',
         },
@@ -175,8 +172,8 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
       date: '14 October 2026',
       dayOfWeek: 'Wednesday',
       title: 'IBM Interaction & Quantum Technology Perspectives',
-      subtitle: 'Direct Insights from IBM Quantum Engineers',
-      summary: 'A day dedicated to industrial perspectives, career pathways, cutting-edge software tooling, and an exclusive interactive dialogue with IBM Quantum Algorithm Engineer Janani A.',
+      subtitle: 'Direct Insights into Industry & Emerging Quantum Technologies',
+      summary: 'A day dedicated to industrial perspectives, career pathways, cutting-edge software tooling, and an exclusive interactive dialogue session.',
       badgeColor: 'bg-blue-600/10 text-blue-600 dark:bg-blue-400/15 dark:text-blue-300 border-blue-600/30',
       sessions: [
         {
@@ -184,32 +181,18 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
           sessionNumber: 'Session 9',
           time: '10:00 AM – 11:00 AM',
           title: 'Session 9: Quantum Computing at IBM – Opportunities, Careers & Industry Perspectives',
-          typeBadge: 'IBM Keynote',
+          typeBadge: 'Industry Keynote',
           description: 'Overview of enterprise quantum computing, IBM Quantum System One & Two architectures, real-world industry adoption, and career trajectories in quantum software.',
           icon: 'business_center',
-          speaker: {
-            name: 'Janani A',
-            role: 'Quantum Algorithm Engineer, IBM',
-            id: 'janani-a',
-            avatar: `${import.meta.env.BASE_URL}speakers/janani_a.jpg`,
-            badge: 'IBM Quantum',
-          },
         },
         {
           id: 'd3-s10',
           sessionNumber: 'Session 10',
           time: '11:00 AM – 11:15 AM',
-          title: 'Session 10: Interactive Student Dialogue with IBM Speaker (A Janani Mam)',
+          title: 'Session 10: Interactive Student Dialogue with IBM Speaker',
           typeBadge: 'Interactive Dialogue',
-          description: 'Direct interactive dialogue and Q&A session with IBM Quantum Algorithm Engineer Janani A, discussing quantum algorithm workflows, Qiskit Runtime, and career guidance.',
+          description: 'Direct interactive dialogue and Q&A session discussing quantum algorithm workflows, Qiskit Runtime, research possibilities, and career guidance.',
           icon: 'forum',
-          speaker: {
-            name: 'Janani A',
-            role: 'Quantum Algorithm Engineer, IBM',
-            id: 'janani-a',
-            avatar: `${import.meta.env.BASE_URL}speakers/janani_a.jpg`,
-            badge: 'IBM Quantum',
-          },
         },
         {
           id: 'd3-s11',
@@ -226,7 +209,7 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
           time: '4:00 PM – 4:15 PM',
           title: 'Session 12: Reflection & Preparation for Quantum Challenge Day',
           typeBadge: 'Briefing & Reflection',
-          description: 'Synthesis of key learnings from Days 1–3, preparation strategy for the Grand Inauguration and Day 5 competitions.',
+          description: 'Synthesis of key learnings from Days 1–3, preparation strategy for the Grand Inauguration and Day 5 flagship competitions.',
           icon: 'psychology',
         },
       ],
@@ -236,17 +219,17 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
       dayKey: 'DAY4',
       date: '15 October 2026',
       dayOfWeek: 'Thursday',
-      title: 'Grand Inauguration & Expert Interaction Day',
-      subtitle: 'Ceremonial Launch & Advanced Quantum Developer Session',
-      summary: 'The grand ceremonial inauguration of Qiskit Fall Fest 2026 featuring college leadership, followed by an afternoon masterclass by Kunal Garg, Ph.D. (Senior Quantum Developer, BQP).',
+      title: 'Qiskit Fall Fest 2026 – Grand Inauguration & Expert Interaction Day',
+      subtitle: 'Ceremonial Launch & Advanced Technical Sessions',
+      summary: 'The grand ceremonial inauguration of Qiskit Fall Fest 2026 featuring college leadership, followed by an afternoon masterclass and deep-dive technical sessions.',
       badgeColor: 'bg-amber-500/10 text-amber-600 dark:bg-amber-400/15 dark:text-amber-300 border-amber-500/30',
       sessions: [
         {
           id: 'd4-morning-welcome',
-          sessionNumber: 'Morning',
+          sessionNumber: 'Morning Gathering',
           time: '9:30 AM – 10:00 AM',
           title: 'Welcome & Gathering of Participants',
-          typeBadge: 'Welcome',
+          typeBadge: 'Reception',
           description: 'Warm reception and gathering of registered students, faculty members, and academic delegates in the college auditorium.',
           icon: 'how_to_reg',
         },
@@ -264,7 +247,7 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
           sessionNumber: 'Session 14',
           time: '10:20 AM – 10:35 AM',
           title: 'Session 14: Presidential Address / Address by Principal',
-          typeBadge: 'Keynote Address',
+          typeBadge: 'Presidential Address',
           description: 'Inspirational presidential remarks by institutional leadership emphasizing technological innovation, quantum literacy, and student research excellence.',
           icon: 'campaign',
         },
@@ -274,53 +257,39 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
           time: '10:35 AM – 10:50 AM',
           title: 'Session 15: Qiskit Fall Fest 2026 – Vision, Objectives & Student Opportunities',
           typeBadge: 'Vision & Scope',
-          description: 'Presentation outlining the core mission of Q-CONNECT 2026, upcoming hackathons, regional community building, and opportunities for participating students.',
+          description: 'Presentation outlining the core mission of Q-CONNECT 2026, upcoming hack challenges, regional community building, and opportunities for participating students.',
           icon: 'visibility',
         },
         {
           id: 'd4-s16',
           sessionNumber: 'Session 16',
           time: '10:50 AM – 11:00 AM',
-          title: 'Session 16: Event Briefing & Logistics Guidelines',
-          typeBadge: 'Briefing',
-          description: 'Overview of event support channels, logistics, competition rubrics, and briefing for the afternoon sessions.',
+          title: 'Session 16: Introduction of Faculty & Student Coordinators',
+          typeBadge: 'Coordination Briefing',
+          description: 'Official introduction and briefing of event coordination teams and organizing committee for the fest.',
           icon: 'badge',
         },
         {
           id: 'd4-afternoon-expert',
-          sessionNumber: 'Afternoon Session',
+          sessionNumber: 'Afternoon Keynote',
           time: '2:00 PM – 3:00 PM',
-          title: 'Expert Session by Kunal Sir (Dr. Kunal Garg)',
+          title: 'Expert Keynote Session: Advanced Quantum Computing & Algorithms',
           typeBadge: 'Expert Keynote',
-          description: 'Specialist keynote session by Dr. Kunal Garg (Senior Quantum Computing Developer, BQP) covering high-performance quantum algorithms, industrial optimization, and Qiskit SDK integration.',
+          description: 'High-level technical session covering high-performance quantum algorithms, industrial optimization, and Qiskit SDK integration for cutting-edge computing challenges.',
           icon: 'psychology_alt',
-          speaker: {
-            name: 'Kunal Garg, Ph.D.',
-            role: 'Senior Quantum Computing Developer, BQP',
-            id: 'kunal-garg',
-            avatar: `${import.meta.env.BASE_URL}speakers/kunal_garg.jpg`,
-            badge: 'BQP Keynote',
-          },
         },
         {
           id: 'd4-afternoon-deepdive',
-          sessionNumber: 'Session 17',
+          sessionNumber: 'Technical Session',
           time: '3:00 PM – 4:00 PM',
-          title: 'Interactive Quantum Architecture Deep-Dive & Q&A',
-          typeBadge: 'Interactive Q&A',
-          description: 'Deep-dive discussion into quantum software architectures, compilation challenges, algorithm benchmarking, and live student Q&A.',
-          icon: 'record_voice_over',
-          speaker: {
-            name: 'Kunal Garg, Ph.D.',
-            role: 'Senior Quantum Computing Developer, BQP',
-            id: 'kunal-garg',
-            avatar: `${import.meta.env.BASE_URL}speakers/kunal_garg.jpg`,
-            badge: 'BQP Keynote',
-          },
+          title: 'Technical Session: Quantum Circuit Design & Deep-Dive',
+          typeBadge: 'Technical Workshop',
+          description: 'Deep-dive exploration into quantum software architectures, compilation challenges, algorithm benchmarking, and interactive technical discussion.',
+          icon: 'terminal',
         },
         {
           id: 'd4-afternoon-wrapup',
-          sessionNumber: 'Session 18',
+          sessionNumber: 'Closing Briefing',
           time: '4:00 PM – 4:15 PM',
           title: 'Day 4 Wrap-Up & Competition Day Briefing',
           typeBadge: 'Competition Eve',
@@ -334,7 +303,7 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
       dayKey: 'DAY5',
       date: '16 October 2026',
       dayOfWeek: 'Friday',
-      title: 'Quantum Competitions & Grand Finale Day',
+      title: 'Special Competitions Day',
       subtitle: 'Showcasing Knowledge, Innovation, Debate & Problem-Solving',
       summary: 'The ultimate climax of Qiskit Fall Fest 2026: 4 major competitive arenas spanning Quantum Quiz, Presentations, Debate/JAM, and a campus-wide Treasure Hunt.',
       badgeColor: 'bg-purple-500/10 text-purple-600 dark:bg-purple-400/15 dark:text-purple-300 border-purple-500/30',
@@ -346,7 +315,9 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
           title: 'Event 23: Quantum Quest – The Ultimate Quantum Quiz',
           typeBadge: 'Flagship Competition',
           isCompetition: true,
-          competitionTag: 'Activity 4: Quiz Competition',
+          competitionTag: 'Activity 1: Quantum Quiz Arena',
+          formUrl: QUIZ_FORM_URL,
+          buttonText: 'Register for Quiz',
           description: 'High-energy multi-round quantum quiz testing fundamentals, circuit recognition, quantum algorithm trivia, and rapid-fire problem solving.',
           icon: 'quiz',
         },
@@ -354,11 +325,13 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
           id: 'd5-e24',
           sessionNumber: 'Event 24',
           time: '11:30 AM – 12:30 PM',
-          title: 'Event 24: Quantum Vision – Student Presentation Challenge',
+          title: 'Event 24: Quantum Vision – Student Presentation Challenge (Poster / PPT)',
           typeBadge: 'Flagship Competition',
           isCompetition: true,
-          competitionTag: 'Activities 2 & 5: Poster / PPT & Idea Presentation',
-          description: 'Student presentation challenge featuring technical poster displays, PPT presentations on specific quantum domains, and novel quantum application idea pitches.',
+          competitionTag: 'Activity 2: Poster & PPT Presentations',
+          formUrl: PRESENTATION_FORM_URL,
+          buttonText: 'Register for Presentation',
+          description: 'Student presentation challenge featuring technical poster displays and PPT presentations on specific quantum domains, algorithms, and application pitches.',
           icon: 'co_present',
         },
         {
@@ -377,7 +350,9 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
           title: 'Event 25: Quantum Minds – Debate, JAM & Group Discussion',
           typeBadge: 'Flagship Competition',
           isCompetition: true,
-          competitionTag: 'Activity 1: Debate and JAM',
+          competitionTag: 'Activity 3: Debate & JAM Arena',
+          formUrl: DEBATE_FORM_URL,
+          buttonText: 'Register for Debate / JAM',
           description: 'Dynamic competitive arena featuring head-to-head Oxford-style debates and Just-A-Minute (JAM) rounds tackling quantum technology ethics, revolution vs. hype, and the future of computing.',
           icon: 'gavel',
         },
@@ -388,7 +363,9 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
           title: 'Event 26: Quantum Trail – The Qiskit Treasure Hunt',
           typeBadge: 'Flagship Competition',
           isCompetition: true,
-          competitionTag: 'Activity 4: Treasure Hunt',
+          competitionTag: 'Activity 4: Campus Cryptographic Hunt',
+          formUrl: TREASURE_HUNT_FORM_URL,
+          buttonText: 'Register for Treasure Hunt',
           description: 'Thrilling campus-wide clue-solving race: teams decode quantum circuit puzzles, decipher quantum key cryptography riddles, and race across checkpoints to uncover the final prize.',
           icon: 'travel_explore',
         },
@@ -412,55 +389,88 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
     })
     .filter(Boolean);
 
-  const handleSpeakerClick = (speakerId) => {
-    if (onNavigateToSpeaker) {
-      onNavigateToSpeaker(speakerId);
-    } else if (setActivePage) {
-      setActivePage('speakers');
+  const handleMainRegisterClick = () => {
+    if (onOpenRegister) {
+      onOpenRegister();
     } else {
-      window.location.hash = '#speakers';
+      window.open(MAIN_REGISTRATION_FORM_URL, '_blank', 'noopener,noreferrer');
     }
   };
 
   return (
     <div className="w-full min-h-screen flex flex-col">
       {/* Hero Section */}
-      <section className="pt-16 pb-12 px-gutter max-w-container-max mx-auto text-center">
-        <div className="inline-flex items-center justify-center px-4 py-2 rounded-full border border-primary/30 bg-primary/10 mb-6 shadow-sm">
+      <section className="pt-16 pb-8 px-gutter max-w-container-max mx-auto text-center">
+        <div className="inline-flex items-center justify-center px-4 py-2 rounded-full border border-primary/30 bg-primary/10 mb-4 shadow-sm">
           <span className="w-2.5 h-2.5 rounded-full bg-primary mr-2.5 animate-pulse" />
           <span className="font-label-caps text-xs text-primary uppercase tracking-widest font-bold">
             Q-CONNECT 2026 — Official 5-Day Event Schedule
           </span>
         </div>
-        <h1 className="font-headline-xl text-3xl md:text-5xl lg:text-[56px] font-bold text-on-surface dark:text-dark-text mb-6 max-w-4xl mx-auto tracking-tight leading-tight">
+
+        <h1 className="font-headline-xl text-3xl md:text-5xl lg:text-[56px] font-bold text-on-surface dark:text-dark-text mb-4 max-w-4xl mx-auto tracking-tight leading-tight">
           Qiskit Fall Fest <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-container to-secondary">@ PVPSIT</span>
         </h1>
-        <p className="font-body-lg text-body-lg text-on-surface-variant dark:text-dark-text-muted max-w-3xl mx-auto mb-8 text-sm sm:text-base">
-          {activeFilter === 'COMPETITIONS'
-            ? 'Explore the 5 Flagship Student Competitions — Debate & JAM, Poster/PPT, Qiskit Circuit Challenge, Quiz & Treasure Hunt, and Idea Presentation.'
-            : '12 October – 16 October 2026 • 5 Days of Quantum Foundations, Hands-on Qiskit Labs, IBM Expert Sessions, and Flagship Student Competitions.'}
+
+        <p className="font-body-lg text-body-lg text-on-surface-variant dark:text-dark-text-muted max-w-3xl mx-auto mb-6 text-sm sm:text-base">
+          12 October – 16 October 2026 • 5 Days of Quantum Foundations, Hands-on Qiskit Labs, IBM Perspectives, Grand Inauguration, and Special Competitions Day.
         </p>
+
+        {/* Tentative Timing Notice Badge */}
+        <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-amber-500/40 bg-amber-500/10 dark:bg-amber-400/15 text-amber-700 dark:text-amber-300 text-xs sm:text-sm font-semibold mb-8 shadow-sm">
+          <span className="material-symbols-outlined text-base text-amber-600 dark:text-amber-400">schedule</span>
+          <span><strong>Note:</strong> All session timings are tentative and subject to minor adjustments.</span>
+        </div>
+
+        {/* Main Fest Registration Hero CTA */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+          <a
+            href={MAIN_REGISTRATION_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-on-primary font-bold text-sm hover:bg-on-primary-fixed-variant transition-all shadow-pulse-pink hover:scale-105 active:scale-95"
+          >
+            <span className="material-symbols-outlined text-base">how_to_reg</span>
+            <span>Register Now for Fest (Google Form)</span>
+            <span className="material-symbols-outlined text-sm">open_in_new</span>
+          </a>
+          <button
+            onClick={() => setActiveFilter('COMPETITIONS')}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-secondary/15 text-secondary dark:text-secondary-fixed border border-secondary/30 font-bold text-sm hover:bg-secondary hover:text-white transition-all hover:scale-105 active:scale-95"
+          >
+            <span className="material-symbols-outlined text-base">emoji_events</span>
+            <span>Day 5 Competition Forms</span>
+          </button>
+          <button
+            onClick={() => setActiveFilter('WINNERS')}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 font-bold text-sm hover:bg-amber-500 hover:text-white transition-all hover:scale-105 active:scale-95"
+          >
+            <span className="material-symbols-outlined text-base">military_tech</span>
+            <span>Valedictory &amp; Winners (17 Oct)</span>
+          </button>
+        </div>
 
         {/* Mobile Quick Glass Select (0 blur, dome 0.15) */}
         <div className="sm:hidden w-full flex justify-center mb-3">
           <GlassSelect value={activeFilter} onValueChange={setActiveFilter}>
             <GlassSelectTrigger
-              className="w-72 bg-white/20 dark:bg-white/5 border-secondary/40 text-on-surface dark:text-dark-text font-bold text-xs"
-              placeholder="Select Schedule or Competitions..."
+              className="w-80 bg-white/20 dark:bg-white/5 border-secondary/40 text-on-surface dark:text-dark-text font-bold text-xs"
+              placeholder="Select Schedule Filter..."
             />
             <GlassSelectContent className="bg-surface/95 dark:bg-dark-surface-card/95 border border-white/20">
               <GlassSelectItem value="ALL">All 5 Days (12–16 Oct)</GlassSelectItem>
-              <GlassSelectItem value="DAY1">Day 1 (12 Oct)</GlassSelectItem>
-              <GlassSelectItem value="DAY2">Day 2 (13 Oct)</GlassSelectItem>
-              <GlassSelectItem value="DAY3">Day 3 (14 Oct)</GlassSelectItem>
-              <GlassSelectItem value="DAY4">Day 4 (15 Oct)</GlassSelectItem>
-              <GlassSelectItem value="DAY5">Day 5 (16 Oct)</GlassSelectItem>
-              <GlassSelectItem value="COMPETITIONS">Competitions (5 Challenges)</GlassSelectItem>
+              <GlassSelectItem value="DAY1">Day 1 (12 Oct) — Foundations</GlassSelectItem>
+              <GlassSelectItem value="DAY2">Day 2 (13 Oct) — Hands-on Qiskit</GlassSelectItem>
+              <GlassSelectItem value="DAY3">Day 3 (14 Oct) — IBM Perspectives</GlassSelectItem>
+              <GlassSelectItem value="DAY4">Day 4 (15 Oct) — Inauguration</GlassSelectItem>
+              <GlassSelectItem value="DAY5">Day 5 (16 Oct) — Special Competitions</GlassSelectItem>
+              <GlassSelectItem value="COMPETITIONS">Day 5 Competitions &amp; Forms</GlassSelectItem>
+              <GlassSelectItem value="WINNERS">Valedictory &amp; Winners (17 Oct)</GlassSelectItem>
             </GlassSelectContent>
           </GlassSelect>
         </div>
 
-        {/* Schedule & Competitions Filter Bar (GlassPanel: 0 blur, dome 1.6) */}
+        {/* Schedule & Competitions Filter Bar */}
         <GlassPanel
           blur={0}
           dome={1.6}
@@ -533,10 +543,10 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
             </button>
           </div>
 
-          {/* Visual Divider dividing Event Schedule from Competitions */}
+          {/* Visual Divider */}
           <div className="h-6 w-px bg-black/40 dark:bg-dark-border mx-1 hidden sm:block" />
 
-          {/* Dedicated Competitions Tab Button - Styled in purple (#6252a1) */}
+          {/* Dedicated Competitions Tab Button */}
           <button
             onClick={() => setActiveFilter('COMPETITIONS')}
             className={`px-4 py-2 rounded-xl font-label-caps text-xs transition-all font-bold flex items-center gap-1.5 ${
@@ -545,16 +555,29 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
                 : 'bg-secondary/15 text-secondary dark:text-secondary-fixed hover:bg-secondary hover:text-white border border-secondary/30'
             }`}
           >
-            <span>Competitions (5)</span>
+            <span className="material-symbols-outlined text-sm">emoji_events</span>
+            <span>Day 5 Competitions</span>
+          </button>
+
+          {/* Dedicated Valedictory & Winners Button */}
+          <button
+            onClick={() => setActiveFilter('WINNERS')}
+            className={`px-4 py-2 rounded-xl font-label-caps text-xs transition-all font-bold flex items-center gap-1.5 ${
+              activeFilter === 'WINNERS'
+                ? 'bg-amber-600 text-white shadow-lg shadow-amber-600/30 scale-105 ring-2 ring-amber-500/30'
+                : 'bg-amber-500/15 text-amber-700 dark:text-amber-300 hover:bg-amber-500 hover:text-white border border-amber-500/30'
+            }`}
+          >
+            <span className="material-symbols-outlined text-sm">military_tech</span>
+            <span>Valedictory &amp; Winners</span>
           </button>
         </GlassPanel>
       </section>
 
-      {/* CONDITIONAL RENDER: COMPETITIONS VIEW vs EVENT SCHEDULE VIEW */}
+      {/* CONDITIONAL RENDER: COMPETITIONS VIEW vs WINNERS VIEW vs FULL SCHEDULE */}
       {activeFilter === 'COMPETITIONS' ? (
-        /* ================= DEDICATED COMPETITIONS VIEW (Themed in #6252a1) ================= */
+        /* ================= DEDICATED COMPETITIONS VIEW (16 October Competitions + Forms) ================= */
         <div className="space-y-12 animate-fadeIn mb-16">
-          {/* 5 Flagship Competition Activities */}
           <section className="px-gutter max-w-container-max mx-auto w-full">
             <GlassPanel
               blur={0}
@@ -568,48 +591,50 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
                 <div>
                   <div className="inline-flex items-center gap-2 text-xs font-bold text-secondary dark:text-secondary-fixed uppercase tracking-wider mb-1.5">
                     <span className="material-symbols-outlined text-base">emoji_events</span>
-                    <span>Flagship Student Competitions &amp; Hack Challenges</span>
+                    <span>DAY 5 • 16 OCTOBER 2026 • SPECIAL COMPETITIONS ARENA</span>
                   </div>
                   <h2 className="font-headline-md text-2xl sm:text-3xl font-bold text-on-surface dark:text-dark-text">
-                    5 Featured Activities &amp; Challenges
+                    Special Competitions Registration Links
                   </h2>
                   <p className="text-xs sm:text-sm text-on-surface-variant dark:text-dark-text-muted mt-1 max-w-2xl">
-                    Register and compete across circuit building, debates, technical presentations, quizzes, and cryptographic treasure hunts.
+                    Register directly using individual Google Forms for each flagship competition on Day 5 (16 October 2026). All timings are tentative.
                   </p>
                 </div>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/15 text-secondary dark:text-secondary-fixed border border-secondary/30 text-xs font-bold shrink-0">
                   <span className="w-2 h-2 rounded-full bg-secondary animate-ping" />
-                  <span>Forms &amp; Submission Sheets Connecting Soon</span>
+                  <span>Google Forms Active &amp; Accepting Entries</span>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {/* 4 Competition Cards with Individual Register Buttons */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {competitionActivities.map((act) => (
                   <GlassPanel
                     key={act.id}
                     blur={0}
                     dome={1.6}
                     strength={0.4}
-                    radius={16}
-                    className="border border-secondary/30 hover:border-secondary transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-secondary/15 group"
-                    contentClassName="p-5 flex flex-col justify-between h-full"
+                    radius={20}
+                    className="border-2 border-secondary/30 hover:border-secondary transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-secondary/15 group"
+                    contentClassName="p-6 flex flex-col justify-between h-full bg-gradient-to-br from-white/40 via-transparent to-secondary/5 dark:from-white/5 dark:to-secondary/10"
                   >
                     <div>
                       <div className="flex items-center justify-between gap-2 mb-3">
                         <span className="text-[11px] font-label-caps font-bold px-3 py-1 rounded-full bg-secondary/15 text-secondary dark:text-secondary-fixed border border-secondary/30">
                           {act.tag}
                         </span>
-                        <span className="text-xs font-bold text-secondary">
-                          Challenge #{act.number}
+                        <span className="text-xs font-bold text-secondary flex items-center gap-1">
+                          <span className="material-symbols-outlined text-sm">schedule</span>
+                          <span>Tentative Timing</span>
                         </span>
                       </div>
 
                       <div className="flex items-center gap-3 mb-3">
-                        <div className="w-11 h-11 rounded-xl bg-secondary/10 text-secondary dark:text-secondary-fixed flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-secondary group-hover:text-white transition-all shadow-xs">
+                        <div className="w-12 h-12 rounded-xl bg-secondary/15 text-secondary dark:text-secondary-fixed flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-secondary group-hover:text-white transition-all shadow-sm">
                           <span className="material-symbols-outlined text-2xl">{act.icon}</span>
                         </div>
                         <div>
-                          <h3 className="font-headline-md text-base sm:text-lg font-bold text-on-surface dark:text-dark-text group-hover:text-secondary transition-colors">
+                          <h3 className="font-headline-md text-lg sm:text-xl font-bold text-on-surface dark:text-dark-text group-hover:text-secondary transition-colors">
                             {act.title}
                           </h3>
                           <p className="text-xs text-secondary dark:text-secondary-fixed font-semibold">
@@ -621,145 +646,296 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
                       <p className="text-xs sm:text-sm text-on-surface-variant dark:text-dark-text-muted leading-relaxed mb-4">
                         {act.description}
                       </p>
+
+                      <div className="p-3 rounded-xl bg-surface-container/60 dark:bg-dark-surface/60 border border-outline-variant/20 mb-4 flex items-center gap-2 text-xs font-semibold text-on-surface dark:text-dark-text">
+                        <span className="material-symbols-outlined text-base text-secondary">event</span>
+                        <span>{act.scheduleInfo}</span>
+                      </div>
                     </div>
 
-                    <div className="pt-3 border-t border-secondary/15 dark:border-secondary/20 flex items-center justify-between gap-2">
-                      <span className="text-xs font-semibold text-on-surface dark:text-dark-text flex items-center gap-1.5">
-                        <span className="material-symbols-outlined text-sm text-secondary">schedule</span>
-                        <span>{act.scheduleInfo}</span>
+                    <div className="pt-4 border-t border-secondary/20 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                      <span className="text-xs font-semibold text-on-surface-variant dark:text-dark-text-muted">
+                        Official Google Form Registration
                       </span>
-                      <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary dark:text-secondary-fixed border border-secondary/20">
-                        Official Track
-                      </span>
+                      <a
+                        href={act.formUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-secondary text-white hover:bg-secondary/90 transition-all font-bold text-xs shadow-md hover:scale-105 active:scale-95 shrink-0"
+                      >
+                        <span className="material-symbols-outlined text-sm">how_to_reg</span>
+                        <span>{act.buttonText}</span>
+                        <span className="material-symbols-outlined text-sm">open_in_new</span>
+                      </a>
                     </div>
                   </GlassPanel>
                 ))}
               </div>
             </GlassPanel>
           </section>
-
-          {/* Competitions Scheduled Arenas & Timeline */}
-          <section className="pb-section-gap px-gutter max-w-4xl mx-auto w-full">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-3 border-b border-secondary/20">
-              <div>
-                <h3 className="font-headline-md text-xl sm:text-2xl font-bold text-on-surface dark:text-dark-text flex items-center gap-2">
-                  <span className="material-symbols-outlined text-secondary">event_available</span>
-                  <span>Competitions Schedule &amp; Timings</span>
-                </h3>
-                <p className="text-xs text-on-surface-variant dark:text-dark-text-muted mt-1">
-                  Timeline of competition challenge sessions during Qiskit Fall Fest
-                </p>
+        </div>
+      ) : activeFilter === 'WINNERS' ? (
+        /* ================= DEDICATED VALEDICTORY & WINNERS VIEW ================= */
+        <div className="space-y-12 animate-fadeIn mb-16">
+          <section className="px-gutter max-w-container-max mx-auto w-full">
+            <GlassPanel
+              blur={0}
+              dome={1.6}
+              strength={0.45}
+              radius={28}
+              className="shadow-xl shadow-amber-500/5 border border-amber-500/30"
+              contentClassName="p-6 sm:p-10"
+            >
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-5 border-b-2 border-amber-500/30 dark:border-amber-500/20">
+                <div>
+                  <div className="inline-flex items-center gap-2 text-xs font-bold text-amber-700 dark:text-amber-300 uppercase tracking-wider mb-1.5">
+                    <span className="material-symbols-outlined text-base">military_tech</span>
+                    <span>17 OCTOBER 2026 • GRAND VALEDICTORY CEREMONY</span>
+                  </div>
+                  <h2 className="font-headline-md text-2xl sm:text-3xl font-bold text-on-surface dark:text-dark-text">
+                    Valedictory &amp; Winners Announcement
+                  </h2>
+                  <p className="text-xs sm:text-sm text-on-surface-variant dark:text-dark-text-muted mt-1 max-w-2xl">
+                    Official ceremony for prize distribution, felicitation of participants, and announcement of winners across all 4 flagship competitions.
+                  </p>
+                </div>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 text-xs font-bold shrink-0">
+                  <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                  <span>Announcement Scheduled for 17 Oct (TBD)</span>
+                </div>
               </div>
-              <button
-                onClick={() => setActiveFilter('ALL')}
-                className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline self-start sm:self-auto"
-              >
-                <span>View Full 5-Day Schedule</span>
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
-              </button>
-            </div>
 
-            <div className="space-y-12">
-              {filteredDays.map((day) => (
-                <div key={day.dayNumber} className="relative">
-                  {/* Day Header Card - Themed in Secondary Purple */}
-                  <GlassPanel
-                    blur={0}
-                    dome={1.6}
-                    strength={0.45}
-                    radius={20}
-                    className="mb-6 shadow-sm border border-secondary/40 dark:border-secondary/30"
-                    contentClassName="p-5 sm:p-6"
-                  >
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                      <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="text-[11px] font-label-caps font-bold px-3 py-1 rounded-full bg-secondary/15 text-secondary dark:text-secondary-fixed border border-secondary/30">
-                            DAY {day.dayNumber} • {day.dayOfWeek.toUpperCase()}
-                          </span>
-                          <span className="text-xs font-bold text-secondary">
-                            {day.date}
-                          </span>
-                        </div>
-                        <h2 className="font-headline-md text-xl sm:text-2xl font-bold text-on-surface dark:text-dark-text">
-                          {day.title}
-                        </h2>
-                        <p className="text-xs text-secondary font-semibold mt-0.5">
-                          {day.subtitle}
-                        </p>
+              {/* Ceremony Info Box */}
+              <div className="mb-8 p-5 rounded-2xl bg-gradient-to-r from-amber-500/10 via-primary/5 to-secondary/10 border border-amber-500/25 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+                    <span className="material-symbols-outlined text-3xl">celebration</span>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-base text-on-surface dark:text-dark-text">
+                      Grand Valedictory Ceremony &amp; Prize Distribution
+                    </h3>
+                    <p className="text-xs text-on-surface-variant dark:text-dark-text-muted">
+                      17 October 2026 • 10:00 AM – 12:30 PM (Tentative) • College Auditorium
+                    </p>
+                  </div>
+                </div>
+                <span className="text-xs font-bold px-3 py-1.5 rounded-lg bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/30 shrink-0">
+                  Status: Upcoming
+                </span>
+              </div>
+
+              {/* 4 Competition Winners Cards with Placeholders / TBD */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* 1. Quiz Competition */}
+                <div className="p-6 rounded-2xl bg-white/60 dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border shadow-sm flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <span className="text-xs font-bold text-secondary bg-secondary/10 px-2.5 py-1 rounded-md border border-secondary/20">
+                        Event 23
+                      </span>
+                      <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
+                        TBD / Scheduled
+                      </span>
+                    </div>
+                    <h3 className="font-headline-md text-lg font-bold text-on-surface dark:text-dark-text mb-2 flex items-center gap-2">
+                      <span className="material-symbols-outlined text-secondary">quiz</span>
+                      <span>Quantum Quest – The Ultimate Quantum Quiz</span>
+                    </h3>
+                    <p className="text-xs text-on-surface-variant dark:text-dark-text-muted mb-4">
+                      Top performers in quantum mechanics fundamentals, circuit trivia, and speed rounds.
+                    </p>
+
+                    <div className="space-y-2.5 text-xs">
+                      <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-between">
+                        <span className="font-bold flex items-center gap-1.5 text-on-surface dark:text-dark-text">
+                          <span>🥇</span>
+                          <span>1st Place (Winner)</span>
+                        </span>
+                        <span className="font-bold text-amber-700 dark:text-amber-300 italic">
+                          To Be Announced on 17 Oct (TBD)
+                        </span>
                       </div>
-                      <div className="text-right sm:shrink-0">
-                        <span className="text-xs font-bold text-secondary bg-secondary/10 px-3 py-1 rounded-lg border border-secondary/30">
-                          {day.sessions.length} {day.sessions.length === 1 ? 'Competition Event' : 'Competition Events'}
+                      <div className="p-3 rounded-xl bg-slate-500/10 border border-slate-500/20 flex items-center justify-between">
+                        <span className="font-bold flex items-center gap-1.5 text-on-surface dark:text-dark-text">
+                          <span>🥈</span>
+                          <span>2nd Place (Runner-Up)</span>
+                        </span>
+                        <span className="font-bold text-on-surface-variant dark:text-dark-text-muted italic">
+                          To Be Announced on 17 Oct (TBD)
+                        </span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-amber-700/10 border border-amber-700/20 flex items-center justify-between">
+                        <span className="font-bold flex items-center gap-1.5 text-on-surface dark:text-dark-text">
+                          <span>🥉</span>
+                          <span>3rd Place</span>
+                        </span>
+                        <span className="font-bold text-on-surface-variant dark:text-dark-text-muted italic">
+                          To Be Announced on 17 Oct (TBD)
                         </span>
                       </div>
                     </div>
-                  </GlassPanel>
-
-                  {/* Sessions List */}
-                  <div className="relative pl-6 sm:pl-8 border-l-2 border-secondary/40 dark:border-secondary/40 space-y-6">
-                    {day.sessions.map((session) => (
-                      <div key={session.id} className="relative">
-                        {/* Circle Node on Timeline */}
-                        <div className="absolute -left-[31px] sm:-left-[39px] top-6 w-4 h-4 rounded-full bg-white dark:bg-dark-bg border-4 border-secondary shadow-sm z-20" />
-
-                        <GlassPanel
-                          blur={0}
-                          dome={1.6}
-                          strength={0.4}
-                          radius={20}
-                          className="border border-secondary/40 dark:border-secondary/30 transition-all duration-300 hover:shadow-lg hover:shadow-secondary/10 hover:border-secondary"
-                          contentClassName="p-5 sm:p-6"
-                        >
-                          {/* Session Top Meta */}
-                          <div className="flex flex-wrap items-center justify-between gap-2 mb-3 pb-3 border-b border-secondary/15 dark:border-secondary/20">
-                            <div className="flex flex-wrap items-center gap-2">
-                              <span className="text-xs font-bold text-secondary font-label-caps bg-secondary/15 px-2.5 py-0.5 rounded-md border border-secondary/30">
-                                {session.sessionNumber}
-                              </span>
-                              <span className="text-[11px] font-label-caps font-semibold text-secondary bg-secondary/10 px-2.5 py-0.5 rounded-md border border-secondary/20">
-                                Competition Event
-                              </span>
-                            </div>
-
-                            <div className="flex items-center gap-1.5 text-xs font-bold text-on-surface dark:text-dark-text bg-white dark:bg-dark-surface px-3 py-1 rounded-lg border border-secondary/25 shadow-xs">
-                              <span className="material-symbols-outlined text-sm text-secondary">schedule</span>
-                              <span>{session.time}</span>
-                            </div>
-                          </div>
-
-                          {/* Title & Description */}
-                          <div className="flex items-start gap-3 mb-2">
-                            <div className="w-10 h-10 rounded-xl bg-secondary/15 text-secondary flex items-center justify-center shrink-0 mt-0.5 border border-secondary/30">
-                              <span className="material-symbols-outlined text-xl">{session.icon}</span>
-                            </div>
-                            <div className="flex-1">
-                              <h3 className="font-headline-md text-base sm:text-lg font-bold text-on-surface dark:text-dark-text">
-                                {session.title}
-                              </h3>
-                              {session.competitionTag && (
-                                <div className="inline-flex items-center gap-1.5 text-xs font-bold text-secondary mt-1">
-                                  <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
-                                  <span>{session.competitionTag}</span>
-                                </div>
-                              )}
-                            </div>
-                          </div>
-
-                          <p className="text-xs sm:text-sm text-on-surface-variant dark:text-dark-text-muted leading-relaxed mt-2 pl-13">
-                            {session.description}
-                          </p>
-                        </GlassPanel>
-                      </div>
-                    ))}
                   </div>
                 </div>
-              ))}
-            </div>
+
+                {/* 2. Presentation Challenge */}
+                <div className="p-6 rounded-2xl bg-white/60 dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border shadow-sm flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <span className="text-xs font-bold text-secondary bg-secondary/10 px-2.5 py-1 rounded-md border border-secondary/20">
+                        Event 24
+                      </span>
+                      <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
+                        TBD / Scheduled
+                      </span>
+                    </div>
+                    <h3 className="font-headline-md text-lg font-bold text-on-surface dark:text-dark-text mb-2 flex items-center gap-2">
+                      <span className="material-symbols-outlined text-secondary">co_present</span>
+                      <span>Quantum Vision – Student Presentation (Poster / PPT)</span>
+                    </h3>
+                    <p className="text-xs text-on-surface-variant dark:text-dark-text-muted mb-4">
+                      Best technical presentations and visual posters judged on clarity, innovation, and scientific depth.
+                    </p>
+
+                    <div className="space-y-2.5 text-xs">
+                      <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-between">
+                        <span className="font-bold flex items-center gap-1.5 text-on-surface dark:text-dark-text">
+                          <span>🥇</span>
+                          <span>1st Place (Winner)</span>
+                        </span>
+                        <span className="font-bold text-amber-700 dark:text-amber-300 italic">
+                          To Be Announced on 17 Oct (TBD)
+                        </span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-slate-500/10 border border-slate-500/20 flex items-center justify-between">
+                        <span className="font-bold flex items-center gap-1.5 text-on-surface dark:text-dark-text">
+                          <span>🥈</span>
+                          <span>2nd Place (Runner-Up)</span>
+                        </span>
+                        <span className="font-bold text-on-surface-variant dark:text-dark-text-muted italic">
+                          To Be Announced on 17 Oct (TBD)
+                        </span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-amber-700/10 border border-amber-700/20 flex items-center justify-between">
+                        <span className="font-bold flex items-center gap-1.5 text-on-surface dark:text-dark-text">
+                          <span>🥉</span>
+                          <span>3rd Place</span>
+                        </span>
+                        <span className="font-bold text-on-surface-variant dark:text-dark-text-muted italic">
+                          To Be Announced on 17 Oct (TBD)
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. Debate and JAM */}
+                <div className="p-6 rounded-2xl bg-white/60 dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border shadow-sm flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <span className="text-xs font-bold text-secondary bg-secondary/10 px-2.5 py-1 rounded-md border border-secondary/20">
+                        Event 25
+                      </span>
+                      <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
+                        TBD / Scheduled
+                      </span>
+                    </div>
+                    <h3 className="font-headline-md text-lg font-bold text-on-surface dark:text-dark-text mb-2 flex items-center gap-2">
+                      <span className="material-symbols-outlined text-secondary">gavel</span>
+                      <span>Quantum Minds – Debate, JAM &amp; Group Discussion</span>
+                    </h3>
+                    <p className="text-xs text-on-surface-variant dark:text-dark-text-muted mb-4">
+                      Top debaters and Just-A-Minute speakers excelling in persuasion, spontaneous speech, and technical articulation.
+                    </p>
+
+                    <div className="space-y-2.5 text-xs">
+                      <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-between">
+                        <span className="font-bold flex items-center gap-1.5 text-on-surface dark:text-dark-text">
+                          <span>🥇</span>
+                          <span>1st Place (Winner)</span>
+                        </span>
+                        <span className="font-bold text-amber-700 dark:text-amber-300 italic">
+                          To Be Announced on 17 Oct (TBD)
+                        </span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-slate-500/10 border border-slate-500/20 flex items-center justify-between">
+                        <span className="font-bold flex items-center gap-1.5 text-on-surface dark:text-dark-text">
+                          <span>🥈</span>
+                          <span>2nd Place (Runner-Up)</span>
+                        </span>
+                        <span className="font-bold text-on-surface-variant dark:text-dark-text-muted italic">
+                          To Be Announced on 17 Oct (TBD)
+                        </span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-amber-700/10 border border-amber-700/20 flex items-center justify-between">
+                        <span className="font-bold flex items-center gap-1.5 text-on-surface dark:text-dark-text">
+                          <span>🥉</span>
+                          <span>3rd Place</span>
+                        </span>
+                        <span className="font-bold text-on-surface-variant dark:text-dark-text-muted italic">
+                          To Be Announced on 17 Oct (TBD)
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4. Treasure Hunt */}
+                <div className="p-6 rounded-2xl bg-white/60 dark:bg-dark-surface-card border border-outline-variant/30 dark:border-dark-border shadow-sm flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <span className="text-xs font-bold text-secondary bg-secondary/10 px-2.5 py-1 rounded-md border border-secondary/20">
+                        Event 26
+                      </span>
+                      <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
+                        TBD / Scheduled
+                      </span>
+                    </div>
+                    <h3 className="font-headline-md text-lg font-bold text-on-surface dark:text-dark-text mb-2 flex items-center gap-2">
+                      <span className="material-symbols-outlined text-secondary">travel_explore</span>
+                      <span>Quantum Trail – The Qiskit Treasure Hunt</span>
+                    </h3>
+                    <p className="text-xs text-on-surface-variant dark:text-dark-text-muted mb-4">
+                      Winning teams in the fast-paced campus cryptographic puzzle race and checkpoint clearance.
+                    </p>
+
+                    <div className="space-y-2.5 text-xs">
+                      <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-between">
+                        <span className="font-bold flex items-center gap-1.5 text-on-surface dark:text-dark-text">
+                          <span>🥇</span>
+                          <span>1st Place (Winning Squad)</span>
+                        </span>
+                        <span className="font-bold text-amber-700 dark:text-amber-300 italic">
+                          To Be Announced on 17 Oct (TBD)
+                        </span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-slate-500/10 border border-slate-500/20 flex items-center justify-between">
+                        <span className="font-bold flex items-center gap-1.5 text-on-surface dark:text-dark-text">
+                          <span>🥈</span>
+                          <span>2nd Place (Runner-Up Squad)</span>
+                        </span>
+                        <span className="font-bold text-on-surface-variant dark:text-dark-text-muted italic">
+                          To Be Announced on 17 Oct (TBD)
+                        </span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-amber-700/10 border border-amber-700/20 flex items-center justify-between">
+                        <span className="font-bold flex items-center gap-1.5 text-on-surface dark:text-dark-text">
+                          <span>🥉</span>
+                          <span>3rd Place</span>
+                        </span>
+                        <span className="font-bold text-on-surface-variant dark:text-dark-text-muted italic">
+                          To Be Announced on 17 Oct (TBD)
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </GlassPanel>
           </section>
         </div>
       ) : (
-        /* ================= STANDARD EVENT SCHEDULE VIEW (Day-by-Day Chronological Timeline) ================= */
+        /* ================= STANDARD 5-DAY EVENT SCHEDULE VIEW ================= */
         <section className="pb-section-gap px-gutter max-w-4xl mx-auto w-full animate-fadeIn">
           <div className="space-y-12">
             {filteredDays.map((day) => (
@@ -790,7 +966,10 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
                         {day.subtitle}
                       </p>
                     </div>
-                    <div className="text-right sm:shrink-0">
+                    <div className="text-right sm:shrink-0 flex items-center gap-2">
+                      <span className="text-[11px] font-semibold text-amber-700 dark:text-amber-300 bg-amber-500/10 px-2.5 py-1 rounded-md border border-amber-500/25">
+                        Tentative Timings
+                      </span>
                       <span className="text-xs text-on-surface-variant dark:text-dark-text-muted bg-surface-container/60 dark:bg-dark-surface/60 px-3 py-1 rounded-lg border border-outline-variant/20">
                         {day.sessions.length} {day.sessions.length === 1 ? 'Session' : 'Sessions'}
                       </span>
@@ -815,7 +994,7 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
                         radius={20}
                         className={`transition-all duration-300 hover:shadow-md ${
                           session.isCompetition
-                            ? 'border border-secondary/50 dark:border-secondary/40 shadow-glow-cyan/5'
+                            ? 'border-2 border-secondary/50 dark:border-secondary/40 shadow-glow-cyan/5 bg-secondary/5'
                             : 'border border-primary/20 dark:border-primary/30 hover:border-primary/40'
                         }`}
                         contentClassName="p-5 sm:p-6"
@@ -830,20 +1009,16 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
                               {session.typeBadge}
                             </span>
                             {session.isCompetition && (
-                              <button
-                                onClick={() => setActiveFilter('COMPETITIONS')}
-                                className="text-[10px] font-label-caps font-bold text-secondary bg-secondary/10 hover:bg-secondary hover:text-white transition-all px-2.5 py-0.5 rounded-full border border-secondary/30 inline-flex items-center gap-1 cursor-pointer"
-                                title="Click to view Competitions section"
-                              >
-                                <span>Competition Track</span>
-                                <span className="material-symbols-outlined text-[10px]">arrow_forward</span>
-                              </button>
+                              <span className="text-[10px] font-label-caps font-bold text-secondary bg-secondary/15 px-2.5 py-0.5 rounded-full border border-secondary/30 inline-flex items-center gap-1">
+                                <span className="material-symbols-outlined text-[12px]">emoji_events</span>
+                                <span>Day 5 Competition</span>
+                              </span>
                             )}
                           </div>
 
                           <div className="flex items-center gap-1.5 text-xs font-bold text-on-surface dark:text-dark-text bg-white/80 dark:bg-dark-surface/80 px-3 py-1 rounded-lg border border-outline-variant/20 shadow-xs">
                             <span className="material-symbols-outlined text-sm text-primary">schedule</span>
-                            <span>{session.time}</span>
+                            <span>{session.time} <span className="text-[10px] font-normal text-on-surface-variant dark:text-dark-text-muted">(Tentative)</span></span>
                           </div>
                         </div>
 
@@ -869,44 +1044,22 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
                           {session.description}
                         </p>
 
-                        {/* Interactive Featured Speaker Card */}
-                        {session.speaker && (
-                          <div className="mt-4 ml-0 sm:ml-12 p-3.5 rounded-xl bg-gradient-to-r from-primary/10 via-secondary/10 to-transparent border border-primary/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 group/speaker">
-                            <div className="flex items-center gap-3">
-                              <div className="w-12 h-12 rounded-xl overflow-hidden p-0.5 bg-gradient-to-tr from-primary to-secondary shrink-0 shadow-md">
-                                <img
-                                  src={session.speaker.avatar}
-                                  alt={session.speaker.name}
-                                  className="w-full h-full object-cover rounded-lg group-hover/speaker:scale-105 transition-transform"
-                                />
-                              </div>
-                              <div>
-                                <div className="flex items-center gap-2">
-                                  <span className="text-[10px] font-label-caps font-bold px-2 py-0.5 rounded-full bg-primary/20 text-primary border border-primary/30">
-                                    {session.speaker.badge}
-                                  </span>
-                                  <span className="text-[11px] text-on-surface-variant dark:text-dark-text-muted">
-                                    Featured Speaker
-                                  </span>
-                                </div>
-                                <h4 className="font-bold text-sm text-on-surface dark:text-dark-text">
-                                  {session.speaker.name}
-                                </h4>
-                                <p className="text-xs text-on-surface-variant dark:text-dark-text-muted">
-                                  {session.speaker.role}
-                                </p>
-                              </div>
-                            </div>
-
-                            <button
-                              onClick={() => handleSpeakerClick(session.speaker.id)}
-                              className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-white hover:bg-on-primary-fixed-variant text-xs font-bold transition-all shadow-sm hover:scale-105 active:scale-95 shrink-0"
-                              title={`View ${session.speaker.name}'s profile & poster`}
+                        {/* If session is a competition, render dedicated Google Form button */}
+                        {session.isCompetition && session.formUrl && (
+                          <div className="mt-4 pt-4 ml-0 sm:ml-12 border-t border-secondary/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <span className="text-xs text-on-surface-variant dark:text-dark-text-muted font-medium">
+                              Dedicated Entry Form:
+                            </span>
+                            <a
+                              href={session.formUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-secondary text-white hover:bg-secondary/90 text-xs font-bold transition-all shadow-md hover:scale-105 active:scale-95 shrink-0"
                             >
-                              <span className="material-symbols-outlined text-sm">visibility</span>
-                              <span>Meet Speaker &amp; View Profile</span>
-                              <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                            </button>
+                              <span className="material-symbols-outlined text-sm">how_to_reg</span>
+                              <span>{session.buttonText || 'Register for this Event'}</span>
+                              <span className="material-symbols-outlined text-sm">open_in_new</span>
+                            </a>
                           </div>
                         )}
                       </GlassPanel>
@@ -915,26 +1068,95 @@ export default function SchedulePage({ onOpenRegister, onNavigateToSpeaker, setA
                 </div>
               </div>
             ))}
+
+            {/* Bottom Valedictory Section in Full View */}
+            <div className="pt-8">
+              <GlassPanel
+                blur={0}
+                dome={1.6}
+                strength={0.45}
+                radius={24}
+                className="border-2 border-amber-500/30 shadow-lg shadow-amber-500/5"
+                contentClassName="p-6 sm:p-8"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-6 border-b border-amber-500/20">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-[11px] font-label-caps font-bold px-3 py-1 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
+                        VALEDICTORY • 17 OCTOBER 2026
+                      </span>
+                      <span className="text-xs font-bold text-amber-600 dark:text-amber-400">
+                        Saturday • Tentative: 10:00 AM – 12:30 PM
+                      </span>
+                    </div>
+                    <h3 className="font-headline-md text-xl sm:text-2xl font-bold text-on-surface dark:text-dark-text">
+                      Grand Valedictory &amp; Winners Announcement
+                    </h3>
+                    <p className="text-xs text-on-surface-variant dark:text-dark-text-muted mt-1">
+                      Formal concluding ceremony, certificate distribution, and prize presentation for all 4 competitions.
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => setActiveFilter('WINNERS')}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-500 text-white hover:bg-amber-600 text-xs font-bold transition-all shadow-sm shrink-0"
+                  >
+                    <span>View Winners Placeholders</span>
+                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+                  <div className="p-3.5 rounded-xl bg-surface-container/60 dark:bg-dark-surface/60 border border-outline-variant/20">
+                    <span className="font-bold text-secondary block mb-1">Quiz Competition</span>
+                    <span className="text-amber-700 dark:text-amber-300 font-semibold italic">TBD (Winners Announced 17 Oct)</span>
+                  </div>
+                  <div className="p-3.5 rounded-xl bg-surface-container/60 dark:bg-dark-surface/60 border border-outline-variant/20">
+                    <span className="font-bold text-secondary block mb-1">PPT / Poster Challenge</span>
+                    <span className="text-amber-700 dark:text-amber-300 font-semibold italic">TBD (Winners Announced 17 Oct)</span>
+                  </div>
+                  <div className="p-3.5 rounded-xl bg-surface-container/60 dark:bg-dark-surface/60 border border-outline-variant/20">
+                    <span className="font-bold text-secondary block mb-1">Debate &amp; JAM Arena</span>
+                    <span className="text-amber-700 dark:text-amber-300 font-semibold italic">TBD (Winners Announced 17 Oct)</span>
+                  </div>
+                  <div className="p-3.5 rounded-xl bg-surface-container/60 dark:bg-dark-surface/60 border border-outline-variant/20">
+                    <span className="font-bold text-secondary block mb-1">Treasure Hunt</span>
+                    <span className="text-amber-700 dark:text-amber-300 font-semibold italic">TBD (Winners Announced 17 Oct)</span>
+                  </div>
+                </div>
+              </GlassPanel>
+            </div>
           </div>
         </section>
       )}
 
-      {/* CTA Section */}
+      {/* Main Registration CTA Section */}
       <section className="bg-inverse-surface py-section-gap px-gutter text-center border-t border-outline/20 relative overflow-hidden mt-auto">
         <div className="max-w-2xl mx-auto relative z-10">
-          <h2 className="font-headline-xl text-3xl sm:text-4xl text-inverse-on-surface mb-4 font-bold">
+          <h2 className="font-headline-xl text-3xl sm:text-4xl text-inverse-on-surface mb-3 font-bold">
             Be Part of Q-CONNECT 2026
           </h2>
-          <p className="font-body-lg text-tertiary-fixed-dim/90 mb-8 text-base">
-            Register now to attend hands-on workshops, keynotes, and compete in the flagship quantum challenges.
+          <p className="font-body-lg text-tertiary-fixed-dim/90 mb-8 text-sm sm:text-base leading-relaxed">
+            Register for free via the official Google Form to attend 5 days of quantum learning, hands-on labs, keynotes, and compete in the flagship quantum challenges.
           </p>
-          <button
-            onClick={onOpenRegister}
-            className="bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 rounded-xl hover:bg-primary/90 transition-all duration-200 ambient-shadow inline-flex items-center gap-2 hover:scale-105 active:scale-110 font-bold text-base"
-          >
-            <span>Register Now for Fest</span>
-            <span className="material-symbols-outlined text-sm">arrow_forward</span>
-          </button>
+
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a
+              href={MAIN_REGISTRATION_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 rounded-xl hover:bg-primary/90 transition-all duration-200 ambient-shadow inline-flex items-center gap-2 hover:scale-105 active:scale-110 font-bold text-base"
+            >
+              <span>Register via Google Form</span>
+              <span className="material-symbols-outlined text-sm">open_in_new</span>
+            </a>
+            <button
+              onClick={() => setActiveFilter('COMPETITIONS')}
+              className="bg-surface-container/30 text-white font-label-caps px-6 py-4 rounded-xl border border-white/20 hover:bg-surface-container/50 transition-all duration-200 inline-flex items-center gap-2 hover:scale-105 active:scale-95 font-bold text-sm"
+            >
+              <span>Day 5 Competition Links</span>
+              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </div>
         </div>
       </section>
     </div>

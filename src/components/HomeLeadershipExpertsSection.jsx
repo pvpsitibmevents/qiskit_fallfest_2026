@@ -240,8 +240,8 @@ export default function HomeLeadershipExpertsSection({ setActivePage, onOpenRegi
             onClick={onOpenRegister}
             className="w-full sm:w-auto bg-primary text-on-primary font-label-caps text-label-caps px-8 py-3.5 rounded-xl shadow-pulse-pink hover:bg-on-primary-fixed-variant transition-all duration-200 flex items-center justify-center gap-2 font-bold hover:scale-105 active:scale-95"
           >
-            <span>Register for Fest (14–16 Oct)</span>
-            <span className="material-symbols-outlined text-sm">how_to_reg</span>
+            <span>Register Now (Google Form)</span>
+            <span className="material-symbols-outlined text-sm">open_in_new</span>
           </button>
         )}
       </div>

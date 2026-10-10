@@ -178,8 +178,8 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
                 onClick={onOpenRegister}
                 className="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-label-caps text-sm py-3.5 px-6 rounded-xl shadow-lg shadow-primary/25 hover:shadow-primary/40 border border-black/30 dark:border-white/20 hover:scale-[1.02] active:scale-[0.98] font-bold flex items-center justify-center gap-2 relative z-10 transition-all duration-200"
               >
-                <span>Register for Fest (14–16 Oct)</span>
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                <span>Register Now for Fest (Google Form)</span>
+                <span className="material-symbols-outlined text-sm">open_in_new</span>
               </button>
             </GlassPanel>
           </div>
@@ -265,7 +265,8 @@ export default function LandingPage({ setActivePage, onOpenRegister }) {
               onClick={onOpenRegister}
               className="bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 rounded-xl shadow-pulse-pink hover:bg-on-primary-fixed-variant transition-all duration-200 inline-flex items-center justify-center gap-2 hover:scale-105 active:scale-110 font-bold text-base"
             >
-              Register for Pinnacle Days (14–16 Oct)
+              <span>Register Now for Fest (Google Form)</span>
+              <span className="material-symbols-outlined text-sm">open_in_new</span>
             </button>
           </div>
         </div>

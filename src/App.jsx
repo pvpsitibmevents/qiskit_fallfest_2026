@@ -87,9 +87,9 @@ export default function App() {
     }
   }, [activePage]);
 
-  // Direct all registration actions to the dedicated Registration Page
+  // Open the official Google Form for festival registration
   const handleOpenRegister = () => {
-    setActivePage('register');
+    window.open('https://forms.gle/MrYwotpeYyVBaB377', '_blank', 'noopener,noreferrer');
   };
 
   const [targetSpeakerId, setTargetSpeakerId] = useState(null);

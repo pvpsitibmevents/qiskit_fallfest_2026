@@ -65,12 +65,12 @@ export default function Footer({ setActivePage, onOpenRegister }) {
             </li>
             <li>
               <button onClick={() => setActivePage('schedule')} className="text-tertiary-fixed-dim hover:text-primary-fixed transition-all duration-200 opacity-80 hover:opacity-100 hover:scale-105 active:scale-110 inline-block">
-                Main Fest (Oct 15–17)
+                Festival Schedule (12–16 Oct)
               </button>
             </li>
             <li>
               <button onClick={() => setActivePage('schedule')} className="text-tertiary-fixed-dim hover:text-primary-fixed transition-all duration-200 opacity-80 hover:opacity-100 hover:scale-105 active:scale-110 inline-block">
-                Pre-Fest Sessions (15 Sept - 8 Oct)
+                Valedictory &amp; Winners (17 Oct)
               </button>
             </li>
           </ul>
