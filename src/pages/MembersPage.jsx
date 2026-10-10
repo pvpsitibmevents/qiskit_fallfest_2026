@@ -209,13 +209,24 @@ export default function MembersPage({ onOpenRegister }) {
     },
     {
       name: 'Joshua',
-      role: 'Student Organizer',
-      branch: 'Student Team',
+      role: 'Student Coordinator',
+      branch: 'Second Year, ECE',
       images: [
         `${import.meta.env.BASE_URL}team/Joshua.jpeg`,
         `${import.meta.env.BASE_URL}team/joshua.jpeg`,
         `${import.meta.env.BASE_URL}team/Joshua.jpg`,
         `${import.meta.env.BASE_URL}team/joshua.jpg`,
+      ],
+    },
+    {
+      name: 'Mahesh',
+      role: 'Student Coordinator',
+      branch: 'ECE (FED)',
+      images: [
+        `${import.meta.env.BASE_URL}team/Mahesh.jpeg`,
+        `${import.meta.env.BASE_URL}team/mahesh.jpeg`,
+        `${import.meta.env.BASE_URL}team/Mahesh.jpg`,
+        `${import.meta.env.BASE_URL}team/mahesh.jpg`,
       ],
     },
   ];
@@ -548,7 +559,7 @@ export default function MembersPage({ onOpenRegister }) {
             </GlassPanel>
           </div>
 
-          {/* Student Coordinators Grid (11 Members in Floating Glass Panels) */}
+          {/* Student Coordinators Grid (12 Members in Floating Glass Panels) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 max-w-6xl mx-auto">
             {studentCoordinators.map((student, idx) => (
               <GlassPanel
