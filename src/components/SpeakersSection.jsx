@@ -90,6 +90,54 @@ export default function SpeakersSection({ onOpenRegister, showHeader = true, cla
       ],
       topics: ['Hybrid Quantum-Classical', 'Commercial Applications', 'Quantum Innovation'],
     },
+    {
+      id: 'bharadwaj-mummaneni',
+      name: 'Dr. Bharadwaj Mummaneni',
+      role: 'Engagement Lead of IBM Quantum Innovation Centers India',
+      company: 'IBM Quantum',
+      companyBadge: 'IBM Quantum',
+      badgeColor: 'bg-blue-600/10 text-blue-600 dark:bg-blue-400/15 dark:text-blue-300 border-blue-600/30',
+      category: 'Ecosystem Lead',
+      bio: 'Engagement Lead for IBM Quantum Innovation Centers across India, advancing state-of-the-art quantum ecosystem growth, research collaborations, and educational initiatives.',
+      linkedin: 'https://www.linkedin.com/in/bharadwaj-c-mummaneni/',
+      images: [
+        `${import.meta.env.BASE_URL}speakers/dr_bharadwaj_mummaneni.jpg`,
+        `${import.meta.env.BASE_URL}speakers/Dr Bharadwaj Mummaneni.jpg`,
+      ],
+      topics: ['IBM Quantum Ecosystem', 'Innovation Centers', 'Quantum Collaborations'],
+    },
+    {
+      id: 'varsha-sambhaje',
+      name: 'Dr. Varsha Sambhaje',
+      role: 'Faculty In-charge for Quantum Research Centre – SRM University – AP',
+      company: 'SRM University – AP',
+      companyBadge: 'SRM University – AP',
+      badgeColor: 'bg-pink-600/10 text-pink-600 dark:bg-pink-400/15 dark:text-pink-300 border-pink-600/30',
+      category: 'Academic Lead',
+      bio: 'Faculty In-charge for the Quantum Research Centre at SRM University – AP, directing interdisciplinary quantum research, laboratory development, and advanced computing curricula.',
+      linkedin: 'https://www.linkedin.com/in/varsha-sambhaje-biradar-58606b278/',
+      images: [
+        `${import.meta.env.BASE_URL}speakers/varsha_sambhaje.jpg`,
+        `${import.meta.env.BASE_URL}speakers/Varsha Sambhaje.jpg`,
+      ],
+      topics: ['Quantum Research Centre', 'Quantum Physics', 'Interdisciplinary Science'],
+    },
+    {
+      id: 'p-anil-kumar',
+      name: 'Dr. P. Anil Kumar',
+      role: 'Principal associated with the AP State Council of Higher Education (APSCHE)',
+      company: 'APSCHE',
+      companyBadge: 'APSCHE',
+      badgeColor: 'bg-amber-600/10 text-amber-600 dark:bg-amber-400/15 dark:text-amber-300 border-amber-600/30',
+      category: 'Institutional Leader',
+      bio: 'Distinguished academic leader and Principal associated with the AP State Council of Higher Education (APSCHE) in Andhra Pradesh, driving institutional excellence and emerging technology skilling.',
+      linkedin: 'https://in.linkedin.com/in/anil-kumar-90ab8019',
+      images: [
+        `${import.meta.env.BASE_URL}speakers/dr_p_anil_kumar.jpeg`,
+        `${import.meta.env.BASE_URL}speakers/Dr P Anil Kumar.jpeg`,
+      ],
+      topics: ['Higher Education (APSCHE)', 'Academic Leadership', 'Technology Skilling'],
+    },
   ];
 
   const handleImageError = (e, memberImages) => {
@@ -119,13 +167,13 @@ export default function SpeakersSection({ onOpenRegister, showHeader = true, cla
             Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-container to-secondary">Keynote Speakers</span>
           </h2>
           <p className="font-body-md text-on-surface-variant dark:text-dark-text-muted max-w-3xl mx-auto text-sm sm:text-base">
-            Learn directly from quantum research scientists, algorithm engineers, and industry pioneers from IBM Quantum, BQP, and IQ Leap.
+            Learn directly from quantum research scientists, algorithm engineers, and industry pioneers from IBM Quantum, BQP, IQ Leap, SRM University, and APSCHE.
           </p>
         </div>
       )}
 
-      {/* Clean 4-Speaker Grid with Clear Glass Panels & Borders */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Clean Responsive Speaker Grid with Clear Glass Panels & Borders */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {speakers.map((speaker) => (
           <GlassPanel
             id={speaker.id}

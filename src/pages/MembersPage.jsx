@@ -88,10 +88,10 @@ export default function MembersPage({ onOpenRegister }) {
     },
   ];
 
-  const studentOrganizer = {
-    name: 'Bhagyavathi Dadi',
-    role: 'Student Organizer',
-    title: 'Final Year ECE',
+  const studentLeadOrganizer = {
+    name: 'Dadi Bhagyavathi',
+    role: 'Student Lead Organizer',
+    title: 'Final Year, ECE',
     advocateBadge: 'Qiskit Advocate',
     images: [
       `${import.meta.env.BASE_URL}team/bhagyavathi_dadi.jpg`,
@@ -101,6 +101,99 @@ export default function MembersPage({ onOpenRegister }) {
     ],
   };
 
+  const studentCoordinators = [
+    {
+      name: 'Yashwanth',
+      role: 'Student Coordinator',
+      branch: 'Third Year, IT',
+      images: [
+        `${import.meta.env.BASE_URL}team/Yashwanth.jpeg`,
+        `${import.meta.env.BASE_URL}team/yashwanth.jpeg`,
+      ],
+    },
+    {
+      name: 'Azeem Abdul',
+      role: 'Student Coordinator',
+      branch: 'Second Year, CSE',
+      images: [
+        `${import.meta.env.BASE_URL}team/Azeem Abdul.jpeg`,
+        `${import.meta.env.BASE_URL}team/azeem_abdul.jpeg`,
+      ],
+    },
+    {
+      name: 'Sireesha',
+      role: 'Student Coordinator',
+      branch: 'Second Year, CSE',
+      images: [
+        `${import.meta.env.BASE_URL}team/Sireesha.jpeg`,
+        `${import.meta.env.BASE_URL}team/sireesha.jpeg`,
+      ],
+    },
+    {
+      name: 'Charan Teja',
+      role: 'Student Coordinator',
+      branch: 'Second Year, IT',
+      images: [
+        `${import.meta.env.BASE_URL}team/Charan Teja.jpeg`,
+        `${import.meta.env.BASE_URL}team/charan_teja.jpeg`,
+      ],
+    },
+    {
+      name: 'Ch Vaarshik',
+      role: 'Student Coordinator',
+      branch: 'Second Year, ECE',
+      images: [
+        `${import.meta.env.BASE_URL}team/Ch Vaarshik.jpeg`,
+        `${import.meta.env.BASE_URL}team/ch_vaarshik.jpeg`,
+      ],
+    },
+    {
+      name: 'CH Pranitha',
+      role: 'Student Coordinator',
+      branch: 'Second Year, ECE',
+      images: [
+        `${import.meta.env.BASE_URL}team/Ch Pranitha.jpeg`,
+        `${import.meta.env.BASE_URL}team/ch_pranitha.jpeg`,
+      ],
+    },
+    {
+      name: 'K Ruth Madhuri',
+      role: 'Student Coordinator',
+      branch: 'Second Year, ECE',
+      images: [
+        `${import.meta.env.BASE_URL}team/K Ruth Madhuri.jpeg`,
+        `${import.meta.env.BASE_URL}team/k_ruth_madhuri.jpeg`,
+      ],
+    },
+    {
+      name: 'Pradhyumna',
+      role: 'Student Coordinator',
+      branch: 'ECE (FED)',
+      images: [
+        `${import.meta.env.BASE_URL}team/Pradhyumna.jpeg`,
+        `${import.meta.env.BASE_URL}team/pradhyumna.jpeg`,
+      ],
+    },
+    {
+      name: 'N Jithendra',
+      role: 'Student Coordinator',
+      branch: 'ECE (FED)',
+      images: [
+        `${import.meta.env.BASE_URL}team/N Jithendra.jpeg`,
+        `${import.meta.env.BASE_URL}team/n_jithendra.jpeg`,
+      ],
+    },
+    {
+      name: 'Jai Teja',
+      role: 'Student Coordinator',
+      branch: 'ECE (FED)',
+      images: [
+        `${import.meta.env.BASE_URL}team/Jai Teja.jpeg`,
+        `${import.meta.env.BASE_URL}team/jai_teja.jpeg`,
+      ],
+    },
+  ];
+
   // Preload all team member images into browser cache instantly on mount
   useEffect(() => {
     const allImages = [
@@ -108,7 +201,8 @@ export default function MembersPage({ onOpenRegister }) {
       ...deptHead.images,
       ...leadOrganizer.images,
       ...coOrganizers.flatMap((co) => co.images),
-      ...studentOrganizer.images,
+      ...studentLeadOrganizer.images,
+      ...studentCoordinators.flatMap((sc) => sc.images),
     ];
     allImages.forEach((src) => {
       const img = new Image();
@@ -338,27 +432,28 @@ export default function MembersPage({ onOpenRegister }) {
           </div>
         </div>
 
-        {/* Student Organizer Section */}
-        <div className="mb-12">
-          <div className="text-center mb-10">
+        {/* Student Organizing Team Section */}
+        <div className="mb-16">
+          <div className="text-center mb-12">
             <span className="bg-primary/10 dark:bg-primary/20 text-primary font-label-caps text-xs px-4 py-1.5 rounded-full font-bold uppercase tracking-wider inline-block mb-2">
-              STUDENT INITIATIVE
+              STUDENT INITIATIVE &amp; LEADERSHIP
             </span>
-            <h2 className="font-headline-lg text-2xl sm:text-3xl font-bold text-center text-on-surface dark:text-dark-text">
-              Student Organizer
+            <h2 className="font-headline-lg text-2xl sm:text-3xl md:text-4xl font-bold text-center text-on-surface dark:text-dark-text">
+              Student Organizing Team
             </h2>
-            <p className="font-body-md text-sm text-on-surface-variant dark:text-dark-text-muted max-w-xl mx-auto mt-2">
-              Empowering peers through student-led quantum computing workshops and community engagement.
+            <p className="font-body-md text-sm text-on-surface-variant dark:text-dark-text-muted max-w-2xl mx-auto mt-2">
+              Dedicated student organizers and technical coordinators driving workshops, competitions, and participant engagement across engineering branches.
             </p>
           </div>
 
-          <div className="flex justify-center">
+          {/* Student Lead Organizer Featured Card */}
+          <div className="flex justify-center mb-12">
             <GlassPanel
               blur={0}
               dome={1.6}
               strength={0.45}
               radius={24}
-              className="w-full max-w-md rounded-2xl shadow-xl transition-all duration-300 hover:-translate-y-2.5 hover:shadow-2xl relative overflow-hidden group"
+              className="w-full max-w-md rounded-2xl shadow-xl transition-all duration-300 hover:-translate-y-2.5 hover:shadow-2xl relative overflow-hidden group border border-primary/30"
               contentClassName="p-7 flex flex-col items-center text-center relative"
             >
               {/* Subtle background glow */}
@@ -368,28 +463,71 @@ export default function MembersPage({ onOpenRegister }) {
               {/* Badges container */}
               <div className="flex flex-wrap items-center justify-center gap-2 mb-5 relative z-10">
                 <span className="bg-primary text-on-primary font-label-caps text-xs px-3.5 py-1.5 rounded-full font-bold shadow-sm uppercase tracking-wider">
-                  {studentOrganizer.role}
+                  {studentLeadOrganizer.role}
                 </span>
                 <span className="bg-gradient-to-r from-primary to-secondary text-white font-label-caps text-xs px-3.5 py-1.5 rounded-full font-bold shadow-sm inline-flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                  {studentOrganizer.advocateBadge}
+                  {studentLeadOrganizer.advocateBadge}
                 </span>
               </div>
 
               <div className="relative z-10">
-                {renderPhotoCard(studentOrganizer, 'w-32 h-32')}
+                {renderPhotoCard(studentLeadOrganizer, 'w-32 h-32')}
               </div>
 
               <h3 className="font-headline-md text-xl sm:text-2xl font-bold text-on-surface dark:text-dark-text mb-1 mt-5 relative z-10 group-hover:text-primary transition-colors">
-                {studentOrganizer.name}
+                {studentLeadOrganizer.name}
               </h3>
               <p className="font-body-md text-sm sm:text-base text-primary font-semibold mb-1.5 relative z-10">
-                {studentOrganizer.title}
+                {studentLeadOrganizer.title}
               </p>
               <div className="inline-flex items-center gap-1.5 text-xs font-label-caps text-on-surface-variant dark:text-dark-text-muted bg-surface-container dark:bg-dark-surface px-3.5 py-1.5 rounded-lg border border-outline-variant/30 dark:border-dark-border relative z-10">
                 <span>IBM Quantum Community • Qiskit Advocate</span>
               </div>
             </GlassPanel>
+          </div>
+
+          {/* Student Coordinators Grid (10 Members in Floating Glass Panels) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 max-w-6xl mx-auto">
+            {studentCoordinators.map((student, idx) => (
+              <GlassPanel
+                key={idx}
+                blur={0}
+                dome={1.6}
+                strength={0.4}
+                radius={20}
+                className="w-full rounded-2xl shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group border border-outline-variant/30 dark:border-dark-border hover:border-secondary/50"
+                contentClassName="p-5 flex flex-col items-center text-center relative h-full justify-between"
+              >
+                {/* Floating ambient glow */}
+                <div className="absolute -top-8 -right-8 w-20 h-20 bg-secondary/10 rounded-full blur-xl group-hover:bg-secondary/20 transition-all pointer-events-none" />
+
+                {/* Top Badge */}
+                <div className="w-full flex justify-center mb-3 relative z-10">
+                  <span className="bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-secondary-fixed-dim border border-secondary/25 font-label-caps text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">
+                    {student.role}
+                  </span>
+                </div>
+
+                {/* Photo Frame */}
+                <div className="relative z-10 my-1">
+                  {renderPhotoCard(student, 'w-28 h-28')}
+                </div>
+
+                {/* Name & Branch */}
+                <div className="mt-3 relative z-10 w-full">
+                  <h4 className="font-headline-md text-base font-bold text-on-surface dark:text-dark-text mb-0.5 group-hover:text-secondary transition-colors">
+                    {student.name}
+                  </h4>
+                  <p className="font-body-md text-xs text-primary font-semibold mb-1">
+                    {student.branch}
+                  </p>
+                  <span className="text-[10px] text-on-surface-variant dark:text-dark-text-muted font-label-caps tracking-wider block">
+                    PVPSIT Student Team
+                  </span>
+                </div>
+              </GlassPanel>
+            ))}
           </div>
         </div>
       </section>
