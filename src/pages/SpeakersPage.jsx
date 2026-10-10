@@ -19,7 +19,7 @@ export default function SpeakersPage({ onOpenRegister, initialSpeakerId = null }
         </h1>
 
         <p className="font-body-lg text-body-lg text-on-surface-variant dark:text-dark-text-muted max-w-3xl mx-auto mb-8">
-          Engage with research scientists, quantum software developers, and industry pioneers from IBM Quantum, BQP, and IQ Leap who are shaping the future of computation.
+          Engage with leadership advisors, distinguished chief guests, keynote speakers, research scientists, and industry pioneers from QAIC, APSCHE, IBM Quantum, BQP, IQ Leap, and SRM University shaping the future of computation.
         </p>
       </section>
 

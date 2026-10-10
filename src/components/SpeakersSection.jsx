@@ -27,6 +27,57 @@ export default function SpeakersSection({ onOpenRegister, showHeader = true, cla
 
   const speakers = [
     {
+      id: 'venkata-swamy-tadikonda',
+      name: 'Mr. Venkata Swamy Tadikonda',
+      role: 'Programme Coordinator, QAIC • Advisor, Amaravati Quantum Valley (AQV)',
+      company: 'QAIC • Amaravati Quantum Valley',
+      companyBadge: 'QAIC • AQV',
+      badgeColor: 'bg-cyan-500/10 text-cyan-600 dark:bg-cyan-400/15 dark:text-cyan-300 border-cyan-500/30',
+      category: 'Advisor',
+      bio: 'Programme Coordinator at Quantum AI Advanced Innovation Centre (QAIC) and Advisor at Amaravati Quantum Valley (AQV). Driving Andhra Pradesh’s regional quantum technology initiatives, MSME adoption, and Telugu quantum literacy.',
+      linkedin: 'https://www.linkedin.com/in/venkata-swamy-tadikonda-a083a216/',
+      images: [
+        `${import.meta.env.BASE_URL}speakers/venkata_swamy.jpg`,
+        `${import.meta.env.BASE_URL}speakers/Venkata Swamy Tadikonda.jpg`,
+        `${import.meta.env.BASE_URL}speakers/venkata_swamy.png`,
+        `${import.meta.env.BASE_URL}team/venkata_swamy.jpg`,
+      ],
+      themePosterImage: `${import.meta.env.BASE_URL}speakers/venkata_swamy_website_theme_poster.png`,
+      topics: ['Advisor', 'QAIC Coordinator', 'AQV Advisor', 'Quantum Ecosystem', 'Telugu Edition'],
+    },
+    {
+      id: 'p-anil-kumar',
+      name: 'Dr. P. Anil Kumar',
+      role: 'Principal associated with the AP State Council of Higher Education (APSCHE)',
+      company: 'APSCHE',
+      companyBadge: 'APSCHE',
+      badgeColor: 'bg-amber-600/10 text-amber-600 dark:bg-amber-400/15 dark:text-amber-300 border-amber-600/30',
+      category: 'Chief Guest',
+      bio: 'Honorable Chief Guest. Distinguished academic leader and Principal associated with the AP State Council of Higher Education (APSCHE) in Andhra Pradesh, driving statewide institutional excellence and emerging technology skilling.',
+      linkedin: 'https://in.linkedin.com/in/anil-kumar-90ab8019',
+      images: [
+        `${import.meta.env.BASE_URL}speakers/dr_p_anil_kumar.jpeg`,
+        `${import.meta.env.BASE_URL}speakers/Dr P Anil Kumar.jpeg`,
+      ],
+      topics: ['Chief Guest', 'Higher Education (APSCHE)', 'Academic Leadership', 'Technology Skilling'],
+    },
+    {
+      id: 'bharadwaj-mummaneni',
+      name: 'Dr. Bharadwaj Mummaneni',
+      role: 'Engagement Lead of IBM Quantum Innovation Centers India',
+      company: 'IBM Quantum',
+      companyBadge: 'IBM Quantum',
+      badgeColor: 'bg-blue-600/10 text-blue-600 dark:bg-blue-400/15 dark:text-blue-300 border-blue-600/30',
+      category: 'Keynote Speaker',
+      bio: 'Distinguished Keynote Speaker. Engagement Lead for IBM Quantum Innovation Centers across India, advancing state-of-the-art quantum ecosystem growth, research collaborations, and educational initiatives.',
+      linkedin: 'https://www.linkedin.com/in/bharadwaj-c-mummaneni/',
+      images: [
+        `${import.meta.env.BASE_URL}speakers/dr_bharadwaj_mummaneni.jpg`,
+        `${import.meta.env.BASE_URL}speakers/Dr Bharadwaj Mummaneni.jpg`,
+      ],
+      topics: ['Keynote Speaker', 'IBM Quantum Ecosystem', 'Innovation Centers', 'Quantum Collaborations'],
+    },
+    {
       id: 'kunal-garg',
       name: 'Kunal Garg, Ph.D.',
       role: 'Senior Quantum Computing Developer',
@@ -91,22 +142,6 @@ export default function SpeakersSection({ onOpenRegister, showHeader = true, cla
       topics: ['Hybrid Quantum-Classical', 'Commercial Applications', 'Quantum Innovation'],
     },
     {
-      id: 'bharadwaj-mummaneni',
-      name: 'Dr. Bharadwaj Mummaneni',
-      role: 'Engagement Lead of IBM Quantum Innovation Centers India',
-      company: 'IBM Quantum',
-      companyBadge: 'IBM Quantum',
-      badgeColor: 'bg-blue-600/10 text-blue-600 dark:bg-blue-400/15 dark:text-blue-300 border-blue-600/30',
-      category: 'Ecosystem Lead',
-      bio: 'Engagement Lead for IBM Quantum Innovation Centers across India, advancing state-of-the-art quantum ecosystem growth, research collaborations, and educational initiatives.',
-      linkedin: 'https://www.linkedin.com/in/bharadwaj-c-mummaneni/',
-      images: [
-        `${import.meta.env.BASE_URL}speakers/dr_bharadwaj_mummaneni.jpg`,
-        `${import.meta.env.BASE_URL}speakers/Dr Bharadwaj Mummaneni.jpg`,
-      ],
-      topics: ['IBM Quantum Ecosystem', 'Innovation Centers', 'Quantum Collaborations'],
-    },
-    {
       id: 'varsha-sambhaje',
       name: 'Dr. Varsha Sambhaje',
       role: 'Faculty In-charge for Quantum Research Centre – SRM University – AP',
@@ -122,29 +157,13 @@ export default function SpeakersSection({ onOpenRegister, showHeader = true, cla
       ],
       topics: ['Quantum Research Centre', 'Quantum Physics', 'Interdisciplinary Science'],
     },
-    {
-      id: 'p-anil-kumar',
-      name: 'Dr. P. Anil Kumar',
-      role: 'Principal associated with the AP State Council of Higher Education (APSCHE)',
-      company: 'APSCHE',
-      companyBadge: 'APSCHE',
-      badgeColor: 'bg-amber-600/10 text-amber-600 dark:bg-amber-400/15 dark:text-amber-300 border-amber-600/30',
-      category: 'Institutional Leader',
-      bio: 'Distinguished academic leader and Principal associated with the AP State Council of Higher Education (APSCHE) in Andhra Pradesh, driving institutional excellence and emerging technology skilling.',
-      linkedin: 'https://in.linkedin.com/in/anil-kumar-90ab8019',
-      images: [
-        `${import.meta.env.BASE_URL}speakers/dr_p_anil_kumar.jpeg`,
-        `${import.meta.env.BASE_URL}speakers/Dr P Anil Kumar.jpeg`,
-      ],
-      topics: ['Higher Education (APSCHE)', 'Academic Leadership', 'Technology Skilling'],
-    },
   ];
 
   const handleImageError = (e, memberImages) => {
-    const currentSrc = e.target.getAttribute('src');
-    const currentIndex = memberImages.indexOf(currentSrc);
-    if (currentIndex !== -1 && currentIndex < memberImages.length - 1) {
-      e.target.setAttribute('src', memberImages[currentIndex + 1]);
+    const nextIndex = (parseInt(e.target.dataset.fallbackIndex || '0', 10)) + 1;
+    if (nextIndex < memberImages.length) {
+      e.target.dataset.fallbackIndex = nextIndex;
+      e.target.setAttribute('src', memberImages[nextIndex]);
     } else {
       e.target.style.display = 'none';
       if (e.target.nextSibling) {
@@ -164,10 +183,10 @@ export default function SpeakersSection({ onOpenRegister, showHeader = true, cla
             </span>
           </div>
           <h2 className="font-headline-xl text-3xl sm:text-4xl md:text-5xl font-bold text-on-surface dark:text-dark-text tracking-tight">
-            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-container to-secondary">Keynote Speakers</span>
+            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-container to-secondary">Experts &amp; Keynote Speakers</span>
           </h2>
           <p className="font-body-md text-on-surface-variant dark:text-dark-text-muted max-w-3xl mx-auto text-sm sm:text-base">
-            Learn directly from quantum research scientists, algorithm engineers, and industry pioneers from IBM Quantum, BQP, IQ Leap, SRM University, and APSCHE.
+            Learn directly from ecosystem advisors, honorable chief guests, keynote speakers, and industry pioneers from QAIC, APSCHE, IBM Quantum, BQP, IQ Leap, and SRM University.
           </p>
         </div>
       )}
@@ -212,6 +231,7 @@ export default function SpeakersSection({ onOpenRegister, showHeader = true, cla
                   <img
                     src={speaker.images[0]}
                     alt={speaker.name}
+                    data-fallback-index="0"
                     loading="lazy"
                     onError={(e) => handleImageError(e, speaker.images)}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
